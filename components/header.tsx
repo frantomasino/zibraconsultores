@@ -5,10 +5,14 @@ import { useLanguage } from "@/lib/language-context"
 import { Globe, ChevronDown } from "lucide-react"
 import Link from "next/link"
 import { useState } from "react"
+import { usePathname } from "next/navigation"
 
 export function Header() {
   const { language, setLanguage, t } = useLanguage()
   const [languageOpen, setLanguageOpen] = useState(false)
+  const pathname = usePathname()
+
+  const isActive = (path: string) => pathname === path
 
   return (
     <header className="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm">
@@ -24,24 +28,85 @@ export function Header() {
           </span>
         </Link>
 
-        {/* NAV centrado al estilo Lambda */}
+        {/* NAV CENTRADO */}
         <div className="hidden md:flex flex-1 justify-center">
           <div className="flex items-center space-x-10 lg:space-x-14">
-            <Link href="/" className="text-sm text-gray-700 hover:text-primary transition-colors font-medium">
-              {t("nav.home")}
-            </Link>
-            <Link href="/servicios" className="text-sm text-gray-700 hover:text-primary transition-colors font-medium">
-              {t("nav.services")}
-            </Link>
-            <Link href="/clientes" className="text-sm text-gray-700 hover:text-primary transition-colors font-medium">
-              {t("nav.clients")}
-            </Link>
-            <Link href="/nosotros" className="text-sm text-gray-700 hover:text-primary transition-colors font-medium">
-              {t("nav.about")}
-            </Link>
-            <Link href="/contacto" className="text-sm text-gray-700 hover:text-primary transition-colors font-medium">
-              {t("nav.contact")}
-            </Link>
+
+            {/* INICIO */}
+            <div className="relative">
+              <Link
+                href="/"
+                className={`text-sm font-medium transition-colors ${
+                  isActive("/") ? "text-primary" : "text-gray-700 hover:text-primary"
+                }`}
+              >
+                {t("nav.home")}
+              </Link>
+              {isActive("/") && (
+                <span className="absolute left-1/2 -translate-x-1/2 top-[24px] w-2 h-2 bg-primary rounded-full" />
+              )}
+            </div>
+
+            {/* SERVICIOS */}
+            <div className="relative">
+              <Link
+                href="/servicios"
+                className={`text-sm font-medium transition-colors ${
+                  isActive("/servicios") ? "text-primary" : "text-gray-700 hover:text-primary"
+                }`}
+              >
+                {t("nav.services")}
+              </Link>
+              {isActive("/servicios") && (
+                <span className="absolute left-1/2 -translate-x-1/2 top-[24px] w-2 h-2 bg-primary rounded-full" />
+              )}
+            </div>
+
+            {/* CLIENTES */}
+            <div className="relative">
+              <Link
+                href="/clientes"
+                className={`text-sm font-medium transition-colors ${
+                  isActive("/clientes") ? "text-primary" : "text-gray-700 hover:text-primary"
+                }`}
+              >
+                {t("nav.clients")}
+              </Link>
+              {isActive("/clientes") && (
+                <span className="absolute left-1/2 -translate-x-1/2 top-[24px] w-2 h-2 bg-primary rounded-full" />
+              )}
+            </div>
+
+            {/* NOSOTROS */}
+            <div className="relative">
+              <Link
+                href="/nosotros"
+                className={`text-sm font-medium transition-colors ${
+                  isActive("/nosotros") ? "text-primary" : "text-gray-700 hover:text-primary"
+                }`}
+              >
+                {t("nav.about")}
+              </Link>
+              {isActive("/nosotros") && (
+                <span className="absolute left-1/2 -translate-x-1/2 top-[24px] w-2 h-2 bg-primary rounded-full" />
+              )}
+            </div>
+
+            {/* CONTACTO */}
+            <div className="relative">
+              <Link
+                href="/contacto"
+                className={`text-sm font-medium transition-colors ${
+                  isActive("/contacto") ? "text-primary" : "text-gray-700 hover:text-primary"
+                }`}
+              >
+                {t("nav.contact")}
+              </Link>
+              {isActive("/contacto") && (
+                <span className="absolute left-1/2 -translate-x-1/2 top-[24px] w-2 h-2 bg-primary rounded-full" />
+              )}
+            </div>
+
           </div>
         </div>
 
@@ -89,6 +154,7 @@ export function Header() {
               {t("cta.contact")}
             </Button>
           </Link>
+
         </div>
 
       </div>
