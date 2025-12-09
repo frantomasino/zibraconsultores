@@ -73,17 +73,23 @@ export function Services() {
   return (
     <section id="services" className="bg-background py-20 md:py-32" ref={sectionRef}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <div className="inline-block">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-2">
-              {t("services.mainTitle")}{" "}
-              <span className="bg-foreground text-background px-3 py-1 inline-block">
-                {t("services.mainTitleHighlight")}
-              </span>
-            </h2>
-          </div>
-          <h3 className="text-2xl md:text-3xl font-bold text-foreground mt-6">{t("services.title")}</h3>
-        </div>
+   <div className="text-center mb-16">
+  <div className="inline-block">
+    <h2 className="font-serif text-4xl md:text-5xl text-foreground mb-4">
+      {t("services.mainTitle")}{" "}
+      <span className="text-accent">
+        {t("services.mainTitleHighlight")}
+      </span>
+    </h2>
+  </div>
+
+  <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+    {t("services.title")}
+  </p>
+</div>
+
+
+
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (

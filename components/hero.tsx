@@ -21,7 +21,10 @@ export function Hero() {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left Content */}
           <div className="flex flex-col gap-8">
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-balance">{t("hero.title")}</h1>
+<h1 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-balance">
+  {t("hero.title")}
+</h1>
+
 
             <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-xl">{t("hero.subtitle")}</p>
 

@@ -27,17 +27,22 @@ export function ServicesPreview() {
   ]
 
   return (
-    <section className="bg-muted/30 py-20 md:py-32">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <div className="inline-block bg-accent/10 text-accent px-4 py-2 rounded-full mb-4">
-            <span className="text-sm font-semibold">{t("services.badge")}</span>
-          </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            {t("services.mainTitle")} <span className="text-accent">{t("services.mainTitleHighlight")}</span>
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">{t("services.subtitle")}</p>
-        </div>
+  <section className="bg-muted/30 py-20 md:py-32">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="text-center mb-16">
+  <div className="inline-block">
+    <h2 className="text-3xl md:text-4xl font-semibold text-foreground mb-3">
+      {t("services.mainTitle")}{" "}
+      <span className="bg-foreground text-background px-3 py-1 inline-block">
+        {t("services.mainTitleHighlight")}
+      </span>
+    </h2>
+  </div>
+  <p className="text-base md:text-lg text-muted-foreground mt-4">
+    {t("services.title")}
+  </p>
+</div>
+
 
         <div className="grid md:grid-cols-3 gap-8 mb-12">
           {services.map((service, index) => (

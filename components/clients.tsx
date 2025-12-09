@@ -1,9 +1,11 @@
 "use client"
 
+import type React from "react"
 import { useLanguage } from "@/lib/language-context"
 import { Card, CardContent } from "@/components/ui/card"
 import { Building2, Quote, ChevronLeft, ChevronRight } from "lucide-react"
 import { useRef, useState } from "react"
+import { motion } from "framer-motion"
 
 export function Clients() {
   const { t } = useLanguage()
@@ -65,15 +67,21 @@ export function Clients() {
     <section id="clientes" className="py-20 lg:py-32 bg-background">
       <div className="container mx-auto px-4 lg:px-8">
 
-        {/* TÍTULO */}
-        <div className="max-w-3xl mx-auto text-center mb-16">
+        {/* TÍTULO CON ANIMACIÓN */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="max-w-3xl mx-auto text-center mb-16"
+        >
           <h2 className="font-serif text-4xl md:text-5xl text-foreground mb-4">
             {t("clients.title")}
           </h2>
           <p className="text-lg text-muted-foreground leading-relaxed">
             {t("clients.subtitle")}
           </p>
-        </div>
+        </motion.div>
 
         {/* CARRUSEL */}
         <div className="relative select-none">
@@ -100,33 +108,40 @@ export function Clients() {
             onMouseUp={stopDragging}
           >
             {cases.map((c, i) => (
-              <Card
+              <motion.div
                 key={i}
-                className="flex-shrink-0 w-[330px] md:w-[380px] lg:w-[420px] 
-                           border-border hover:border-accent transition-colors"
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.15 }}
+                className="flex-shrink-0 w-[330px] md:w-[380px] lg:w-[420px]"
               >
-                <CardContent className="p-8">
+                <Card
+                  className="h-full border-border hover:border-accent transition-colors shadow-sm hover:shadow-md"
+                >
+                  <CardContent className="p-8">
 
-                  <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-6">
-                    <Building2 className="w-6 h-6 text-accent" />
-                  </div>
+                    <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-6">
+                      <Building2 className="w-6 h-6 text-accent" />
+                    </div>
 
-                  <h3 className="text-xl font-semibold">{c.company}</h3>
-                  <p className="text-sm text-muted-foreground mb-4">{c.industry}</p>
+                    <h3 className="text-xl font-semibold">{c.company}</h3>
+                    <p className="text-sm text-muted-foreground mb-4">{c.industry}</p>
 
-                  <div className="bg-accent/5 rounded-lg p-4 mb-6">
-                    <p className="text-sm font-semibold text-accent">{c.result}</p>
-                  </div>
+                    <div className="bg-accent/5 rounded-lg p-4 mb-6">
+                      <p className="text-sm font-semibold text-accent">{c.result}</p>
+                    </div>
 
-                  <div>
-                    <Quote className="w-6 h-6 text-accent/20 mb-2" />
-                    <p className="text-sm text-muted-foreground italic">
-                      "{c.testimonial}"
-                    </p>
-                  </div>
+                    <div>
+                      <Quote className="w-6 h-6 text-accent/20 mb-2" />
+                      <p className="text-sm text-muted-foreground italic">
+                        "{c.testimonial}"
+                      </p>
+                    </div>
 
-                </CardContent>
-              </Card>
+                  </CardContent>
+                </Card>
+              </motion.div>
             ))}
           </div>
 

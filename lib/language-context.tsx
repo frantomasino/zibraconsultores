@@ -59,6 +59,7 @@ const translations = {
     "successStories.story4.metric": "95%",
     "successStories.story4.title": "Goal Achievement",
     "successStories.story4.desc": "95% of our clients achieve or exceed their established business goals",
+    
 
     // Services
     "services.badge": "Our Services",
@@ -175,7 +176,7 @@ const translations = {
     "faq6.a":
       "Our fees vary based on project scope and complexity. We offer flexible pricing models including project-based, retainer, and hourly rates. Contact us for a custom quote.",
 
-    // CTA
+   // CTA
     "cta.title": "Ready to Transform Your Business?",
     "cta.subtitle":
       "Join hundreds of successful companies who have achieved their goals with our expert guidance. Your success story starts here.",
@@ -192,7 +193,7 @@ const translations = {
   },
 
 
-
+// ARRANCA IDIOMA ESPAÑA
   
   es: {
     // Header
@@ -222,6 +223,8 @@ const translations = {
     "hero.stat2.label": "Clientes Atendidos",
     "hero.stat3": "98%",
     "hero.stat3.label": "Tasa de Éxito",
+
+   
 
     // Success Stories
     "successStories.badge": "Resultados Comprobados",
@@ -309,7 +312,7 @@ const translations = {
 
     // Contact
     "contact.badge": "Comenzar",
-    "contact.title": "Agenda Tu Consulta",
+    "contact.title": "Gracias por acercarse a Zibra",
     "contact.subtitle": "Hablemos sobre cómo podemos ayudar a tu negocio a alcanzar sus objetivos",
     "contact.form.name": "Nombre Completo",
     "contact.form.email": "Correo Electrónico",

@@ -5,14 +5,26 @@ import { useLanguage } from "@/lib/language-context"
 import { Globe, ChevronDown } from "lucide-react"
 import Link from "next/link"
 import { useState } from "react"
-import { usePathname } from "next/navigation"
+import { usePathname, useRouter } from "next/navigation"
 
 export function Header() {
   const { language, setLanguage, t } = useLanguage()
   const [languageOpen, setLanguageOpen] = useState(false)
   const pathname = usePathname()
+  const router = useRouter()
 
   const isActive = (path: string) => pathname === path
+
+  const handleHomeClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (pathname === "/") {
+      // Ya estoy en inicio → solo hago scroll al top
+      e.preventDefault()
+      window.scrollTo({ top: 0, behavior: "smooth" })
+    } else {
+      // Otra ruta → navego normal a /
+      // (Link igual hace el push, no hace falta nada más)
+    }
+  }
 
   return (
     <header className="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm">
@@ -36,8 +48,9 @@ export function Header() {
             <div className="relative">
               <Link
                 href="/"
+                onClick={handleHomeClick}
                 className={`text-sm font-medium transition-colors ${
-                  isActive("/") ? "text-primary" : "text-gray-700 hover:text-primary"
+                  isActive("/") ? "text-primary" : "text-foreground hover:text-primary"
                 }`}
               >
                 {t("nav.home")}
@@ -52,7 +65,7 @@ export function Header() {
               <Link
                 href="/servicios"
                 className={`text-sm font-medium transition-colors ${
-                  isActive("/servicios") ? "text-primary" : "text-gray-700 hover:text-primary"
+                  isActive("/servicios") ? "text-primary" : "text-foreground hover:text-primary"
                 }`}
               >
                 {t("nav.services")}
@@ -67,7 +80,7 @@ export function Header() {
               <Link
                 href="/clientes"
                 className={`text-sm font-medium transition-colors ${
-                  isActive("/clientes") ? "text-primary" : "text-gray-700 hover:text-primary"
+                  isActive("/clientes") ? "text-primary" : "text-foreground hover:text-primary"
                 }`}
               >
                 {t("nav.clients")}
@@ -82,7 +95,7 @@ export function Header() {
               <Link
                 href="/nosotros"
                 className={`text-sm font-medium transition-colors ${
-                  isActive("/nosotros") ? "text-primary" : "text-gray-700 hover:text-primary"
+                  isActive("/nosotros") ? "text-primary" : "text-foreground hover:text-primary"
                 }`}
               >
                 {t("nav.about")}
@@ -97,7 +110,7 @@ export function Header() {
               <Link
                 href="/contacto"
                 className={`text-sm font-medium transition-colors ${
-                  isActive("/contacto") ? "text-primary" : "text-gray-700 hover:text-primary"
+                  isActive("/contacto") ? "text-primary" : "text-foreground hover:text-primary"
                 }`}
               >
                 {t("nav.contact")}
