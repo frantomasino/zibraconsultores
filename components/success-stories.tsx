@@ -2,6 +2,7 @@
 
 import { useLanguage } from "@/lib/language-context"
 import { TrendingUp, Users, Award, Target } from "lucide-react"
+import { motion } from "framer-motion"
 
 export function SuccessStories() {
   const { t } = useLanguage()
@@ -34,31 +35,57 @@ export function SuccessStories() {
   ]
 
   return (
-    <section id="success-stories" className="bg-background py-20 md:py-32">
+    <section
+      id="success-stories"
+      className="bg-background py-20 md:py-32"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <p className="text-accent font-semibold text-sm uppercase tracking-wide">{t("successStories.badge")}</p>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mt-2 text-balance">
+
+        {/* HEADER CON ANIMACIÓN */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16 max-w-3xl mx-auto"
+        >
+          <p className="text-accent font-semibold text-sm uppercase tracking-wide">
+            {t("successStories.badge")}
+          </p>
+          <h2 className="font-serif text-4xl md:text-5xl text-foreground mt-4">
             {t("successStories.title")}
           </h2>
-          <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">{t("successStories.subtitle")}</p>
-        </div>
+          <p className="text-muted-foreground mt-4 text-lg">
+            {t("successStories.subtitle")}
+          </p>
+        </motion.div>
 
+        {/* CARDS CON ICONO + ANIMACIÓN */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {stories.map((story, index) => {
             const Icon = story.icon
             return (
-              <div
+              <motion.div
                 key={index}
-                className="bg-card border border-border rounded-xl p-8 hover:shadow-lg transition-shadow"
+                initial={{ opacity: 0, y: 35 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.15 }}
+                className="bg-card border border-border rounded-xl p-8 hover:shadow-lg hover:border-accent/60 transition-all"
               >
                 <div className="bg-accent/10 w-14 h-14 rounded-lg flex items-center justify-center mb-6">
                   <Icon className="w-7 h-7 text-accent" />
                 </div>
-                <div className="text-3xl font-bold text-accent mb-3">{t(story.metricKey)}</div>
-                <h3 className="text-lg font-semibold text-foreground mb-2">{t(story.titleKey)}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{t(story.descKey)}</p>
-              </div>
+                <div className="text-3xl font-bold text-accent mb-3">
+                  {t(story.metricKey)}
+                </div>
+                <h3 className="text-lg font-semibold text-foreground mb-2">
+                  {t(story.titleKey)}
+                </h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  {t(story.descKey)}
+                </p>
+              </motion.div>
             )
           })}
         </div>

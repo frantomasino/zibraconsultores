@@ -4,6 +4,7 @@ import { Inter, Playfair_Display } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
 import { LanguageProvider } from "@/lib/language-context"
+import { ThemeProvider } from "@/components/theme-provider"
 
 const inter = Inter({
   subsets: ["latin"],
@@ -18,22 +19,22 @@ const playfairDisplay = Playfair_Display({
 })
 
 export const metadata: Metadata = {
-  title: "Zibra Consultores - Estrategias y Soluciones",
+  title: "Zibra Consultores - Estrategias Soluciones",
   description:
-    "Consultoría empresarial para optimizar operaciones, aumentar la eficiencia y potenciar el crecimiento sostenible de su empresa.",
-  generator: "Zibra Consultores",
+    "Expert business consulting services to optimize operations, increase efficiency, and drive sustainable growth for your business.",
+  generator: "Zibra consultora",
   icons: {
     icon: [
       {
-        url: "/icon-light-32x32.png",
+        url: "/",
         media: "(prefers-color-scheme: light)",
       },
       {
-        url: "/icon-dark-32x32.png",
+        url: "/",
         media: "(prefers-color-scheme: dark)",
       },
       {
-        url: "/icon.svg",
+        url: "/",
         type: "image/svg+xml",
       },
     ],
@@ -47,10 +48,19 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="es">
+    <html lang="es" suppressHydrationWarning>
       <body className={`${inter.variable} ${playfairDisplay.variable} font-sans antialiased`}>
-        <LanguageProvider>{children}</LanguageProvider>
-        <Analytics />
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="light"
+          enableSystem={false}
+        >
+          <LanguageProvider>
+            {children}
+          </LanguageProvider>
+
+          <Analytics />
+        </ThemeProvider>
       </body>
     </html>
   )

@@ -59,7 +59,6 @@ const translations = {
     "successStories.story4.metric": "95%",
     "successStories.story4.title": "Goal Achievement",
     "successStories.story4.desc": "95% of our clients achieve or exceed their established business goals",
-    
 
     // Services
     "services.badge": "Our Services",
@@ -176,7 +175,7 @@ const translations = {
     "faq6.a":
       "Our fees vary based on project scope and complexity. We offer flexible pricing models including project-based, retainer, and hourly rates. Contact us for a custom quote.",
 
-   // CTA
+    // CTA
     "cta.title": "Ready to Transform Your Business?",
     "cta.subtitle":
       "Join hundreds of successful companies who have achieved their goals with our expert guidance. Your success story starts here.",
@@ -190,11 +189,11 @@ const translations = {
     "footer.support": "Support",
     "footer.connect": "Connect",
     "footer.copyright": "2025 Zibra Consulting. All rights reserved.",
+    "footer.certified": "Certified consulting team",
+    "footer.contact": "Contact",
   },
 
-
-// ARRANCA IDIOMA ESPAÑA
-  
+  // ARRANCA IDIOMA ESPAÑOL
   es: {
     // Header
     "nav.home": "Inicio",
@@ -223,8 +222,6 @@ const translations = {
     "hero.stat2.label": "Clientes Atendidos",
     "hero.stat3": "98%",
     "hero.stat3.label": "Tasa de Éxito",
-
-   
 
     // Success Stories
     "successStories.badge": "Resultados Comprobados",
@@ -311,7 +308,6 @@ const translations = {
       "Profesionales, conocedores y orientados a resultados. Entendieron nuestros desafíos y entregaron soluciones prácticas.",
 
     // Contact
-    "contact.badge": "Comenzar",
     "contact.title": "Gracias por acercarse a Zibra",
     "contact.subtitle": "Hablemos sobre cómo podemos ayudar a tu negocio a alcanzar sus objetivos",
     "contact.form.name": "Nombre Completo",
@@ -375,6 +371,8 @@ const translations = {
     "footer.support": "Soporte",
     "footer.connect": "Conectar",
     "footer.copyright": "2025 Zibra Consultora. Todos los derechos reservados.",
+    "footer.certified": "Equipo de consultoría certificado",
+    "footer.contact": "Contacto",
   },
 }
 
@@ -393,9 +391,11 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     localStorage.setItem("language", lang)
   }
 
-  const t = (key: string): string => {
-    return translations[language][key as keyof typeof translations.en] || key
+   const t = (key: string): string => {
+    const langTranslations = (translations as any)[language] as Record<string, string> | undefined
+    return langTranslations?.[key] ?? key
   }
+
 
   return (
     <LanguageContext.Provider value={{ language, setLanguage: handleSetLanguage, t }}>

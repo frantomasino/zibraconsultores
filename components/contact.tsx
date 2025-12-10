@@ -8,9 +8,11 @@ import { useLanguage } from "@/lib/language-context"
 import { Mail, Phone, MapPin, Building2, User, MessageCircle } from "lucide-react"
 import { useRef, useState } from "react"
 import { motion } from "framer-motion"
+import { useToast } from "@/components/ui/use-toast"   // 👈 NUEVO
 
 export function Contact() {
   const { t } = useLanguage()
+  const { toast } = useToast()                        // 👈 NUEVO
 
   const formRef = useRef<HTMLFormElement>(null)
 
@@ -45,6 +47,12 @@ ${formData.message}
     window.location.href = `mailto:info@gelsoconsulting.com?subject=${encodeURIComponent(
       subject,
     )}&body=${encodeURIComponent(body)}`
+
+    // ✅ Toast después de preparar el correo
+    toast({
+      title: "Correo preparado",
+      description: "Revisá tu correo para enviarlo.",
+    })
   }
 
   const sendWhatsApp = () => {
@@ -65,6 +73,12 @@ ${formData.message}
     const phone = "5491131256510"
 
     window.open(`https://wa.me/${phone}?text=${encodeURIComponent(text)}`, "_blank")
+
+    // ✅ Toast después de abrir WhatsApp
+    toast({
+      title: "WhatsApp abierto",
+      description: "Te llevamos a WhatsApp con el mensaje listo.",
+    })
   }
 
   return (
@@ -80,15 +94,12 @@ ${formData.message}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center max-w-3xl mx-auto mb-16"
         >
-          <p className="text-accent font-semibold text-sm uppercase tracking-wide">
-            {t("contact.badge")}
-          </p>
           <h2 className="font-serif text-4xl md:text-5xl text-foreground mt-4">
             {t("contact.title")}
           </h2>
-          <p className="text-lg text-muted-foreground mt-4 max-w-3xl mx-auto">
+          <p className="text-lg text-muted-foreground mt-4 leading-relaxed">
             {t("contact.subtitle")}
           </p>
         </motion.div>
@@ -101,7 +112,7 @@ ${formData.message}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.15 }}
-            className="bg-card border border-border rounded-2xl p-8 space-y-6 shadow-lg"
+            className="bg-card border border-border rounded-2xl p-8 space-y-6 shadow-sm hover:shadow-lg transition-shadow"
           >
             <form
               ref={formRef}
@@ -203,7 +214,7 @@ ${formData.message}
             className="space-y-8"
           >
             {/* BLOQUE INFO */}
-            <div className="bg-card border border-border rounded-2xl p-8 shadow-lg">
+            <div className="bg-card border border-border rounded-2xl p-8 shadow-sm hover:shadow-lg transition-shadow">
               <h3 className="text-xl font-semibold text-foreground mb-6">
                 {t("contact.info.title")}
               </h3>
