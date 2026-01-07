@@ -1,3 +1,4 @@
+// app/layout.tsx
 import type React from "react"
 import type { Metadata } from "next"
 import { Poppins } from "next/font/google"
@@ -20,20 +21,11 @@ export const metadata: Metadata = {
   generator: "Zibra consultora",
   icons: {
     icon: [
-      {
-        url: "/",
-        media: "(prefers-color-scheme: light)",
-      },
-      {
-        url: "/",
-        media: "(prefers-color-scheme: dark)",
-      },
-      {
-        url: "/",
-        type: "image/svg+xml",
-      },
+      { url: "/favicon.ico" },
+      { url: "/favicon-16x16.png", type: "image/png", sizes: "16x16" },
+      { url: "/favicon-32x32.png", type: "image/png", sizes: "32x32" },
     ],
-    apple: "/apple-icon.png",
+    apple: [{ url: "/apple-touch-icon.png", type: "image/png", sizes: "180x180" }],
   },
 }
 

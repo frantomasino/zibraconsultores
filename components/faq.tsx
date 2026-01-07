@@ -16,7 +16,7 @@ export function FAQ() {
   ]
 
   return (
-    <section id="faq" className="bg-background py-20 md:py-32">
+    <section id="faq" className="bg-background pt-10 pb-20 md:pt-14 md:pb-28">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <p className="text-accent font-semibold text-sm uppercase tracking-wide">{t("faq.badge")}</p>

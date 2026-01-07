@@ -1,4 +1,3 @@
-// components/header.tsx
 "use client"
 
 import type React from "react"
@@ -7,6 +6,7 @@ import { useLanguage } from "@/lib/language-context"
 import { Globe, ChevronDown } from "lucide-react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
+import Image from "next/image"
 
 import {
   DropdownMenu,
@@ -37,18 +37,23 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 bg-background/80 backdrop-blur border-b border-border">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
+      {/* ↑ le subí un poco la altura: py-4 -> py-5 */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex items-center justify-between">
         {/* LOGO */}
-        <Link href="/" className="flex items-center gap-2 hover:opacity-90 transition-opacity">
-          <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center shadow-md">
-            <span className="text-primary-foreground font-bold text-lg">ZC</span>
-          </div>
+        <Link href="/" className="flex items-center gap-3 hover:opacity-90 transition-opacity">
+  <div className="h-14 w-[260px] md:h-16 md:w-[300px] overflow-hidden">
+    <Image
+      src="/Logo-Zibra.png"
+      alt="Zibra Consultora"
+      width={600}
+      height={160}
+      priority
+      className="h-full w-full object-cover object-left"
+    />
+  </div>
 
-          {/* Poppins Bold (sin font-serif) */}
-          <span className="text-foreground text-lg tracking-tight font-bold">
-            Zibra Consultora
-          </span>
-        </Link>
+</Link>
+
 
         {/* NAV CENTRADO */}
         <div className="hidden md:flex flex-1 justify-center">
@@ -59,9 +64,7 @@ export function Header() {
                 href="/"
                 onClick={handleHomeClick}
                 className={`text-sm font-medium transition-colors ${
-                  isActive("/")
-                    ? "text-primary"
-                    : "text-foreground/80 hover:text-foreground"
+                  isActive("/") ? "text-primary" : "text-foreground/80 hover:text-foreground"
                 }`}
               >
                 {t("nav.home")}
@@ -76,9 +79,7 @@ export function Header() {
               <Link
                 href="/servicios"
                 className={`text-sm font-medium transition-colors ${
-                  isActive("/servicios")
-                    ? "text-primary"
-                    : "text-foreground/80 hover:text-foreground"
+                  isActive("/servicios") ? "text-primary" : "text-foreground/80 hover:text-foreground"
                 }`}
               >
                 {t("nav.services")}
@@ -93,9 +94,7 @@ export function Header() {
               <Link
                 href="/clientes"
                 className={`text-sm font-medium transition-colors ${
-                  isActive("/clientes")
-                    ? "text-primary"
-                    : "text-foreground/80 hover:text-foreground"
+                  isActive("/clientes") ? "text-primary" : "text-foreground/80 hover:text-foreground"
                 }`}
               >
                 {t("nav.clients")}
@@ -110,9 +109,7 @@ export function Header() {
               <Link
                 href="/nosotros"
                 className={`text-sm font-medium transition-colors ${
-                  isActive("/nosotros")
-                    ? "text-primary"
-                    : "text-foreground/80 hover:text-foreground"
+                  isActive("/nosotros") ? "text-primary" : "text-foreground/80 hover:text-foreground"
                 }`}
               >
                 {t("nav.about")}
@@ -127,9 +124,7 @@ export function Header() {
               <Link
                 href="/contacto"
                 className={`text-sm font-medium transition-colors ${
-                  isActive("/contacto")
-                    ? "text-primary"
-                    : "text-foreground/80 hover:text-foreground"
+                  isActive("/contacto") ? "text-primary" : "text-foreground/80 hover:text-foreground"
                 }`}
               >
                 {t("nav.contact")}
@@ -144,7 +139,6 @@ export function Header() {
         {/* IDIOMA + BOTÓN */}
         <TooltipProvider>
           <div className="flex items-center gap-3">
-            {/* Selector de idioma con DropdownMenu */}
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <button className="flex items-center gap-2 px-3 py-2 text-sm text-foreground/80 hover:text-foreground transition-colors border border-border rounded-md hover:bg-muted/60 font-medium bg-background">
@@ -170,7 +164,6 @@ export function Header() {
               </DropdownMenuContent>
             </DropdownMenu>
 
-            {/* Botón de contacto con tooltip */}
             <Tooltip>
               <TooltipTrigger asChild>
                 <Link href="/contacto">

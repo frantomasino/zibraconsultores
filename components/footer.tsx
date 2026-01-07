@@ -14,15 +14,19 @@ export function Footer() {
         <div className="grid md:grid-cols-4 gap-8 mb-8">
           {/* LOGO + DESCRIPCIÓN */}
           <div>
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 bg-accent rounded-lg flex items-center justify-center">
-                <span className="text-accent-foreground font-bold text-lg">ZC</span>
-              </div>
+            <div className="flex items-center gap-3 mb-4">
+              <img
+                src="/icono-zibra-blanco---fondo-transparente.png"
+                alt="Zibra Consultora"
+                className="h-10 w-auto md:h-11"
+              />
               <span className="font-bold text-lg">Zibra Consultora</span>
             </div>
+
             <p className="text-sm text-background/70 mb-4">
               {t("footer.tagline")}
             </p>
+
             <Badge className="bg-accent/20 text-background border-accent/30">
               {t("footer.certified")}
             </Badge>
@@ -111,15 +115,6 @@ export function Footer() {
                 >
                   <span className="w-1 h-1 bg-accent rounded-full" />
                   LinkedIn
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="hover:text-background transition flex items-center gap-2"
-                >
-                  <span className="w-1 h-1 bg-accent rounded-full" />
-                  Twitter
                 </a>
               </li>
               <li>

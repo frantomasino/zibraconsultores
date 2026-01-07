@@ -35,12 +35,8 @@ export function SuccessStories() {
   ]
 
   return (
-    <section
-      id="success-stories"
-      className="bg-background py-20 md:py-32"
-    >
+    <section id="success-stories" className="bg-background pt-20 pb-10 md:pt-28 md:pb-14">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
         {/* HEADER CON ANIMACIÓN */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -52,9 +48,12 @@ export function SuccessStories() {
           <p className="text-accent font-semibold text-sm uppercase tracking-wide">
             {t("successStories.badge")}
           </p>
-          <h2 className="font-serif text-4xl md:text-5xl text-foreground mt-4">
+
+          {/* Sin font-serif: respeta Poppins */}
+          <h2 className="text-4xl md:text-5xl text-foreground mt-4">
             {t("successStories.title")}
           </h2>
+
           <p className="text-muted-foreground mt-4 text-lg">
             {t("successStories.subtitle")}
           </p>
