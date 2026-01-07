@@ -1,3 +1,4 @@
+// components/header.tsx
 "use client"
 
 import type React from "react"
@@ -6,9 +7,7 @@ import { useLanguage } from "@/lib/language-context"
 import { Globe, ChevronDown } from "lucide-react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-// import { ThemeToggle } from "@/components/theme-toggle" // blanco-negro
 
-// Dropdown de idioma
 import {
   DropdownMenu,
   DropdownMenuTrigger,
@@ -16,7 +15,6 @@ import {
   DropdownMenuItem,
 } from "@/components/ui/dropdown-menu"
 
-// Tooltip
 import {
   Tooltip,
   TooltipTrigger,
@@ -45,7 +43,9 @@ export function Header() {
           <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center shadow-md">
             <span className="text-primary-foreground font-bold text-lg">ZC</span>
           </div>
-          <span className="font-bold text-foreground text-lg tracking-tight font-serif">
+
+          {/* Poppins Bold (sin font-serif) */}
+          <span className="text-foreground text-lg tracking-tight font-bold">
             Zibra Consultora
           </span>
         </Link>
@@ -141,15 +141,13 @@ export function Header() {
           </div>
         </div>
 
-        {/* IDIOMA + TEMA + BOTÓN */}
+        {/* IDIOMA + BOTÓN */}
         <TooltipProvider>
           <div className="flex items-center gap-3">
             {/* Selector de idioma con DropdownMenu */}
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <button
-                  className="flex items-center gap-2 px-3 py-2 text-sm text-foreground/80 hover:text-foreground transition-colors border border-border rounded-md hover:bg-muted/60 font-medium bg-background"
-                >
+                <button className="flex items-center gap-2 px-3 py-2 text-sm text-foreground/80 hover:text-foreground transition-colors border border-border rounded-md hover:bg-muted/60 font-medium bg-background">
                   <Globe className="w-4 h-4" />
                   <span>{language === "en" ? "English" : "Español"}</span>
                   <ChevronDown className="w-4 h-4" />
@@ -171,9 +169,6 @@ export function Header() {
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
-
-            {/* Toggle de tema */}
-            {/* <ThemeToggle /> */}
 
             {/* Botón de contacto con tooltip */}
             <Tooltip>

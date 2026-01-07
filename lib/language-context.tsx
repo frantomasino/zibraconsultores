@@ -80,6 +80,35 @@ const translations = {
     "services.growth.title": "Growth Strategy",
     "services.growth.desc": "Identify opportunities and develop plans for market expansion",
 
+    // Services (extra keys for ServicesPreview)
+    "services.highlight": "What you can expect",
+
+    "services.strategy.point1": "Initial diagnosis and clear definition of achievable objectives.",
+    "services.strategy.point2": "Practical action plan aligned with your company’s operational reality.",
+    "services.strategy.point3": "KPI tracking and continuous adjustments to ensure results.",
+    "services.strategy.highlight":
+      "We work closely with your team and focus on measurable outcomes, turning strategy into real execution.",
+
+    "services.operations.point1": "Process mapping and identification of bottlenecks and inefficiencies.",
+    "services.operations.point2": "Standardization and improvement of workflows to reduce friction.",
+    "services.operations.point3": "Operational KPIs and routines to sustain performance over time.",
+    "services.operations.highlight":
+      "We improve daily operations with a practical approach: simpler processes, better control, and visible impact.",
+
+    "services.financial.point1": "Financial diagnosis: cash flow, costs, margins, and key risks.",
+    "services.financial.point2": "Budgeting and forecasting to support decision-making.",
+    "services.financial.point3": "Reporting and indicators to monitor profitability and performance.",
+    "services.financial.highlight":
+      "We bring clarity to numbers so you can decide with confidence and improve profitability sustainably.",
+
+    "services.people.title": "People Management",
+    "services.people.desc": "Build stronger teams with clear roles, leadership and effective practices.",
+    "services.people.point1": "Role definition, responsibilities and organizational structure.",
+    "services.people.point2": "Leadership routines, feedback and performance management practices.",
+    "services.people.point3": "Culture, alignment and tools to improve teamwork and accountability.",
+    "services.people.highlight":
+      "We help you align people and processes, so the team moves in the same direction and execution improves.",
+
     // About
     "about.badge": "About Zibra Consulting",
     "about.title": "Your Partner in Business Excellence",
@@ -263,6 +292,36 @@ const translations = {
     "services.growth.title": "Estrategia de Crecimiento",
     "services.growth.desc": "Identifica oportunidades y desarrolla planes para la expansión del mercado",
 
+    // Services (claves extra para ServicesPreview)
+    "services.highlight": "Qué podés esperar",
+
+    "services.strategy.point1": "Diagnóstico inicial y definición de objetivos claros y alcanzables.",
+    "services.strategy.point2": "Plan de acción práctico, alineado con la realidad operativa de tu empresa.",
+    "services.strategy.point3": "Seguimiento de indicadores y ajustes continuos para asegurar resultados.",
+    "services.strategy.highlight":
+      "Trabajamos cerca de tu equipo y con foco en resultados medibles, para convertir la estrategia en ejecución.",
+
+    "services.operations.point1": "Mapeo de procesos e identificación de cuellos de botella e ineficiencias.",
+    "services.operations.point2": "Estandarización y mejora de flujos para reducir fricción y errores.",
+    "services.operations.point3": "KPIs y rutinas operativas para sostener el rendimiento en el tiempo.",
+    "services.operations.highlight":
+      "Mejoramos el día a día con un enfoque práctico: procesos más simples, mejor control e impacto visible.",
+
+    "services.financial.point1": "Diagnóstico financiero: caja, costos, márgenes y riesgos clave.",
+    "services.financial.point2": "Presupuesto y proyecciones para respaldar decisiones.",
+    "services.financial.point3": "Reportes e indicadores para monitorear rentabilidad y performance.",
+    "services.financial.highlight":
+      "Ordenamos los números para que tomes decisiones con confianza y mejores la rentabilidad de forma sostenible.",
+
+    "services.people.title": "Gestión de Personas",
+    "services.people.desc": "Construí equipos más sólidos con roles claros, liderazgo y prácticas efectivas.",
+    "services.people.point1": "Definición de roles, responsabilidades y estructura organizacional.",
+    "services.people.point2": "Rutinas de liderazgo, feedback y gestión del desempeño.",
+    "services.people.point3":
+      "Cultura, alineación y herramientas para mejorar trabajo en equipo y responsabilidad.",
+    "services.people.highlight":
+      "Alineamos personas y procesos para que el equipo avance en la misma dirección y mejore la ejecución.",
+
     // About
     "about.badge": "Sobre Zibra Consultora",
     "about.title": "Tu Socio en la Excelencia Empresarial",
@@ -391,11 +450,10 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     localStorage.setItem("language", lang)
   }
 
-   const t = (key: string): string => {
+  const t = (key: string): string => {
     const langTranslations = (translations as any)[language] as Record<string, string> | undefined
     return langTranslations?.[key] ?? key
   }
-
 
   return (
     <LanguageContext.Provider value={{ language, setLanguage: handleSetLanguage, t }}>
