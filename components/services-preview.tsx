@@ -49,21 +49,20 @@ export function ServicesPreview() {
   ]
 
   return (
-    <section id="servicios" className="bg-background py-20 md:py-28 border-t border-border/60">
+    <section id="servicios" className="bg-background py-16 md:py-20 border-t border-border/60">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* HEADER */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="mb-12 md:mb-16 text-center md:text-left"
+          className="mb-10 md:mb-12 text-center md:text-left"
         >
           <p className="inline-flex items-center rounded-full bg-accent/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wide text-accent">
             {tr("services.badge", "Servicios clave")}
           </p>
 
-          <h2 className="mt-4 text-3xl md:text-4xl lg:text-5xl text-foreground">
+          <h2 className="mt-4 text-3xl md:text-4xl lg:text-5xl font-semibold text-foreground">
             {tr("services.title", "Soluciones para cada etapa de tu negocio")}
           </h2>
 
@@ -75,7 +74,6 @@ export function ServicesPreview() {
           </p>
         </motion.div>
 
-        {/* TABS */}
         <motion.div
           initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -131,28 +129,19 @@ export function ServicesPreview() {
                         <li className="flex gap-2">
                           <span className="mt-1 h-1.5 w-1.5 rounded-full bg-accent" />
                           <span>
-                            {tr(
-                              p1Key,
-                              "Diagnóstico inicial y definición de objetivos claros y alcanzables.",
-                            )}
+                            {tr(p1Key, "Diagnóstico inicial y definición de objetivos claros y alcanzables.")}
                           </span>
                         </li>
                         <li className="flex gap-2">
                           <span className="mt-1 h-1.5 w-1.5 rounded-full bg-accent" />
                           <span>
-                            {tr(
-                              p2Key,
-                              "Plan de acción práctico, alineado con la realidad operativa de tu empresa.",
-                            )}
+                            {tr(p2Key, "Plan de acción práctico, alineado con la realidad operativa de tu empresa.")}
                           </span>
                         </li>
                         <li className="flex gap-2">
                           <span className="mt-1 h-1.5 w-1.5 rounded-full bg-accent" />
                           <span>
-                            {tr(
-                              p3Key,
-                              "Seguimiento de indicadores y ajustes continuos para asegurar resultados.",
-                            )}
+                            {tr(p3Key, "Seguimiento de indicadores y ajustes continuos para asegurar resultados.")}
                           </span>
                         </li>
                       </ul>

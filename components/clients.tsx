@@ -63,10 +63,14 @@ export function Clients() {
     setIsDragging(false)
   }
 
+  // --- TÍTULO: pinta SOLO la primera palabra (Confianza) con color primary ---
+  const title = t("clients.title")
+  const [firstWord, ...restWords] = title.split(" ")
+  const rest = restWords.join(" ")
+
   return (
     <section id="clientes" className="py-20 lg:py-32 bg-background">
       <div className="container mx-auto px-4 lg:px-8">
-
         {/* TÍTULO CON ANIMACIÓN */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -76,8 +80,10 @@ export function Clients() {
           className="max-w-3xl mx-auto text-center mb-16"
         >
           <h2 className="font-serif text-4xl md:text-5xl text-foreground mb-4">
-            {t("clients.title")}
+<span className="text-[#2E2F84]">{firstWord}</span>
+            {rest ? ` ${rest}` : ""}
           </h2>
+
           <p className="text-lg text-muted-foreground leading-relaxed">
             {t("clients.subtitle")}
           </p>
@@ -85,7 +91,6 @@ export function Clients() {
 
         {/* CARRUSEL */}
         <div className="relative select-none">
-
           {/* IZQUIERDA */}
           <button
             onClick={() => scroll("left")}
@@ -116,11 +121,8 @@ export function Clients() {
                 transition={{ duration: 0.5, delay: i * 0.15 }}
                 className="flex-shrink-0 w-[330px] md:w-[380px] lg:w-[420px]"
               >
-                <Card
-                  className="h-full border-border hover:border-accent transition-colors shadow-sm hover:shadow-md"
-                >
+                <Card className="h-full border-border hover:border-accent transition-colors shadow-sm hover:shadow-md">
                   <CardContent className="p-8">
-
                     <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-6">
                       <Building2 className="w-6 h-6 text-accent" />
                     </div>
@@ -134,11 +136,8 @@ export function Clients() {
 
                     <div>
                       <Quote className="w-6 h-6 text-accent/20 mb-2" />
-                      <p className="text-sm text-muted-foreground italic">
-                        "{c.testimonial}"
-                      </p>
+                      <p className="text-sm text-muted-foreground italic">"{c.testimonial}"</p>
                     </div>
-
                   </CardContent>
                 </Card>
               </motion.div>
@@ -153,7 +152,6 @@ export function Clients() {
           >
             <ChevronRight className="w-5 h-5 text-foreground" />
           </button>
-
         </div>
       </div>
     </section>

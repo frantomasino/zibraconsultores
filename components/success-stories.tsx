@@ -35,7 +35,7 @@ export function SuccessStories() {
   ]
 
   return (
-    <section id="success-stories" className="bg-background pt-20 pb-10 md:pt-28 md:pb-14">
+    <section id="success-stories" className="bg-background pt-16 pb-6 md:pt-20 md:pb-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* HEADER CON ANIMACIÓN */}
         <motion.div
@@ -43,13 +43,12 @@ export function SuccessStories() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16 max-w-3xl mx-auto"
+          className="text-center mb-10 md:mb-12 max-w-3xl mx-auto"
         >
           <p className="text-accent font-semibold text-sm uppercase tracking-wide">
             {t("successStories.badge")}
           </p>
 
-          {/* Sin font-serif: respeta Poppins */}
           <h2 className="text-4xl md:text-5xl text-foreground mt-4">
             {t("successStories.title")}
           </h2>

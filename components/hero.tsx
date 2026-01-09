@@ -18,9 +18,8 @@ export function Hero() {
 
   return (
     <section className="relative bg-gradient-to-br from-background via-background to-muted/20 overflow-hidden">
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32 lg:py-40">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28 lg:py-32">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* COLUMNA IZQUIERDA (TEXTO) CON ANIMACIÓN */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -28,7 +27,7 @@ export function Hero() {
             transition={{ duration: 0.6 }}
             className="flex flex-col gap-8"
           >
-            <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-balance">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-balance">
               {t("hero.title")}
             </h1>
 
@@ -44,6 +43,7 @@ export function Hero() {
               >
                 {t("hero.cta.primary")}
               </Button>
+
               <Button
                 onClick={handleLearnMore}
                 size="lg"
@@ -55,13 +55,12 @@ export function Hero() {
             </div>
           </motion.div>
 
-          {/* COLUMNA DERECHA (IMAGEN) CON ANIMACIÓN */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="relative h-[400px] lg:h-[500px]"
+            className="relative h-[360px] sm:h-[400px] lg:h-[500px]"
           >
             <div className="absolute inset-0 bg-gradient-to-br from-accent/10 via-transparent to-primary/10 rounded-3xl" />
             <img

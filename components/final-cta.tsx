@@ -11,7 +11,6 @@ export function FinalCTA() {
   const router = useRouter()
 
   const handleContactClick = () => {
-    // Si estoy en el home, scrolleo al formulario
     if (pathname === "/") {
       const contactSection = document.getElementById("contact")
       if (contactSection) {
@@ -19,8 +18,6 @@ export function FinalCTA() {
         return
       }
     }
-
-    // Si NO estoy en el home o no encontré la sección, voy a /contacto
     router.push("/contacto")
   }
 
@@ -32,7 +29,7 @@ export function FinalCTA() {
   }
 
   return (
-    <section className="bg-accent py-20 md:py-32">
+    <section className="bg-[#2E2F84] py-20 md:py-32">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -41,11 +38,11 @@ export function FinalCTA() {
           transition={{ duration: 0.6 }}
           className="text-center"
         >
-          <h2 className="font-serif text-3xl md:text-5xl font-semibold text-accent-foreground mb-6 text-balance">
+          <h2 className="font-serif text-3xl md:text-5xl font-semibold text-white mb-6 text-balance">
             {t("cta.title")}
           </h2>
 
-          <p className="text-lg text-accent-foreground/90 mb-8 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-lg text-white/90 mb-8 max-w-2xl mx-auto leading-relaxed">
             {t("cta.subtitle")}
           </p>
 
@@ -53,7 +50,7 @@ export function FinalCTA() {
             <Button
               onClick={handleContactClick}
               size="lg"
-              className="bg-accent-foreground hover:bg-accent-foreground/90 text-accent text-base"
+              className="bg-[#8FCDCF] hover:bg-[#8FCDCF]/90 text-[#2E2F84] text-base font-semibold"
             >
               {t("cta.button.primary")}
             </Button>
@@ -62,15 +59,13 @@ export function FinalCTA() {
               onClick={handleLearnMore}
               size="lg"
               variant="outline"
-              className="border-accent-foreground text-accent-foreground hover:bg-accent-foreground/10 bg-transparent"
+              className="border-[#8FCDCF] text-[#8FCDCF] hover:bg-[#8FCDCF]/10 bg-transparent"
             >
               {t("cta.button.secondary")}
             </Button>
           </div>
 
-          <p className="text-sm text-accent-foreground/80 mt-8">
-            {t("cta.note")}
-          </p>
+          <p className="text-sm text-white/80 mt-8">{t("cta.note")}</p>
         </motion.div>
       </div>
     </section>

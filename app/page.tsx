@@ -5,16 +5,16 @@ import { FAQ } from "@/components/faq"
 import { Footer } from "@/components/footer"
 import { FinalCTA } from "@/components/final-cta"
 import { SuccessStories } from "@/components/success-stories"
- 
+
 export default function Home() {
   return (
     <main className="min-h-screen bg-background">
       <Header />
       <Hero />
       <ServicesPreview />
-      <SuccessStories />   {/* 👈 NUEVA SECCIÓN CASOS DE ÉXITO */}
+      <SuccessStories />
       <FAQ />
-      <FinalCTA/>
+      <FinalCTA />
       <Footer />
     </main>
   )

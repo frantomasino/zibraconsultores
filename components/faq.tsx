@@ -16,20 +16,30 @@ export function FAQ() {
   ]
 
   return (
-    <section id="faq" className="bg-background pt-10 pb-20 md:pt-14 md:pb-28">
+    <section id="faq" className="bg-background pt-8 pb-16 md:pt-10 md:pb-20">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <p className="text-accent font-semibold text-sm uppercase tracking-wide">{t("faq.badge")}</p>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mt-2 text-balance">{t("faq.title")}</h2>
+        <div className="text-center mb-10 md:mb-12">
+          <p className="text-accent font-semibold text-sm uppercase tracking-wide">
+            {t("faq.badge")}
+          </p>
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mt-2 text-balance">
+            {t("faq.title")}
+          </h2>
         </div>
 
         <Accordion type="single" collapsible className="space-y-4">
           {faqs.map((faq, index) => (
-            <AccordionItem key={index} value={`item-${index}`} className="bg-card border border-border rounded-lg px-6">
+            <AccordionItem
+              key={index}
+              value={`item-${index}`}
+              className="bg-card border border-border rounded-lg px-6"
+            >
               <AccordionTrigger className="text-foreground font-semibold hover:text-accent">
                 {t(faq.qKey)}
               </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground">{t(faq.aKey)}</AccordionContent>
+              <AccordionContent className="text-muted-foreground">
+                {t(faq.aKey)}
+              </AccordionContent>
             </AccordionItem>
           ))}
         </Accordion>

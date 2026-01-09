@@ -91,7 +91,7 @@ export function Services() {
           <div className="inline-block">
             <h2 className="text-4xl md:text-5xl text-foreground mb-4">
               {tr("services.mainTitle", "Servicios")}{" "}
-              <span className="text-accent">{tr("services.mainTitleHighlight", "clave")}</span>
+<span className="text-[#2E2F84]">{tr("services.mainTitleHighlight", "clave")}</span>
             </h2>
           </div>
 
