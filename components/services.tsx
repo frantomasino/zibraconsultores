@@ -91,7 +91,7 @@ export function Services() {
           <div className="inline-block">
             <h2 className="text-4xl md:text-5xl text-foreground mb-4">
               {tr("services.mainTitle", "Servicios")}{" "}
-<span className="text-[#2E2F84]">{tr("services.mainTitleHighlight", "clave")}</span>
+              <span className="text-[#2E2F84]">{tr("services.mainTitleHighlight", "clave")}</span>
             </h2>
           </div>
 
@@ -111,13 +111,13 @@ export function Services() {
                 visibleCards[index] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
               }`}
             >
-              <div className="text-accent mb-4">{service.icon}</div>
+              {/* ICONO EN AZUL */}
+              <div className="text-[#2E2F84] mb-4">{service.icon}</div>
+
               <h3 className="text-xl font-semibold text-foreground mb-2">
                 {tr(service.titleKey, service.titleFallback)}
               </h3>
-              <p className="text-muted-foreground">
-                {tr(service.descKey, service.descFallback)}
-              </p>
+              <p className="text-muted-foreground">{tr(service.descKey, service.descFallback)}</p>
             </div>
           ))}
         </div>

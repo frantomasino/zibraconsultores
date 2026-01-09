@@ -71,12 +71,14 @@ export function SuccessStories() {
                 transition={{ duration: 0.6, delay: index * 0.15 }}
                 className="bg-card border border-border rounded-xl p-8 hover:shadow-lg hover:border-accent/60 transition-all"
               >
-                <div className="bg-accent/10 w-14 h-14 rounded-lg flex items-center justify-center mb-6">
-                  <Icon className="w-7 h-7 text-accent" />
-                </div>
-                <div className="text-3xl font-bold text-accent mb-3">
-                  {t(story.metricKey)}
-                </div>
+                <div className="bg-[#2E2F84]/10 w-14 h-14 rounded-lg flex items-center justify-center mb-6">
+  <Icon className="w-7 h-7 text-[#2E2F84]" />
+</div>
+
+<div className="text-3xl font-bold text-[#2E2F84] mb-3">
+  {t(story.metricKey)}
+</div>
+
                 <h3 className="text-lg font-semibold text-foreground mb-2">
                   {t(story.titleKey)}
                 </h3>

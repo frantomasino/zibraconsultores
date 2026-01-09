@@ -112,10 +112,11 @@ export function ServicesPreview() {
                 <TabsContent key={tab.value} value={tab.value}>
                   <div className="grid gap-8 lg:grid-cols-[minmax(0,2fr)_minmax(0,1.4fr)] items-start">
                     <div className="space-y-4">
-                      <div className="inline-flex items-center gap-2 rounded-full bg-accent/10 px-3 py-1 text-xs font-medium text-accent">
-                        <Icon className="h-4 w-4" />
-                        <span>{tr(tab.titleKey, tab.titleFallback)}</span>
-                      </div>
+                      <div className="inline-flex items-center gap-2 rounded-full bg-[#2E2F84]/10 px-3 py-1 text-xs font-medium text-[#2E2F84]">
+  <Icon className="h-4 w-4" />
+  <span>{tr(tab.titleKey, tab.titleFallback)}</span>
+</div>
+
 
                       <h3 className="text-2xl md:text-3xl font-semibold text-foreground">
                         {tr(tab.titleKey, tab.titleFallback)}
@@ -148,7 +149,7 @@ export function ServicesPreview() {
                     </div>
 
                     <div className="rounded-xl border border-dashed border-accent/40 bg-accent/5 p-6 space-y-4">
-                      <p className="text-xs font-semibold uppercase tracking-wide text-accent">
+<p className="text-xs font-semibold uppercase tracking-wide text-[#2E2F84]">
                         {tr("services.highlight", "Qué podés esperar")}
                       </p>
                       <p className="text-sm md:text-base text-foreground leading-relaxed">
