@@ -163,19 +163,6 @@ export function Header() {
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
-
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <Link href="/contacto">
-                  <Button className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold shadow-md hover:shadow-lg transition-all">
-                    {t("cta.contact")}
-                  </Button>
-                </Link>
-              </TooltipTrigger>
-              <TooltipContent side="bottom">
-                <p>Agendá una consulta con nuestro equipo</p>
-              </TooltipContent>
-            </Tooltip>
           </div>
         </TooltipProvider>
       </div>
