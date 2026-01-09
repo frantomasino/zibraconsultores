@@ -16,7 +16,7 @@ import {
 
 import { TooltipProvider } from "@/components/ui/tooltip"
 
-const LOGO_SRC = "/logo zibra color - fondo transparente.png"
+const LOGO_SRC = "/logo-zibra.webp"
 
 export function Header() {
   const { language, setLanguage, t } = useLanguage()
