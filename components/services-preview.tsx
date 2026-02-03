@@ -4,9 +4,11 @@ import { useLanguage } from "@/lib/language-context"
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs"
 import { Target, Settings, DollarSign, Users } from "lucide-react"
 import { motion } from "framer-motion"
+import { useState } from "react"
 
 export function ServicesPreview() {
   const { t } = useLanguage()
+  const [activeTab, setActiveTab] = useState("strategy")
 
   const tr = (key: string, fallback: string) => {
     const value = t(key)
@@ -81,15 +83,35 @@ export function ServicesPreview() {
           transition={{ duration: 0.5, delay: 0.1 }}
           className="bg-card border border-border rounded-2xl p-4 md:p-6 lg:p-8 shadow-sm"
         >
-          <Tabs defaultValue="strategy" className="space-y-8">
-            <TabsList className="w-full justify-start overflow-x-auto">
+          <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-8">
+            {/* MOBILE: selector accesible */}
+            <div className="md:hidden">
+              <label htmlFor="servicesTab" className="sr-only">
+                Seleccionar servicio
+              </label>
+              <select
+                id="servicesTab"
+                value={activeTab}
+                onChange={(e) => setActiveTab(e.target.value)}
+                className="w-full rounded-xl border border-border bg-background px-4 py-3 text-sm"
+              >
+                {tabs.map((tab) => (
+                  <option key={tab.value} value={tab.value}>
+                    {tr(tab.titleKey, tab.titleFallback)}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            {/* DESKTOP: tabs */}
+            <TabsList className="hidden md:flex w-full justify-start overflow-x-auto whitespace-nowrap flex-nowrap gap-2 no-scrollbar">
               {tabs.map((tab) => {
                 const Icon = tab.icon
                 return (
                   <TabsTrigger
                     key={tab.value}
                     value={tab.value}
-                    className="flex items-center gap-2 whitespace-nowrap px-4 py-2 text-sm md:text-base"
+                    className="shrink-0 flex items-center gap-2 whitespace-nowrap px-4 py-2 text-sm md:text-base"
                   >
                     <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-accent/10">
                       <Icon className="h-4 w-4 text-accent" />
@@ -113,10 +135,9 @@ export function ServicesPreview() {
                   <div className="grid gap-8 lg:grid-cols-[minmax(0,2fr)_minmax(0,1.4fr)] items-start">
                     <div className="space-y-4">
                       <div className="inline-flex items-center gap-2 rounded-full bg-[#2E2F84]/10 px-3 py-1 text-xs font-medium text-[#2E2F84]">
-  <Icon className="h-4 w-4" />
-  <span>{tr(tab.titleKey, tab.titleFallback)}</span>
-</div>
-
+                        <Icon className="h-4 w-4" />
+                        <span>{tr(tab.titleKey, tab.titleFallback)}</span>
+                      </div>
 
                       <h3 className="text-2xl md:text-3xl font-semibold text-foreground">
                         {tr(tab.titleKey, tab.titleFallback)}
@@ -129,27 +150,21 @@ export function ServicesPreview() {
                       <ul className="mt-4 space-y-2 text-sm md:text-base text-muted-foreground">
                         <li className="flex gap-2">
                           <span className="mt-1 h-1.5 w-1.5 rounded-full bg-accent" />
-                          <span>
-                            {tr(p1Key, "Diagnóstico inicial y definición de objetivos claros y alcanzables.")}
-                          </span>
+                          <span>{tr(p1Key, "Diagnóstico inicial y definición de objetivos claros y alcanzables.")}</span>
                         </li>
                         <li className="flex gap-2">
                           <span className="mt-1 h-1.5 w-1.5 rounded-full bg-accent" />
-                          <span>
-                            {tr(p2Key, "Plan de acción práctico, alineado con la realidad operativa de tu empresa.")}
-                          </span>
+                          <span>{tr(p2Key, "Plan de acción práctico, alineado con la realidad operativa de tu empresa.")}</span>
                         </li>
                         <li className="flex gap-2">
                           <span className="mt-1 h-1.5 w-1.5 rounded-full bg-accent" />
-                          <span>
-                            {tr(p3Key, "Seguimiento de indicadores y ajustes continuos para asegurar resultados.")}
-                          </span>
+                          <span>{tr(p3Key, "Seguimiento de indicadores y ajustes continuos para asegurar resultados.")}</span>
                         </li>
                       </ul>
                     </div>
 
                     <div className="rounded-xl border border-dashed border-accent/40 bg-accent/5 p-6 space-y-4">
-<p className="text-xs font-semibold uppercase tracking-wide text-[#2E2F84]">
+                      <p className="text-xs font-semibold uppercase tracking-wide text-[#2E2F84]">
                         {tr("services.highlight", "Qué podés esperar")}
                       </p>
                       <p className="text-sm md:text-base text-foreground leading-relaxed">

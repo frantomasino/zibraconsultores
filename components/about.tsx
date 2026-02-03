@@ -1,12 +1,9 @@
 "use client"
 
 import { useLanguage } from "@/lib/language-context"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Separator } from "@/components/ui/separator"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Briefcase, Target, Award } from "lucide-react"
-import type { ComponentType } from "react"
 import { useEffect, useRef, useState } from "react"
 
 export function About() {
@@ -15,23 +12,16 @@ export function About() {
   // refs para animar por secciones
   const headerRef = useRef<HTMLDivElement | null>(null)
   const companyRef = useRef<HTMLDivElement | null>(null)
+  const trajectoriesRef = useRef<HTMLDivElement | null>(null)
   const valuesRef = useRef<HTMLDivElement | null>(null)
-  const teamRef = useRef<HTMLDivElement | null>(null)
 
   // visibles
   const [headerVisible, setHeaderVisible] = useState(false)
   const [companyVisible, setCompanyVisible] = useState(false)
+  const [trajectoriesVisible, setTrajectoriesVisible] = useState(false)
   const [valuesVisible, setValuesVisible] = useState(false)
-  const [teamVisible, setTeamVisible] = useState(false)
 
   useEffect(() => {
-    const refs: Array<[React.RefObject<HTMLDivElement>, (v: boolean) => void]> = [
-      [{ current: headerRef.current } as any, setHeaderVisible],
-      [{ current: companyRef.current } as any, setCompanyVisible],
-      [{ current: valuesRef.current } as any, setValuesVisible],
-      [{ current: teamRef.current } as any, setTeamVisible],
-    ]
-
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -39,46 +29,47 @@ export function About() {
 
           if (entry.target === headerRef.current) setHeaderVisible(true)
           if (entry.target === companyRef.current) setCompanyVisible(true)
+          if (entry.target === trajectoriesRef.current) setTrajectoriesVisible(true)
           if (entry.target === valuesRef.current) setValuesVisible(true)
-          if (entry.target === teamRef.current) setTeamVisible(true)
 
-          // se anima una vez y listo
           observer.unobserve(entry.target)
         })
       },
       { threshold: 0.15 },
     )
 
-    ;[headerRef, companyRef, valuesRef, teamRef].forEach((r) => {
+    ;[headerRef, companyRef, trajectoriesRef, valuesRef].forEach((r) => {
       if (r.current) observer.observe(r.current)
     })
 
     return () => observer.disconnect()
   }, [])
 
-  const team: Array<{
-    name: string
-    title: string
-    expertise: string
-    icon: ComponentType<{ className?: string }>
-  }> = [
+  const trajectories = [
     {
-      name: t("about.team.member1.name"),
-      title: t("about.team.member1.title"),
-      expertise: t("about.team.member1.expertise"),
-      icon: Briefcase,
+      name: t("about.trajectories.natalia.name"),
+      title: t("about.trajectories.natalia.title"),
+      points: [
+        t("about.trajectories.natalia.p1"),
+        t("about.trajectories.natalia.p2"),
+        t("about.trajectories.natalia.p3"),
+      ].filter(Boolean),
     },
     {
-      name: t("about.team.member2.name"),
-      title: t("about.team.member2.title"),
-      expertise: t("about.team.member2.expertise"),
-      icon: Target,
+      name: t("about.trajectories.mariel.name"),
+      title: t("about.trajectories.mariel.title"),
+      points: [
+        t("about.trajectories.mariel.p1"),
+        t("about.trajectories.mariel.p2"),
+      ].filter(Boolean),
     },
     {
-      name: t("about.team.member3.name"),
-      title: t("about.team.member3.title"),
-      expertise: t("about.team.member3.expertise"),
-      icon: Award,
+      name: t("about.trajectories.fernando.name"),
+      title: t("about.trajectories.fernando.title"),
+      points: [
+        t("about.trajectories.fernando.p1"),
+        t("about.trajectories.fernando.p2"),
+      ].filter(Boolean),
     },
   ]
 
@@ -111,7 +102,7 @@ export function About() {
           </p>
         </div>
 
-        {/* Company Info */}
+        {/* Company Info (DEJAR ESTO COMO ESTÁ) */}
         <div
           ref={companyRef}
           className={`mb-16 grid md:grid-cols-2 gap-8 transition-all duration-700 ${
@@ -133,24 +124,37 @@ export function About() {
 
         <Separator className="my-16" />
 
-        {/* Values/Certifications */}
+        {/* Trayectorias (3 en línea) */}
         <div
-          ref={valuesRef}
+          ref={trajectoriesRef}
           className={`mb-16 transition-all duration-700 ${
-            valuesVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+            trajectoriesVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}
         >
           <h3 className="text-2xl md:text-3xl font-semibold text-center mb-12">
-            {t("about.badge")}
+            {t("about.trajectories.title")}
           </h3>
 
-          <div className="grid md:grid-cols-3 gap-6">
-            {values.map((value, index) => (
-              <Card key={index} className="text-center hover:shadow-lg transition-all">
-                <CardHeader>
-                  <CardTitle className="text-xl">{value.title}</CardTitle>
-                  <CardDescription className="text-base">{value.description}</CardDescription>
+          <div className="grid gap-6 lg:grid-cols-3">
+            {trajectories.map((p) => (
+              <Card key={p.name} className="border-2 shadow-sm">
+                <CardHeader className="pb-2">
+                  <CardTitle className="text-xl font-semibold text-[#2E2F84]">
+                    {p.name}
+                  </CardTitle>
+                  <p className="text-muted-foreground">{p.title}</p>
                 </CardHeader>
+
+                <CardContent className="pt-4">
+                  <div className="space-y-3">
+                    {p.points.map((txt, i) => (
+                      <div key={i} className="flex items-start gap-3 p-3 rounded-lg bg-muted/40">
+                        <span className="mt-2 h-2 w-2 rounded-full bg-[#2E2F84] flex-shrink-0" />
+                        <p className="text-muted-foreground leading-relaxed">{txt}</p>
+                      </div>
+                    ))}
+                  </div>
+                </CardContent>
               </Card>
             ))}
           </div>
@@ -158,66 +162,27 @@ export function About() {
 
         <Separator className="my-16" />
 
-        {/* Team */}
+        {/* Values/Certifications */}
         <div
-          ref={teamRef}
+          ref={valuesRef}
           className={`transition-all duration-700 ${
-            teamVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+            valuesVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}
         >
-          <h3 className="text-2xl md:text-3xl font-semibold text-center mb-4">
-            {t("hero.badge")}
+          <h3 className="text-2xl md:text-3xl font-semibold text-center mb-12">
+            {t("about.values.title")}
           </h3>
 
-          <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-            {t("about.intro")}
-          </p>
-
-          <Tabs defaultValue="member-0" className="w-full">
-            <TabsList className="grid w-full grid-cols-3 mb-8">
-              {team.map((member, index) => (
-                <TabsTrigger key={index} value={`member-${index}`} className="text-sm md:text-base">
-                  {member.name.split(" ")[0]}
-                </TabsTrigger>
-              ))}
-            </TabsList>
-
-            {team.map((member, index) => {
-              const Icon = member.icon
-              return (
-                <TabsContent key={index} value={`member-${index}`}>
-                  <Card className="border-2">
-                    <CardHeader className="text-center pb-4">
-                      <div className="flex justify-center mb-4">
-                        <div className="w-20 h-20 rounded-full bg-accent/10 flex items-center justify-center">
-                          <Icon className="w-10 h-10 text-accent" />
-                        </div>
-                      </div>
-
-                      <Badge variant="default" className="mx-auto mb-3 text-lg px-6 py-2">
-                        {member.name}
-                      </Badge>
-
-                      <CardTitle className="text-2xl font-semibold">{member.title}</CardTitle>
-                    </CardHeader>
-
-                    <Separator />
-
-                    <CardContent className="pt-8">
-                      <div className="space-y-4">
-                        {member.expertise.split("\n").map((item, i) => (
-                          <div key={i} className="flex items-start gap-3 p-3 rounded-lg bg-muted/50">
-                            <div className="w-2 h-2 rounded-full bg-accent mt-2 flex-shrink-0" />
-                            <p className="text-muted-foreground leading-relaxed">{item}</p>
-                          </div>
-                        ))}
-                      </div>
-                    </CardContent>
-                  </Card>
-                </TabsContent>
-              )
-            })}
-          </Tabs>
+          <div className="grid md:grid-cols-3 gap-6">
+            {values.map((value, index) => (
+              <Card key={index} className="text-center hover:shadow-lg transition-all border-2">
+                <CardHeader>
+                  <CardTitle className="text-xl">{value.title}</CardTitle>
+                  <p className="text-base text-muted-foreground">{value.description}</p>
+                </CardHeader>
+              </Card>
+            ))}
+          </div>
         </div>
       </div>
     </section>

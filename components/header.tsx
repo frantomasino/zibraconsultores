@@ -53,7 +53,13 @@ export function Header() {
           >
             {/* CHICO EN MOBILE - GRANDE EN DESKTOP */}
             <div className="relative h-10 w-[170px] sm:h-12 sm:w-[210px] md:h-16 md:w-[320px] lg:h-20 lg:w-[380px]">
-              <Image src={LOGO_SRC} alt="Zibra Consultora" fill priority className="object-contain object-left" />
+              <Image
+                src={LOGO_SRC}
+                alt="Zibra Consultora"
+                fill
+                priority
+                className="object-contain object-left"
+              />
             </div>
           </Link>
 
@@ -82,35 +88,43 @@ export function Header() {
           {/* DERECHA */}
           <TooltipProvider>
             <div className="flex items-center gap-2 md:gap-3 flex-none">
-              {/* IDIOMA - MOBILE: SOLO BOTÓN REDONDO */}
+              {/* IDIOMA */}
               <DropdownMenu>
+                {/* ✅ UN SOLO TRIGGER (renderiza mobile o desktop dentro) */}
                 <DropdownMenuTrigger asChild>
-                  <button
-                    type="button"
-                    className="md:hidden h-10 w-10 inline-flex items-center justify-center rounded-full border border-border bg-background hover:bg-muted/60 transition-colors"
-                    aria-label="Cambiar idioma"
-                  >
-                    <Globe className="w-5 h-5" />
+                  <button type="button" className="group" aria-label="Cambiar idioma">
+                    {/* MOBILE: botón redondo */}
+                    <span className="md:hidden h-10 w-10 inline-flex items-center justify-center rounded-full border border-border bg-background hover:bg-muted/60 transition-colors">
+                      <Globe className="w-5 h-5" />
+                    </span>
+
+                    {/* DESKTOP: botón con texto */}
+                    <span className="hidden md:inline-flex items-center gap-2 px-3 py-2 text-sm text-foreground/80 hover:text-foreground transition-colors border border-border rounded-md hover:bg-muted/60 font-medium bg-background">
+                      <Globe className="w-4 h-4" />
+                      <span>{language === "en" ? "English" : "Español"}</span>
+                      <ChevronDown className="w-4 h-4" />
+                    </span>
                   </button>
                 </DropdownMenuTrigger>
 
-                {/* IDIOMA - DESKTOP: BOTÓN CON TEXTO */}
-                <DropdownMenuTrigger asChild>
-                  <button
-                    type="button"
-                    className="hidden md:flex items-center gap-2 px-3 py-2 text-sm text-foreground/80 hover:text-foreground transition-colors border border-border rounded-md hover:bg-muted/60 font-medium bg-background"
+                <DropdownMenuContent
+                  side="bottom"
+                  align="end"
+                  sideOffset={8}
+                  collisionPadding={12}
+                  className="z-50 min-w-[9.5rem]"
+                >
+                  <DropdownMenuItem
+                    onClick={() => setLanguage("es")}
+                    className={language === "es" ? "font-semibold" : ""}
                   >
-                    <Globe className="w-4 h-4" />
-                    <span>{language === "en" ? "English" : "Español"}</span>
-                    <ChevronDown className="w-4 h-4" />
-                  </button>
-                </DropdownMenuTrigger>
-
-                <DropdownMenuContent align="end" className="min-w-[8rem]">
-                  <DropdownMenuItem onClick={() => setLanguage("es")} className={language === "es" ? "font-semibold" : ""}>
                     Español
                   </DropdownMenuItem>
-                  <DropdownMenuItem onClick={() => setLanguage("en")} className={language === "en" ? "font-semibold" : ""}>
+
+                  <DropdownMenuItem
+                    onClick={() => setLanguage("en")}
+                    className={language === "en" ? "font-semibold" : ""}
+                  >
                     English
                   </DropdownMenuItem>
                 </DropdownMenuContent>

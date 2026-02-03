@@ -12,7 +12,7 @@ interface LanguageContextType {
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined)
 
-const translations = {
+const translations: Record<Language, Record<string, string>> = {
   en: {
     // Header
     "nav.home": "Home",
@@ -25,9 +25,9 @@ const translations = {
 
     // Hero
     "hero.badge": "Business Consulting",
-    "hero.title": "Strategic Consulting for Business Growth",
+    "hero.title": "Management that transforms, business that grows.",
     "hero.subtitle":
-      "We help companies transform their operations and achieve sustainable growth through expert strategic guidance and proven methodologies.",
+      "We advise SMEs and organizations on how to optimize processes, strengthen leadership, and improve team performance by transforming their operations and achieving sustainable growth.",
     "hero.cta.primary": "Contact Us",
     "hero.cta.secondary": "Learn More",
     "hero.trust1": "Free Consultation",
@@ -65,7 +65,8 @@ const translations = {
     "services.mainTitle": "What we can do",
     "services.mainTitleHighlight": "for your business",
     "services.title": "Services",
-    "services.subtitle": "Tailored consulting services designed to meet your unique business needs",
+    "services.subtitle":
+      "Customized consulting services designed to drive the transformation of your SME and take it to the next level",
     "services.viewAll": "View All Services",
     "services.strategy.title": "Strategic Planning",
     "services.strategy.desc": "Develop clear roadmaps and actionable strategies for long-term success",
@@ -82,7 +83,6 @@ const translations = {
 
     // Services (extra keys for ServicesPreview)
     "services.highlight": "What you can expect",
-
     "services.strategy.point1": "Initial diagnosis and clear definition of achievable objectives.",
     "services.strategy.point2": "Practical action plan aligned with your company’s operational reality.",
     "services.strategy.point3": "KPI tracking and continuous adjustments to ensure results.",
@@ -109,33 +109,51 @@ const translations = {
     "services.people.highlight":
       "We help you align people and processes, so the team moves in the same direction and execution improves.",
 
-    // About
+    // About (BASE) ✅ (esto evita que aparezca about.badge/about.title/etc)
     "about.badge": "About Zibra Consulting",
     "about.title": "Your Partner in Business Excellence",
     "about.intro":
       "We are a team of leaders with robust business experience in the logistics industry, specialized in the development, implementation and optimization of projects to achieve growth and efficiency in the operations of our clients.",
     "about.p1":
-      "With over 15 years of experience in business consulting, we've helped hundreds of companies transform their operations and achieve sustainable growth.",
+      "With extensive experience in business advisory, we support organizations in strengthening management, improving execution and achieving sustainable results.",
     "about.p2":
-      "Our expertise spans across strategic planning, operations management, financial consulting, and organizational development. We work with businesses of all sizes, from startups to established enterprises.",
-    "about.cert1.title": "Certified Business Consultants",
-    "about.cert1.desc": "Recognized by international consulting bodies",
-    "about.cert2.title": "200+ Successful Projects",
-    "about.cert2.desc": "With 98% client satisfaction rate",
-    "about.cert3.title": "Personalized Approach",
-    "about.cert3.desc": "Custom solutions for your unique challenges",
-    "about.team.member1.name": "Juan Pablo Finocchiaro",
-    "about.team.member1.title": "Finance and Technology Expert",
-    "about.team.member1.expertise":
-      "Specialist in administrative-financial processes\nExecutive with solid trajectory as CFO and CTO at International Holdings\nAssociate director in more than 10 companies in LATAM\nLeader in digital transformation processes and operational efficiency and strategic decision-making in dynamic environments",
-    "about.team.member2.name": "Lucas Hachen",
-    "about.team.member2.title": "Management and Finance Expert",
-    "about.team.member2.expertise":
-      "Executive with extensive experience in general and financial management of national and multinational companies\nSpecialist in restructuring, mergers and acquisitions (M&A) and development of corporate strategies to boost growth and operational efficiency",
-    "about.team.member3.name": "Santiago Saenz",
-    "about.team.member3.title": "Risk Management and Compliance Expert",
-    "about.team.member3.expertise":
-      "Executive with extensive experience in private organizations\nCFO Holding in Uruguay and Paraguay\nExternal advisor and consultant with more than 25 years of experience",
+      "We combine strategic vision with hands-on implementation, aligning processes, people and indicators to create measurable improvements.",
+
+    // Values/Certifications
+    "about.cert1.title": "Certified Business Professionals",
+    "about.cert1.desc": "Experience in advisory and management",
+    "about.cert2.title": "Extensive Track Record",
+    "about.cert2.desc": "Leadership in corporate and SME environments",
+    "about.cert3.title": "Practical Approach",
+    "about.cert3.desc": "Clear execution and measurable outcomes",
+
+    // About (Trajectories) ✅ SOLO estos 3
+    "about.trajectories.natalia.name": "Natalia Bertoldi",
+    "about.trajectories.natalia.title": "Public Accountant",
+    "about.trajectories.natalia.p1":
+      "Public Accountant with extensive experience in accounting firms and in both private and public sector organizations. Throughout my career, I have worked in auditing, management and control, and in preparing key information for decision-making in national and international companies.",
+    "about.trajectories.natalia.p2":
+      "I have supported companies through growth and transformation processes, helping build administrative structures, define processes, organize management and form work teams, with a focus on sustainable results.",
+    "about.trajectories.natalia.p3":
+      "I complement my technical background with certification as an Ontological Coach and Team Coach, integrating a human-centered approach into management. Today, I help companies and organizations professionalize their management, strengthen leadership and improve team performance by aligning processes, people and strategy.",
+
+    "about.trajectories.mariel.name": "Mariel Boquiola",
+    "about.trajectories.mariel.title": "Public Accountant",
+    "about.trajectories.mariel.p1":
+      "Public Accountant with more than 25 years of experience in administration, accounting and management control, developed in corporate companies and SMEs. I have held leadership roles, supporting processes of order, organization and professionalization, always from a comprehensive business perspective.",
+    "about.trajectories.mariel.p2":
+      "I have experience in cash flow management, financial planning and inventory control, working directly with partners and owners in decision-making. I support companies by bringing predictability, reliable information and professional judgment, with a close, clear working style focused on creating peace of mind in day-to-day management.",
+
+    "about.trajectories.fernando.name": "Fernando Zanchetti",
+    "about.trajectories.fernando.title": "Public Accountant • MBA",
+    "about.trajectories.fernando.p1":
+      "Public Accountant with an MBA, experienced in positions of local and regional responsibility in Planning and Management Control, Finance and Accounting, both in multinationals and SMEs.",
+    "about.trajectories.fernando.p2":
+      "I have led processes for defining financial strategies, business valuations and process improvements, applying international standards and management tools. I support organizations in strategic decision-making, bringing business vision, financial analysis, and a focus on efficiency and results.",
+
+"about.trajectories.title": "Professional background",
+"about.values.title": "Certifications",
+
 
     // Testimonials
     "testimonials.badge": "Success Stories",
@@ -143,7 +161,7 @@ const translations = {
     "testimonial1.name": "Carlos Mendoza",
     "testimonial1.role": "CEO, Tech Innovations",
     "testimonial1.quote":
-      "Gelso Consulting transformed our operations. Their strategic insights helped us increase efficiency by 40% in just 6 months.",
+      "Zibra Consulting transformed our operations. Their strategic insights helped us increase efficiency by 40% in just 6 months.",
     "testimonial2.name": "Maria Rodriguez",
     "testimonial2.role": "Founder, Retail Solutions",
     "testimonial2.quote":
@@ -181,6 +199,21 @@ const translations = {
     "clients.badge": "Our Clients",
     "clients.title": "Trusted by Leading Companies",
     "clients.subtitle": "We work with innovative companies across industries to drive growth and success",
+    "clients.aliwen.name": "Aliwen - Natural Store",
+    "clients.aliwen.industry": "Online Health Store",
+    "clients.aliwen.challenge": "Initial Challenge",
+    "clients.aliwen.challengeDesc":
+      "The business was already running, but with a structure that limited its growth.",
+    "clients.aliwen.solution": "Solution",
+    "clients.aliwen.solutionDesc":
+      "Business potential analysis, strategic investment decision, task reorganization, professionalization of management, resources for social media, expansion of sales channels and implementation of a management system.",
+    "clients.aliwen.results": "Results in 1 year",
+    "clients.aliwen.result1": "+900%",
+    "clients.aliwen.result1Label": "Monthly revenue",
+    "clients.aliwen.result2": "+700%",
+    "clients.aliwen.result2Label": "Profitability",
+    "clients.aliwen.result3": "-100%",
+    "clients.aliwen.result3Label": "Operational control",
 
     // FAQ
     "faq.badge": "Questions?",
@@ -222,7 +255,6 @@ const translations = {
     "footer.contact": "Contact",
   },
 
-  // ARRANCA IDIOMA ESPAÑOL
   es: {
     // Header
     "nav.home": "Inicio",
@@ -235,9 +267,9 @@ const translations = {
 
     // Hero
     "hero.badge": "Consultoría Empresarial",
-    "hero.title": "Consultoría Estratégica para el Crecimiento Empresarial",
+    "hero.title": "Gestión que se transforma, negocio que crece.",
     "hero.subtitle":
-      "Ayudamos a las empresas a transformar sus operaciones y lograr un crecimiento sostenible a través de orientación estratégica experta y metodologías comprobadas.",
+      "Asesoramos a pymes y organizaciones para optimizar procesos, fortalecer el liderazgo y mejorar el desempeño de los equipos transformando sus operaciones y logrando un crecimiento sostenible",
     "hero.cta.primary": "Contáctanos",
     "hero.cta.secondary": "Saber Más",
     "hero.trust1": "Consulta Gratis",
@@ -277,7 +309,7 @@ const translations = {
     "services.mainTitleHighlight": "por su empresa",
     "services.title": "Servicios",
     "services.subtitle":
-      "Servicios de consultoría personalizados diseñados para satisfacer tus necesidades empresariales únicas",
+      "Servicios de consultoría personalizados diseñados para impulsar la transformación de tu pyme y llevarla al próximo nivel",
     "services.viewAll": "Ver Todos los Servicios",
     "services.strategy.title": "Planificación Estratégica",
     "services.strategy.desc": "Desarrolla hojas de ruta claras y estrategias accionables para el éxito a largo plazo",
@@ -294,7 +326,6 @@ const translations = {
 
     // Services (claves extra para ServicesPreview)
     "services.highlight": "Qué podés esperar",
-
     "services.strategy.point1": "Diagnóstico inicial y definición de objetivos claros y alcanzables.",
     "services.strategy.point2": "Plan de acción práctico, alineado con la realidad operativa de tu empresa.",
     "services.strategy.point3": "Seguimiento de indicadores y ajustes continuos para asegurar resultados.",
@@ -322,33 +353,49 @@ const translations = {
     "services.people.highlight":
       "Alineamos personas y procesos para que el equipo avance en la misma dirección y mejore la ejecución.",
 
-    // About
+    // About (BASE) ✅
     "about.badge": "Sobre Zibra Consultora",
     "about.title": "Tu Socio en la Excelencia Empresarial",
     "about.intro":
       "Somos un equipo de líderes con una robusta experiencia empresarial en la industria logística, especializados en el desarrollo, implementación y optimización de proyectos para lograr crecimiento y eficiencia en las operaciones de nuestros clientes.",
     "about.p1":
-      "Con más de 15 años de experiencia en consultoría empresarial, hemos ayudado a cientos de empresas a transformar sus operaciones y lograr un crecimiento sostenible.",
+      "Con amplia experiencia en asesoramiento empresarial, acompañamos a organizaciones a fortalecer su gestión, mejorar la ejecución y lograr resultados sostenibles.",
     "about.p2":
-      "Nuestra experiencia abarca planificación estratégica, gestión de operaciones, consultoría financiera y desarrollo organizacional. Trabajamos con empresas de todos los tamaños, desde startups hasta empresas establecidas.",
-    "about.cert1.title": "Consultores Empresariales Certificados",
-    "about.cert1.desc": "Reconocidos por organismos internacionales de consultoría",
-    "about.cert2.title": "200+ Proyectos Exitosos",
-    "about.cert2.desc": "Con 98% de satisfacción del cliente",
-    "about.cert3.title": "Enfoque Personalizado",
-    "about.cert3.desc": "Soluciones personalizadas para tus desafíos únicos",
-    "about.team.member1.name": "Francisco Tomasino",
-    "about.team.member1.title": "Experto en Finanzas y Tecnología",
-    "about.team.member1.expertise":
-      "Especialista en procesos administrativo-financieros\nEjecutivo con sólida trayectoria como CFO y CTO en Holdings Internacionales\nDirector asociado en mas de 10 empresas en LATAM\nLíder en procesos de transformación digital y eficiencia operativa y la toma de decisiones estratégicas en entornos dinámicos",
-    "about.team.member2.name": "Francisco Tomasino",
-    "about.team.member2.title": "Experto en Gestión y Finanza",
-    "about.team.member2.expertise":
-      "Ejecutivo con amplia experiencia en gestión general y financiera de empresas nacionales y multinacionales\nEspecialista en reestructuración, fusiones y adquisiciones (M&A) y desarrollo de estrategias corporativas para impulsar el crecimiento y la eficiencia operativa",
-    "about.team.member3.name": "Francisco Tomasino",
-    "about.team.member3.title": "Experto Gestión de Riesgo y Compliance",
-    "about.team.member3.expertise":
-      "Ejecutivo con amplia experiencia en organizaciones privadas\nCFO Holding en Uruguay y Paraguay\nAsesor y consultor externo con más de 25 años de experiencia",
+      "Combinamos visión estratégica con implementación práctica, alineando procesos, personas e indicadores para generar mejoras medibles.",
+
+    // Values/Certifications
+    "about.cert1.title": "Profesionales Certificados",
+    "about.cert1.desc": "Experiencia en gestión y asesoramiento",
+    "about.cert2.title": "Trayectoria Comprobada",
+    "about.cert2.desc": "Liderazgo en entornos corporativos y pymes",
+    "about.cert3.title": "Enfoque Práctico",
+    "about.cert3.desc": "Ejecución clara y resultados medibles",
+
+    // About (Trayectorias) ✅ SOLO estos 3
+    "about.trajectories.natalia.name": "Natalia Bertoldi",
+    "about.trajectories.natalia.title": "Contadora Pública",
+    "about.trajectories.natalia.p1":
+      "Contadora Pública, con una amplia trayectoria en estudios contables y en organizaciones del sector privado y público. A lo largo de mi carrera he trabajado en auditoría, gestión y control, y en la elaboración de información clave para la toma de decisiones en empresas nacionales y extranjeras.",
+    "about.trajectories.natalia.p2":
+      "He acompañado a empresas en procesos de crecimiento y transformación, participando en el armado de estructuras administrativas, definición de procesos, ordenamiento de la gestión y conformación de equipos de trabajo, con foco en resultados sostenibles.",
+    "about.trajectories.natalia.p3":
+      "Complemento mi formación técnica con certificación como Coach Ontológica y Coach de Equipos, integrando una mirada humana a la gestión. Actualmente acompaño a empresas y organizaciones a profesionalizar su gestión, fortalecer liderazgos y mejorar el desempeño de sus equipos, alineando procesos, personas y estrategia.",
+
+    "about.trajectories.mariel.name": "Mariel Boquiola",
+    "about.trajectories.mariel.title": "Contadora Pública",
+    "about.trajectories.mariel.p1":
+      "Contadora Pública con más de 25 años de experiencia en administración, contabilidad y control de gestión, desarrollada en empresas corporativas y pymes. He ocupado roles de liderazgo, acompañando procesos de orden, organización y profesionalización, siempre desde una mirada integral del negocio.",
+    "about.trajectories.mariel.p2":
+      "Cuento con experiencia en gestión del cash flow, planificación financiera y control de stock, trabajando de manera directa con socios y dueños en la toma de decisiones. Acompaño a las empresas aportando previsibilidad, información confiable y criterio profesional, con un estilo de trabajo cercano, claro y orientado a generar tranquilidad en la gestión diaria.",
+
+    "about.trajectories.fernando.name": "Fernando Zanchetti",
+    "about.trajectories.fernando.title": "Contador Público • MBA",
+    "about.trajectories.fernando.p1":
+      "Contador Público con Maestría en Administración de Negocios, con experiencia en posiciones de responsabilidad a nivel local y regional en Planeamiento y Control de Gestión, Finanzas y Contabilidad, tanto en multinacionales como en pymes.",
+    "about.trajectories.fernando.p2":
+      "He liderado procesos de definición de estrategias financieras, valuaciones de negocios y mejora de procesos, aplicando normas internacionales y herramientas de gestión. Acompaño a las organizaciones en la toma de decisiones estratégicas, aportando visión de negocio, análisis financiero y foco en la eficiencia y los resultados.",
+"about.trajectories.title": "Trayectoria profesional",
+"about.values.title": "Certificaciones",
 
     // Testimonials
     "testimonials.badge": "Historias de Éxito",
@@ -366,7 +413,7 @@ const translations = {
     "testimonial3.quote":
       "Profesionales, conocedores y orientados a resultados. Entendieron nuestros desafíos y entregaron soluciones prácticas.",
 
-    // Contact
+    // Contact (lo dejo como lo tenías)
     "contact.title": "Gracias por acercarse a Zibra",
     "contact.subtitle": "Hablemos sobre cómo podemos ayudar a tu negocio a alcanzar sus objetivos",
     "contact.form.name": "Nombre Completo",
@@ -390,9 +437,23 @@ const translations = {
     "contact.info.address": "Dirección",
 
     // Clients
-    "clients.badge": "Nuestros Clientes",
-    "clients.title": "Confianza de Empresas Líderes",
-    "clients.subtitle": "Trabajamos con empresas innovadoras de diversas industrias para impulsar crecimiento y éxito",
+    "clients.badge": "Casos de Éxito",
+    "clients.title": "Empresas que confiaron en nosotros",
+    "clients.subtitle": "Resultados reales que hablan por sí solos",
+    "clients.aliwen.name": "Aliwen - Tienda Natural",
+    "clients.aliwen.industry": "Dietética Online",
+    "clients.aliwen.challenge": "Desafío Inicial",
+    "clients.aliwen.challengeDesc": "El negocio ya estaba en marcha, pero con una estructura que limitaba su crecimiento.",
+    "clients.aliwen.solution": "Solución",
+    "clients.aliwen.solutionDesc":
+      "Análisis del potencial del negocio, decisión de inversión estratégica, reorganización de tareas, profesionalización de la gestión, recursos para redes sociales, ampliación de canales de venta e implementación de sistema de gestión.",
+    "clients.aliwen.results": "Resultados en 1 año",
+    "clients.aliwen.result1": "+900%",
+    "clients.aliwen.result1Label": "Facturación mensual",
+    "clients.aliwen.result2": "+700%",
+    "clients.aliwen.result2Label": "Rentabilidad",
+    "clients.aliwen.result3": "-100%",
+    "clients.aliwen.result3Label": "Control operativo",
 
     // FAQ
     "faq.badge": "¿Preguntas?",
@@ -440,9 +501,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     const stored = localStorage.getItem("language") as Language
-    if (stored && (stored === "en" || stored === "es")) {
-      setLanguage(stored)
-    }
+    if (stored && (stored === "en" || stored === "es")) setLanguage(stored)
   }, [])
 
   const handleSetLanguage = (lang: Language) => {
@@ -451,8 +510,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   }
 
   const t = (key: string): string => {
-    const langTranslations = (translations as any)[language] as Record<string, string> | undefined
-    return langTranslations?.[key] ?? key
+    return translations[language]?.[key] ?? key
   }
 
   return (
@@ -464,8 +522,6 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
 
 export function useLanguage() {
   const context = useContext(LanguageContext)
-  if (!context) {
-    throw new Error("useLanguage must be used within LanguageProvider")
-  }
+  if (!context) throw new Error("useLanguage must be used within LanguageProvider")
   return context
 }
