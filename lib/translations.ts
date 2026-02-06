@@ -56,6 +56,13 @@ export const translations: Record<Language, Record<string, string>> = {
     "services.subtitle":
       "Customized consulting services designed to drive the transformation of your SME and take it to the next level",
     "services.viewAll": "View All Services",
+
+    // ✅ NEW (to avoid hardcoded strings in Services section)
+    "services.cardCta": "Learn more",
+    "services.bottomCtaTitle": "Want a clear, actionable recommendation?",
+    "services.bottomCtaDesc": "Tell us about your situation and we’ll propose a plan focused on results.",
+    "services.bottomCtaButton": "Contact",
+
     "services.strategy.title": "Strategic Planning",
     "services.strategy.desc": "Develop clear roadmaps and actionable strategies for long-term success",
     "services.operations.title": "Operations Optimization",
@@ -137,7 +144,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "about.trajectories.fernando.p1":
       "Public Accountant with an MBA, experienced in positions of local and regional responsibility in Planning and Management Control, Finance and Accounting, both in multinationals and SMEs.",
     "about.trajectories.fernando.p2":
-      "I have led processes for defining financial strategies, business valuations and process improvements, applying international standards and management tools. I support organizations in strategic decision-making, bringing business vision, financial analysis, and a focus on efficiency and results.",
+      "I have led processes for defining financial strategies, business valuations and process improvements, applying international standards and management tools. I support companies in strategic decision-making, bringing business vision, financial analysis, and a focus on efficiency and results.",
 
     "about.trajectories.title": "Professional background",
     "about.values.title": "Certifications",
@@ -297,6 +304,13 @@ export const translations: Record<Language, Record<string, string>> = {
     "services.subtitle":
       "Servicios de consultoría personalizados diseñados para impulsar la transformación de tu pyme y llevarla al próximo nivel",
     "services.viewAll": "Ver Todos los Servicios",
+
+    // ✅ NEW (to avoid hardcoded strings in Services section)
+    "services.cardCta": "Ver más",
+    "services.bottomCtaTitle": "¿Querés una recomendación clara y accionable?",
+    "services.bottomCtaDesc": "Contanos tu situación y te proponemos un plan de trabajo con foco en resultados.",
+    "services.bottomCtaButton": "Contactar",
+
     "services.strategy.title": "Planificación Estratégica",
     "services.strategy.desc": "Desarrolla hojas de ruta claras y estrategias accionables para el éxito a largo plazo",
     "services.operations.title": "Optimización de Operaciones",
@@ -377,7 +391,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "about.trajectories.fernando.name": "Fernando Zanchetti",
     "about.trajectories.fernando.title": "Contador Público • MBA",
     "about.trajectories.fernando.p1":
-      "Contador Público con Maestría en Administración de Negocios, con experiencia en posiciones de responsabilidad a nivel local y regional en Planeamiento y Control de Gestión, Finanzas y Contabilidad, tanto en multinacionales como en pymes.",
+      "Contador Público con Maestría en Administración de Negocios, con experiencia en posiciones de responsabilidad en Planeamiento y Control de Gestión, Finanzas y Contabilidad, tanto en multinacionales como en pymes.",
     "about.trajectories.fernando.p2":
       "He liderado procesos de definición de estrategias financieras, valuaciones de negocios y mejora de procesos, aplicando normas internacionales y herramientas de gestión. Acompaño a las organizaciones en la toma de decisiones estratégicas, aportando visión de negocio, análisis financiero y foco en la eficiencia y los resultados.",
 
