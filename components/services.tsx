@@ -19,7 +19,11 @@ export function Services() {
   const [visibleCards, setVisibleCards] = useState<boolean[]>([])
   const sectionRef = useRef<HTMLElement | null>(null)
 
-  // ✅ fallback también si viene vacío/undefined
+  // ✅ Replay del título cada 45s
+  const REPLAY_MS = 45_000
+  const [titleCycle, setTitleCycle] = useState(0)
+
+  // ✅ Fallback si viene vacío/undefined o si no existe la key
   const tr = (key: string, fallback: string) => {
     const value = t(key)
     if (!value || value === key) return fallback
@@ -80,6 +84,7 @@ export function Services() {
     [],
   )
 
+  // ✅ Cards: aparecen una vez al entrar (stagger)
   useEffect(() => {
     const node = sectionRef.current
     if (!node) return
@@ -98,7 +103,7 @@ export function Services() {
               next[index] = true
               return next
             })
-          }, index * 170) // 👈 un poco más lento
+          }, index * 150)
         })
 
         observer.disconnect()
@@ -110,32 +115,31 @@ export function Services() {
     return () => observer.disconnect()
   }, [services])
 
+  // ✅ Título: re-lanzar animación cada 45s (aunque no scrollees)
+  useEffect(() => {
+    const id = window.setInterval(() => setTitleCycle((v) => v + 1), REPLAY_MS)
+    return () => window.clearInterval(id)
+  }, [])
+
   const mainTitle = tr("services.mainTitle", "Lo que podemos hacer")
   const mainTitleHighlight = tr("services.mainTitleHighlight", "por su empresa")
 
-  // ✅ FIX: cuando cambia el texto (por idioma), re-monto el bloque para que Framer re-animé y NO quede hidden
-  const titleMountKey = `${mainTitle}__${mainTitleHighlight}`
-
-  // ✅ Animación más lenta (tipo Gelso)
-  const TITLE_STAGGER = 0.18
-  const WORD_DURATION = 0.75
+  // 🎛️ Más lento (título)
+  const TITLE_STAGGER = 0.16
+  const WORD_DURATION = 0.8
   const WORD_Y = 16
-
-  const baseWords = mainTitle.trim().split(/\s+/).filter(Boolean)
-  const highlightWords = mainTitleHighlight.trim().split(/\s+/).filter(Boolean)
-
-  const highlightBaseDelay = baseWords.length * TITLE_STAGGER
-  const underlineDelay = highlightBaseDelay + highlightWords.length * TITLE_STAGGER + 0.2
+  const UNDERLINE_DELAY = 0.9
+  const UNDERLINE_DURATION = 1.1
 
   return (
-    <section id="services" className="bg-background py-20 md:py-32" ref={(el) => (sectionRef.current = el)}>
+    <section id="services" className="bg-background py-20 md:py-32" ref={sectionRef}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-14 md:mb-16">
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.55 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.9 }}
             className="mb-5 flex justify-center"
           >
             <span className="inline-flex items-center rounded-full bg-accent/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wide text-accent">
@@ -143,17 +147,25 @@ export function Services() {
             </span>
           </motion.div>
 
-          {/* ✅ key para re-montar en cambio de idioma */}
-          <h2 key={titleMountKey} className="text-4xl md:text-5xl text-foreground mb-4">
-            {/* Parte 1 */}
+          {/* ✅ key cambia cada 45s => se remonta => se reinicia animación */}
+          <motion.h2
+            key={`services-title-${titleCycle}`}
+            initial="hidden"
+            animate="show"
+            variants={{
+              hidden: {},
+              show: { transition: { staggerChildren: TITLE_STAGGER } },
+            }}
+            className="text-4xl md:text-5xl text-foreground mb-4"
+          >
             <span className="inline-block">
-              {baseWords.map((w, i) => (
+              {mainTitle.split(" ").map((w, i) => (
                 <motion.span
                   key={`${w}-${i}`}
-                  initial={{ opacity: 0, y: WORD_Y }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.7 }}
-                  transition={{ duration: WORD_DURATION, delay: i * TITLE_STAGGER }}
+                  variants={{
+                    hidden: { opacity: 0, y: WORD_Y },
+                    show: { opacity: 1, y: 0, transition: { duration: WORD_DURATION } },
+                  }}
                   className="inline-block"
                 >
                   {w}
@@ -162,15 +174,14 @@ export function Services() {
               ))}
             </span>
 
-            {/* Parte resaltada */}
             <span className="relative inline-block text-[#2E2F84]">
-              {highlightWords.map((w, i) => (
+              {mainTitleHighlight.split(" ").map((w, i) => (
                 <motion.span
                   key={`${w}-${i}`}
-                  initial={{ opacity: 0, y: WORD_Y }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.7 }}
-                  transition={{ duration: WORD_DURATION, delay: highlightBaseDelay + i * TITLE_STAGGER }}
+                  variants={{
+                    hidden: { opacity: 0, y: WORD_Y },
+                    show: { opacity: 1, y: 0, transition: { duration: WORD_DURATION } },
+                  }}
                   className="inline-block"
                 >
                   {w}
@@ -181,20 +192,19 @@ export function Services() {
               <motion.span
                 aria-hidden="true"
                 initial={{ scaleX: 0, opacity: 0 }}
-                whileInView={{ scaleX: 1, opacity: 1 }}
-                viewport={{ once: true, amount: 0.7 }}
-                transition={{ duration: 1.15, delay: underlineDelay }}
+                animate={{ scaleX: 1, opacity: 1 }}
+                transition={{ duration: UNDERLINE_DURATION, delay: UNDERLINE_DELAY }}
                 className="absolute left-0 -bottom-1 h-[2px] w-full bg-border"
                 style={{ transformOrigin: "left" }}
               />
             </span>
-          </h2>
+          </motion.h2>
 
           <motion.p
             initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.55 }}
-            transition={{ duration: 0.85, delay: 0.15 }}
+            transition={{ duration: 0.95, delay: 0.2 }}
             className="text-lg text-muted-foreground max-w-3xl mx-auto"
           >
             {tr(
