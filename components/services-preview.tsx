@@ -198,14 +198,15 @@ export function ServicesPreview() {
                     transition-transform duration-300 group-hover:scale-[1.03]
                   "
                 >
-                  <img
-                    src={c.iconSrc}
-                    alt={c.iconAlt}
-                    width={40}
-                    height={40}
-                    className="h-10 w-10"
-                    loading="lazy"
-                  />
+                  <div className="grid h-14 w-14 place-items-center rounded-full border border-border bg-background">
+  <img
+    src={c.iconSrc}
+    alt={c.iconAlt}
+    className="block h-10 w-10 object-contain"
+    loading="lazy"
+  />
+</div>
+
                 </div>
 
                 <div className="min-w-0">
