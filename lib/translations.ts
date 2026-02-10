@@ -306,7 +306,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "services.viewAll": "Ver Todos los Servicios",
 
     // ✅ NEW (to avoid hardcoded strings in Services section)
-    "services.cardCta": "Ver más",
+    "services.cardCta": "Saber más",
     "services.bottomCtaTitle": "¿Querés una recomendación clara y accionable?",
     "services.bottomCtaDesc": "Contanos tu situación y te proponemos un plan de trabajo con foco en resultados.",
     "services.bottomCtaButton": "Contactar",
@@ -428,12 +428,12 @@ export const translations: Record<Language, Record<string, string>> = {
     "contact.email.subject": "Consulta Empresarial",
     "contact.email.name": "Nombre",
     "contact.email.email": "Email",
-    "contact.email.phone": "Teléfono",
+    "contact.email.phone": "Teléfonos",
     "contact.email.company": "Empresa",
     "contact.email.message": "Mensaje",
     "contact.whatsapp.title": "Consulta Empresarial desde el Sitio Web",
     "contact.info.title": "Información de Contacto",
-    "contact.info.phone": "Teléfono",
+    "contact.info.phone": "Teléfonos",
     "contact.info.email": "Correo",
     "contact.info.address": "Dirección",
 

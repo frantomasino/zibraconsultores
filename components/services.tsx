@@ -1,12 +1,13 @@
 "use client"
 
 import { useLanguage } from "@/lib/language-context"
-import { TrendingUp, Settings, DollarSign, Users, Cpu, Target, ArrowRight } from "lucide-react"
+import { ArrowRight } from "lucide-react"
 import { useEffect, useMemo, useRef, useState } from "react"
 import { motion } from "framer-motion"
 
 type ServiceItem = {
-  icon: JSX.Element
+  iconSrc: string
+  iconAlt: string
   titleKey: string
   descKey: string
   titleFallback: string
@@ -33,7 +34,8 @@ export function Services() {
   const services: ServiceItem[] = useMemo(
     () => [
       {
-        icon: <Target className="w-8 h-8" />,
+        iconSrc: "/icons/services/strategy.webp",
+        iconAlt: "Planificación Estratégica",
         titleKey: "services.strategy.title",
         descKey: "services.strategy.desc",
         titleFallback: "Planificación Estratégica",
@@ -41,7 +43,8 @@ export function Services() {
         href: "/contacto?servicio=planificacion-estrategica",
       },
       {
-        icon: <Settings className="w-8 h-8" />,
+        iconSrc: "/icons/services/operations.webp",
+        iconAlt: "Optimización de Operaciones",
         titleKey: "services.operations.title",
         descKey: "services.operations.desc",
         titleFallback: "Optimización de Operaciones",
@@ -49,7 +52,8 @@ export function Services() {
         href: "/contacto?servicio=optimizacion-operaciones",
       },
       {
-        icon: <DollarSign className="w-8 h-8" />,
+        iconSrc: "/icons/services/finance.webp",
+        iconAlt: "Consultoría Financiera",
         titleKey: "services.financial.title",
         descKey: "services.financial.desc",
         titleFallback: "Consultoría Financiera",
@@ -57,7 +61,8 @@ export function Services() {
         href: "/contacto?servicio=consultoria-financiera",
       },
       {
-        icon: <Users className="w-8 h-8" />,
+        iconSrc: "/icons/services/hr.webp",
+        iconAlt: "Recursos Humanos",
         titleKey: "services.hr.title",
         descKey: "services.hr.desc",
         titleFallback: "Recursos Humanos",
@@ -65,7 +70,8 @@ export function Services() {
         href: "/contacto?servicio=recursos-humanos",
       },
       {
-        icon: <Cpu className="w-8 h-8" />,
+        iconSrc: "/icons/services/tech.webp",
+        iconAlt: "Integración Tecnológica",
         titleKey: "services.tech.title",
         descKey: "services.tech.desc",
         titleFallback: "Integración Tecnológica",
@@ -73,7 +79,8 @@ export function Services() {
         href: "/contacto?servicio=integracion-tecnologica",
       },
       {
-        icon: <TrendingUp className="w-8 h-8" />,
+        iconSrc: "/icons/services/growth.webp",
+        iconAlt: "Estrategia de Crecimiento",
         titleKey: "services.growth.title",
         descKey: "services.growth.desc",
         titleFallback: "Estrategia de Crecimiento",
@@ -214,18 +221,19 @@ export function Services() {
           </motion.p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* ✅ auto-rows-fr para igualar altura de cards en la fila */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 auto-rows-fr">
           {services.map((service, index) => {
             const isVisible = !!visibleCards[index]
 
             return (
-              <a
+              <div
                 key={service.titleKey}
-                href={service.href}
                 className={[
-                  "group relative block bg-card border border-border rounded-xl p-8 transition-all duration-500",
+                  "group relative bg-card border border-border rounded-xl p-8 transition-all duration-500",
                   "hover:shadow-lg hover:-translate-y-1 hover:border-accent/50",
-                  "focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/60 focus-visible:ring-offset-2 focus-visible:ring-offset-background",
+                  "focus-within:outline-none focus-within:ring-2 focus-within:ring-accent/60 focus-within:ring-offset-2 focus-within:ring-offset-background",
+                  "flex flex-col h-full",
                   isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8",
                 ].join(" ")}
               >
@@ -237,7 +245,17 @@ export function Services() {
                   }}
                 />
 
-                <div className="text-[#2E2F84] mb-4">{service.icon}</div>
+                {/* ✅ Icono WEBP 40x40 */}
+                <div className="mb-5">
+                  <img
+                    src={service.iconSrc}
+                    alt={service.iconAlt}
+                    width={40}
+                    height={40}
+                    className="h-10 w-10"
+                    loading="lazy"
+                  />
+                </div>
 
                 <h3 className="text-xl font-semibold text-foreground mb-2">
                   {tr(service.titleKey, service.titleFallback)}
@@ -245,13 +263,18 @@ export function Services() {
 
                 <p className="text-muted-foreground">{tr(service.descKey, service.descFallback)}</p>
 
-                <div className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-foreground">
-                  <span className="opacity-80 group-hover:opacity-100 transition-opacity">
-                    {tr("services.cardCta", "Ver más")}
+                {/* ✅ “Saber más” igual al estilo original, pero un poco más grande y más oscuro */}
+                <a
+                  href={service.href}
+                  className="mt-auto pt-6 inline-flex items-center gap-2 text-[15px] font-semibold text-foreground"
+                  aria-label={`${tr(service.titleKey, service.titleFallback)} - ${tr("services.cardCta", "Saber más")}`}
+                >
+                  <span className="opacity-95 group-hover:opacity-100 transition-opacity">
+                    {tr("services.cardCta", "Saber más")}
                   </span>
-                  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" />
-                </div>
-              </a>
+                  <ArrowRight className="h-[18px] w-[18px] transition-transform duration-300 group-hover:translate-x-0.5" />
+                </a>
+              </div>
             )
           })}
         </div>

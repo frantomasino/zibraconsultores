@@ -2,12 +2,13 @@
 
 import { useLanguage } from "@/lib/language-context"
 import { motion } from "framer-motion"
-import { Target, Settings, DollarSign, Users, Cpu, TrendingUp, ArrowRight, CheckCircle2 } from "lucide-react"
+import { ArrowRight, CheckCircle2 } from "lucide-react"
 import { useMemo } from "react"
 
 type ServiceCard = {
   key: string
-  icon: JSX.Element
+  iconSrc: string
+  iconAlt: string
   titleKey: string
   descKey: string
   titleFallback: string
@@ -42,7 +43,8 @@ export function ServicesPreview() {
     () => [
       {
         key: "strategy",
-        icon: <Target className="h-6 w-6" />,
+        iconSrc: "/icons/services/strategy.webp",
+        iconAlt: "Planificación Estratégica",
         titleKey: "services.strategy.title",
         descKey: "services.strategy.desc",
         titleFallback: "Planificación Estratégica",
@@ -56,7 +58,8 @@ export function ServicesPreview() {
       },
       {
         key: "operations",
-        icon: <Settings className="h-6 w-6" />,
+        iconSrc: "/icons/services/operations.webp",
+        iconAlt: "Optimización de Operaciones",
         titleKey: "services.operations.title",
         descKey: "services.operations.desc",
         titleFallback: "Optimización de Operaciones",
@@ -70,7 +73,8 @@ export function ServicesPreview() {
       },
       {
         key: "financial",
-        icon: <DollarSign className="h-6 w-6" />,
+        iconSrc: "/icons/services/finance.webp",
+        iconAlt: "Consultoría Financiera",
         titleKey: "services.financial.title",
         descKey: "services.financial.desc",
         titleFallback: "Consultoría Financiera",
@@ -84,7 +88,8 @@ export function ServicesPreview() {
       },
       {
         key: "people",
-        icon: <Users className="h-6 w-6" />,
+        iconSrc: "/icons/services/hr.webp",
+        iconAlt: "Gestión de Personas",
         titleKey: "services.people.title",
         descKey: "services.people.desc",
         titleFallback: "Gestión de Personas",
@@ -98,7 +103,8 @@ export function ServicesPreview() {
       },
       {
         key: "tech",
-        icon: <Cpu className="h-6 w-6" />,
+        iconSrc: "/icons/services/tech.webp",
+        iconAlt: "Tecnología y Digital",
         titleKey: "services.tech.title",
         descKey: "services.tech.desc",
         titleFallback: "Tecnología y Digital",
@@ -112,7 +118,8 @@ export function ServicesPreview() {
       },
       {
         key: "growth",
-        icon: <TrendingUp className="h-6 w-6" />,
+        iconSrc: "/icons/services/growth.webp",
+        iconAlt: "Crecimiento Comercial",
         titleKey: "services.growth.title",
         descKey: "services.growth.desc",
         titleFallback: "Crecimiento Comercial",
@@ -159,21 +166,21 @@ export function ServicesPreview() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.25 }}
-          className="grid gap-6 md:grid-cols-2 lg:grid-cols-3"
+          className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 auto-rows-fr"
         >
           {cards.map((c) => (
-            <motion.a
+            <motion.div
               key={c.key}
-              href={c.href}
               variants={item}
               className="
                 group relative block overflow-hidden
                 bg-card border border-border rounded-2xl p-6 md:p-7
                 transition-all duration-500
                 hover:shadow-lg hover:-translate-y-1 hover:border-accent/50
-                focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/60 focus-visible:ring-offset-2 focus-visible:ring-offset-background
+                focus-within:outline-none focus-within:ring-2 focus-within:ring-accent/60 focus-within:ring-offset-2 focus-within:ring-offset-background
+                flex flex-col h-full
               "
-              aria-label={`${tr(c.titleKey, c.titleFallback)} - ${tr("services.cardCta", "Ver más")}`}
+              aria-label={`${tr(c.titleKey, c.titleFallback)} - ${tr("services.cardCta", "Saber más")}`}
             >
               <span
                 className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
@@ -186,12 +193,19 @@ export function ServicesPreview() {
               <div className="flex items-start gap-4">
                 <div
                   className="
-                    grid h-11 w-11 place-items-center rounded-xl
+                    grid h-14 w-14 place-items-center rounded-xl
                     border border-border bg-background
                     transition-transform duration-300 group-hover:scale-[1.03]
                   "
                 >
-                  <div className="text-[#2E2F84]">{c.icon}</div>
+                  <img
+                    src={c.iconSrc}
+                    alt={c.iconAlt}
+                    width={40}
+                    height={40}
+                    className="h-10 w-10"
+                    loading="lazy"
+                  />
                 </div>
 
                 <div className="min-w-0">
@@ -213,13 +227,17 @@ export function ServicesPreview() {
                 ))}
               </ul>
 
-              <div className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-foreground">
-                <span className="opacity-80 group-hover:opacity-100 transition-opacity">
-                  {tr("services.cardCta", "Ver más")}
+              <a
+                href={c.href}
+                className="mt-auto pt-6 inline-flex items-center gap-2 text-[15px] font-semibold text-foreground"
+                aria-label={`${tr(c.titleKey, c.titleFallback)} - ${tr("services.cardCta", "Saber más")}`}
+              >
+                <span className="opacity-95 group-hover:opacity-100 transition-opacity">
+                  {tr("services.cardCta", "Saber más")}
                 </span>
-                <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" />
-              </div>
-            </motion.a>
+                <ArrowRight className="h-[18px] w-[18px] transition-transform duration-300 group-hover:translate-x-0.5" />
+              </a>
+            </motion.div>
           ))}
         </motion.div>
 

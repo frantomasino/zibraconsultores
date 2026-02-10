@@ -235,10 +235,12 @@ ${formData.message}
                     <p className="font-semibold text-foreground">
                       {t("contact.info.phone")}
                     </p>
-                    <p className="text-muted-foreground">+54 9 11 3125 6510</p>
+                    <p className="text-muted-foreground">+54 9 113009384</p>
+                    <p className="text-muted-foreground">+54 9 1162497623</p>
+                    <p className="text-muted-foreground">+54 9 1156399323</p>
+
                   </div>
                 </motion.div>
-
                 {/* EMAIL */}
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
