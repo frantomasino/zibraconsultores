@@ -119,7 +119,7 @@ export function Footer() {
               </li>
               <li>
                 <a
-                  href="#"
+                  href="https://www.instagram.com/zibraconsultores/"
                   className="hover:text-background transition flex items-center gap-2"
                 >
                   <span className="w-1 h-1 bg-accent rounded-full" />

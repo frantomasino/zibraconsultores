@@ -64,7 +64,7 @@ export function Hero() {
           >
             <div className="absolute inset-0 bg-gradient-to-br from-accent/10 via-transparent to-primary/10 rounded-3xl" />
             <img
-              src="/professional-business-consulting-team-meeting.jpg"
+              src="/hero.team.webp"
               alt="Business Consulting Team"
               className="w-full h-full object-cover rounded-3xl shadow-2xl"
             />

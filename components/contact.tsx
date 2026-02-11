@@ -290,7 +290,7 @@ ${formData.message}
               className="relative h-64 rounded-2xl overflow-hidden shadow-lg"
             >
               <img
-                src="/modern-office-exterior.png"
+                src="/contacto-office.webp"
                 alt="Oficina"
                 className="w-full h-full object-cover"
               />
