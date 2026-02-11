@@ -1,11 +1,12 @@
 "use client"
 
 import { useLanguage } from "@/lib/language-context"
-import { ArrowRight } from "lucide-react"
+import { ArrowRight, CheckCircle2 } from "lucide-react"
 import { useEffect, useMemo, useRef, useState } from "react"
 import { motion } from "framer-motion"
 
 type ServiceItem = {
+  key: string
   iconSrc: string
   iconAlt: string
   titleKey: string
@@ -13,6 +14,7 @@ type ServiceItem = {
   titleFallback: string
   descFallback: string
   href: string
+  points: Array<{ key: string; fallback: string }>
 }
 
 export function Services() {
@@ -20,11 +22,9 @@ export function Services() {
   const [visibleCards, setVisibleCards] = useState<boolean[]>([])
   const sectionRef = useRef<HTMLElement | null>(null)
 
-  // ✅ Replay del título cada 45s
   const REPLAY_MS = 45_000
   const [titleCycle, setTitleCycle] = useState(0)
 
-  // ✅ Fallback si viene vacío/undefined o si no existe la key
   const tr = (key: string, fallback: string) => {
     const value = t(key)
     if (!value || value === key) return fallback
@@ -34,6 +34,7 @@ export function Services() {
   const services: ServiceItem[] = useMemo(
     () => [
       {
+        key: "strategy",
         iconSrc: "/icons/services/strategy.webp",
         iconAlt: "Planificación Estratégica",
         titleKey: "services.strategy.title",
@@ -41,8 +42,14 @@ export function Services() {
         titleFallback: "Planificación Estratégica",
         descFallback: "Definimos una hoja de ruta clara para crecer con foco y orden.",
         href: "/contacto?servicio=planificacion-estrategica",
+        points: [
+          { key: "services.strategy.point1", fallback: "Diagnóstico y objetivos claros." },
+          { key: "services.strategy.point2", fallback: "Plan por etapas, medible y realista." },
+          { key: "services.strategy.point3", fallback: "Seguimiento y ajustes continuos." },
+        ],
       },
       {
+        key: "operations",
         iconSrc: "/icons/services/operations.webp",
         iconAlt: "Optimización de Operaciones",
         titleKey: "services.operations.title",
@@ -50,8 +57,14 @@ export function Services() {
         titleFallback: "Optimización de Operaciones",
         descFallback: "Mejoramos procesos y eficiencia para reducir costos y tiempos.",
         href: "/contacto?servicio=optimizacion-operaciones",
+        points: [
+          { key: "services.operations.point1", fallback: "Mapeo de procesos y cuellos de botella." },
+          { key: "services.operations.point2", fallback: "Estandarización y mejora continua." },
+          { key: "services.operations.point3", fallback: "Indicadores y control de gestión." },
+        ],
       },
       {
+        key: "financial",
         iconSrc: "/icons/services/finance.webp",
         iconAlt: "Consultoría Financiera",
         titleKey: "services.financial.title",
@@ -59,8 +72,14 @@ export function Services() {
         titleFallback: "Consultoría Financiera",
         descFallback: "Análisis y control financiero para decisiones más seguras.",
         href: "/contacto?servicio=consultoria-financiera",
+        points: [
+          { key: "services.financial.point1", fallback: "Tablero de gestión y métricas." },
+          { key: "services.financial.point2", fallback: "Proyecciones y escenarios." },
+          { key: "services.financial.point3", fallback: "Orden y disciplina financiera." },
+        ],
       },
       {
+        key: "people",
         iconSrc: "/icons/services/hr.webp",
         iconAlt: "Recursos Humanos",
         titleKey: "services.hr.title",
@@ -68,8 +87,14 @@ export function Services() {
         titleFallback: "Recursos Humanos",
         descFallback: "Estructura, roles, cultura y herramientas para equipos sólidos.",
         href: "/contacto?servicio=recursos-humanos",
+        points: [
+          { key: "services.people.point1", fallback: "Roles, responsabilidades y estructura." },
+          { key: "services.people.point2", fallback: "Procesos de selección y onboarding." },
+          { key: "services.people.point3", fallback: "Hábitos de gestión y performance." },
+        ],
       },
       {
+        key: "tech",
         iconSrc: "/icons/services/tech.webp",
         iconAlt: "Integración Tecnológica",
         titleKey: "services.tech.title",
@@ -77,8 +102,14 @@ export function Services() {
         titleFallback: "Integración Tecnológica",
         descFallback: "Ordenamos sistemas y automatizamos para escalar sin caos.",
         href: "/contacto?servicio=integracion-tecnologica",
+        points: [
+          { key: "services.tech.point1", fallback: "Diagnóstico de herramientas y flujos." },
+          { key: "services.tech.point2", fallback: "Automatización y estandarización." },
+          { key: "services.tech.point3", fallback: "Implementación con soporte." },
+        ],
       },
       {
+        key: "growth",
         iconSrc: "/icons/services/growth.webp",
         iconAlt: "Estrategia de Crecimiento",
         titleKey: "services.growth.title",
@@ -86,12 +117,16 @@ export function Services() {
         titleFallback: "Estrategia de Crecimiento",
         descFallback: "Estrategia y ejecución para aumentar ventas de forma sustentable.",
         href: "/contacto?servicio=estrategia-crecimiento",
+        points: [
+          { key: "services.growth.point1", fallback: "Oferta, pricing y posicionamiento." },
+          { key: "services.growth.point2", fallback: "Proceso comercial y seguimiento." },
+          { key: "services.growth.point3", fallback: "Plan de acción por objetivos." },
+        ],
       },
     ],
     [],
   )
 
-  // ✅ Cards: aparecen una vez al entrar (stagger)
   useEffect(() => {
     const node = sectionRef.current
     if (!node) return
@@ -122,7 +157,6 @@ export function Services() {
     return () => observer.disconnect()
   }, [services])
 
-  // ✅ Título: re-lanzar animación cada 45s (aunque no scrollees)
   useEffect(() => {
     const id = window.setInterval(() => setTitleCycle((v) => v + 1), REPLAY_MS)
     return () => window.clearInterval(id)
@@ -131,7 +165,6 @@ export function Services() {
   const mainTitle = tr("services.mainTitle", "Lo que podemos hacer")
   const mainTitleHighlight = tr("services.mainTitleHighlight", "por su empresa")
 
-  // 🎛️ Más lento (título)
   const TITLE_STAGGER = 0.16
   const WORD_DURATION = 0.8
   const WORD_Y = 16
@@ -154,7 +187,6 @@ export function Services() {
             </span>
           </motion.div>
 
-          {/* ✅ key cambia cada 45s => se remonta => se reinicia animación */}
           <motion.h2
             key={`services-title-${titleCycle}`}
             initial="hidden"
@@ -221,7 +253,6 @@ export function Services() {
           </motion.p>
         </div>
 
-        {/* ✅ auto-rows-fr para igualar altura de cards en la fila */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 auto-rows-fr">
           {services.map((service, index) => {
             const isVisible = !!visibleCards[index]
@@ -229,11 +260,12 @@ export function Services() {
             return (
               <div
                 key={service.titleKey}
+                id={service.key}
                 className={[
                   "group relative bg-card border border-border rounded-xl p-8 transition-all duration-500",
                   "hover:shadow-lg hover:-translate-y-1 hover:border-accent/50",
                   "focus-within:outline-none focus-within:ring-2 focus-within:ring-accent/60 focus-within:ring-offset-2 focus-within:ring-offset-background",
-                  "flex flex-col h-full",
+                  "flex flex-col h-full scroll-mt-28",
                   isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8",
                 ].join(" ")}
               >
@@ -245,14 +277,13 @@ export function Services() {
                   }}
                 />
 
-                {/* ✅ Icono WEBP 40x40 */}
                 <div className="mb-5">
                   <img
                     src={service.iconSrc}
                     alt={service.iconAlt}
                     width={40}
                     height={40}
-                    className="h-10 w-10"
+                    className="block h-12 w-12 object-contain"
                     loading="lazy"
                   />
                 </div>
@@ -263,7 +294,15 @@ export function Services() {
 
                 <p className="text-muted-foreground">{tr(service.descKey, service.descFallback)}</p>
 
-                {/* ✅ “Saber más” igual al estilo original, pero un poco más grande y más oscuro */}
+                <ul className="mt-5 space-y-2 text-sm text-muted-foreground">
+                  {service.points.map((p) => (
+                    <li key={p.key} className="flex gap-2">
+                      <CheckCircle2 className="mt-0.5 h-4 w-4 text-accent" />
+                      <span>{tr(p.key, p.fallback)}</span>
+                    </li>
+                  ))}
+                </ul>
+
                 <a
                   href={service.href}
                   className="mt-auto pt-6 inline-flex items-center gap-2 text-[15px] font-semibold text-foreground"

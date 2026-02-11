@@ -2,8 +2,9 @@
 
 import { useLanguage } from "@/lib/language-context"
 import { motion } from "framer-motion"
-import { ArrowRight, CheckCircle2 } from "lucide-react"
+import { ArrowRight } from "lucide-react"
 import { useMemo } from "react"
+
 
 type ServiceCard = {
   key: string
@@ -14,7 +15,6 @@ type ServiceCard = {
   titleFallback: string
   descFallback: string
   href: string
-  points: Array<{ key: string; fallback: string }>
 }
 
 const container = {
@@ -49,12 +49,7 @@ export function ServicesPreview() {
         descKey: "services.strategy.desc",
         titleFallback: "Planificación Estratégica",
         descFallback: "Hojas de ruta claras y estrategias accionables para el largo plazo.",
-        href: "/servicios#services",
-        points: [
-          { key: "services.strategy.point1", fallback: "Diagnóstico y objetivos claros." },
-          { key: "services.strategy.point2", fallback: "Plan por etapas, medible y realista." },
-          { key: "services.strategy.point3", fallback: "Seguimiento y ajustes continuos." },
-        ],
+        href: "/servicios#strategy",
       },
       {
         key: "operations",
@@ -64,12 +59,7 @@ export function ServicesPreview() {
         descKey: "services.operations.desc",
         titleFallback: "Optimización de Operaciones",
         descFallback: "Procesos más eficientes, menos fricción y mayor control operativo.",
-        href: "/servicios#services",
-        points: [
-          { key: "services.operations.point1", fallback: "Mapeo de procesos y cuellos de botella." },
-          { key: "services.operations.point2", fallback: "Estandarización y mejora continua." },
-          { key: "services.operations.point3", fallback: "Indicadores y control de gestión." },
-        ],
+        href: "/servicios#operations",
       },
       {
         key: "financial",
@@ -79,12 +69,7 @@ export function ServicesPreview() {
         descKey: "services.financial.desc",
         titleFallback: "Consultoría Financiera",
         descFallback: "Mejor control, análisis y decisiones financieras con datos.",
-        href: "/servicios#services",
-        points: [
-          { key: "services.financial.point1", fallback: "Tablero de gestión y métricas." },
-          { key: "services.financial.point2", fallback: "Proyecciones y escenarios." },
-          { key: "services.financial.point3", fallback: "Orden y disciplina financiera." },
-        ],
+        href: "/servicios#financial",
       },
       {
         key: "people",
@@ -94,12 +79,7 @@ export function ServicesPreview() {
         descKey: "services.people.desc",
         titleFallback: "Gestión de Personas",
         descFallback: "Estructura, roles y prácticas para equipos alineados y productivos.",
-        href: "/servicios#services",
-        points: [
-          { key: "services.people.point1", fallback: "Roles, responsabilidades y estructura." },
-          { key: "services.people.point2", fallback: "Procesos de selección y onboarding." },
-          { key: "services.people.point3", fallback: "Hábitos de gestión y performance." },
-        ],
+        href: "/servicios#people",
       },
       {
         key: "tech",
@@ -109,12 +89,7 @@ export function ServicesPreview() {
         descKey: "services.tech.desc",
         titleFallback: "Tecnología y Digital",
         descFallback: "Ordenamos sistemas y automatizamos para escalar sin caos.",
-        href: "/servicios#services",
-        points: [
-          { key: "services.tech.point1", fallback: "Diagnóstico de herramientas y flujos." },
-          { key: "services.tech.point2", fallback: "Automatización y estandarización." },
-          { key: "services.tech.point3", fallback: "Implementación con soporte." },
-        ],
+        href: "/servicios#tech",
       },
       {
         key: "growth",
@@ -124,12 +99,7 @@ export function ServicesPreview() {
         descKey: "services.growth.desc",
         titleFallback: "Crecimiento Comercial",
         descFallback: "Estrategia y ejecución para aumentar ventas de forma sustentable.",
-        href: "/servicios#services",
-        points: [
-          { key: "services.growth.point1", fallback: "Oferta, pricing y posicionamiento." },
-          { key: "services.growth.point2", fallback: "Proceso comercial y seguimiento." },
-          { key: "services.growth.point3", fallback: "Plan de acción por objetivos." },
-        ],
+        href: "/servicios#growth",
       },
     ],
     [],
@@ -168,10 +138,12 @@ export function ServicesPreview() {
           viewport={{ once: true, amount: 0.25 }}
           className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 auto-rows-fr"
         >
-          {cards.map((c) => (
-            <motion.div
+          {/* ✅ SOLO 3 EN HOME */}
+          {cards.slice(0, 3).map((c) => (
+            <motion.a
               key={c.key}
               variants={item}
+              href={c.href}
               className="
                 group relative block overflow-hidden
                 bg-card border border-border rounded-2xl p-6 md:p-7
@@ -180,7 +152,7 @@ export function ServicesPreview() {
                 focus-within:outline-none focus-within:ring-2 focus-within:ring-accent/60 focus-within:ring-offset-2 focus-within:ring-offset-background
                 flex flex-col h-full
               "
-              aria-label={`${tr(c.titleKey, c.titleFallback)} - ${tr("services.cardCta", "Saber más")}`}
+              aria-label={tr(c.titleKey, c.titleFallback)}
             >
               <span
                 className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
@@ -199,14 +171,13 @@ export function ServicesPreview() {
                   "
                 >
                   <div className="grid h-14 w-14 place-items-center rounded-full border border-border bg-background">
-  <img
-    src={c.iconSrc}
-    alt={c.iconAlt}
-    className="block h-10 w-10 object-contain"
-    loading="lazy"
-  />
-</div>
-
+                    <img
+                      src={c.iconSrc}
+                      alt={c.iconAlt}
+                      className="block h-10 w-10 object-contain"
+                      loading="lazy"
+                    />
+                  </div>
                 </div>
 
                 <div className="min-w-0">
@@ -218,30 +189,11 @@ export function ServicesPreview() {
                   </p>
                 </div>
               </div>
-
-              <ul className="mt-5 space-y-2 text-sm text-muted-foreground">
-                {c.points.map((p) => (
-                  <li key={p.key} className="flex gap-2">
-                    <CheckCircle2 className="mt-0.5 h-4 w-4 text-accent" />
-                    <span>{tr(p.key, p.fallback)}</span>
-                  </li>
-                ))}
-              </ul>
-
-              <a
-                href={c.href}
-                className="mt-auto pt-6 inline-flex items-center gap-2 text-[15px] font-semibold text-foreground"
-                aria-label={`${tr(c.titleKey, c.titleFallback)} - ${tr("services.cardCta", "Saber más")}`}
-              >
-                <span className="opacity-95 group-hover:opacity-100 transition-opacity">
-                  {tr("services.cardCta", "Saber más")}
-                </span>
-                <ArrowRight className="h-[18px] w-[18px] transition-transform duration-300 group-hover:translate-x-0.5" />
-              </a>
-            </motion.div>
+            </motion.a>
           ))}
         </motion.div>
 
+        {/* ✅ BLOQUE / BOTON DE ABAJO (SE QUEDA) */}
         <motion.div
           initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
