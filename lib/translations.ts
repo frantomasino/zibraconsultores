@@ -43,10 +43,12 @@ export const translations: Record<Language, Record<string, string>> = {
     "successStories.story2.desc": "Developed and trained high-performance teams across multiple industries",
     "successStories.story3.metric": "40%",
     "successStories.story3.title": "Cost Reduction",
-    "successStories.story3.desc": "Optimized operations reducing operational costs by 40% while maintaining quality",
+    "successStories.story3.desc":
+      "Optimized operations reducing operational costs by 40% while maintaining quality",
     "successStories.story4.metric": "95%",
     "successStories.story4.title": "Goal Achievement",
-    "successStories.story4.desc": "95% of our clients achieve or exceed their established business goals",
+    "successStories.story4.desc":
+      "95% of our clients achieve or exceed their established business goals",
 
     // Services
     "services.badge": "Our Services",
@@ -97,14 +99,16 @@ export const translations: Record<Language, Record<string, string>> = {
       "We bring clarity to numbers so you can decide with confidence and improve profitability sustainably.",
 
     "services.people.title": "People Management",
-    "services.people.desc": "Build stronger teams with clear roles, leadership and effective practices.",
+    "services.people.desc":
+      "Build stronger teams with clear roles, leadership and effective practices.",
     "services.people.point1": "Role definition, responsibilities and organizational structure.",
     "services.people.point2": "Leadership routines, feedback and performance management practices.",
-    "services.people.point3": "Culture, alignment and tools to improve teamwork and accountability.",
+    "services.people.point3":
+      "Culture, alignment and tools to improve teamwork and accountability.",
     "services.people.highlight":
       "We help you align people and processes, so the team moves in the same direction and execution improves.",
 
-    // About (BASE) ✅ (esto evita que aparezca about.badge/about.title/etc)
+    // About (BASE)
     "about.badge": "About Zibra Consulting",
     "about.title": "Your Partner in Business Excellence",
     "about.intro":
@@ -122,7 +126,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "about.cert3.title": "Practical Approach",
     "about.cert3.desc": "Clear execution and measurable outcomes",
 
-    // About (Trajectories) ✅ SOLO estos 3
+    // About (Trajectories)
     "about.trajectories.natalia.name": "Natalia Bertoldi",
     "about.trajectories.natalia.title": "Public Accountant",
     "about.trajectories.natalia.p1":
@@ -165,7 +169,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "testimonial3.quote":
       "Professional, knowledgeable, and results-driven. They understood our challenges and delivered practical solutions.",
 
-    // Contact
+    // Contact (existing)
     "contact.badge": "Get Started",
     "contact.title": "Schedule Your Consultation",
     "contact.subtitle": "Let's discuss how we can help your business achieve its goals",
@@ -188,6 +192,29 @@ export const translations: Record<Language, Record<string, string>> = {
     "contact.info.phone": "Phone",
     "contact.info.email": "Email",
     "contact.info.address": "Address",
+
+    // ✅ NEW Contact (missing keys for the new layout)
+    "contact.form.cardTitle": "Request a Quote",
+    "contact.form.maxChars": "Up to 500 characters",
+    "contact.form.cta": "Request a Quote",
+
+    "contact.info.addressLine1": "Gran Canaria 755, B1878 Quilmes",
+    "contact.info.addressLine2": "Buenos Aires Province",
+    "contact.info.phoneLine1": "+54 9 113009384",
+    "contact.info.phoneLine2": "+54 9 1162497623",
+    "contact.info.phoneLine3": "+54 9 1156399323",
+    "contact.info.emailLine": "prueba@gmail.com",
+    "contact.info.hours": "Hours",
+    "contact.info.hoursLine": "Mon to Fri 9:00 to 18:00",
+
+    "contact.urgent.title": "Need urgent assistance?",
+    "contact.urgent.subtitle": "Contact us via WhatsApp for quick questions",
+    "contact.urgent.cta": "Chat on WhatsApp",
+
+    "contact.whatsapp.quickText": "Hi! I have a quick question.",
+
+    "contact.toast.whatsappTitle": "WhatsApp opened",
+    "contact.toast.whatsappDesc": "We opened WhatsApp with your message ready.",
 
     // Clients
     "clients.badge": "Our Clients",
@@ -280,17 +307,20 @@ export const translations: Record<Language, Record<string, string>> = {
     // Success Stories
     "successStories.badge": "Resultados Comprobados",
     "successStories.title": "Casos de Éxito",
-    "successStories.subtitle": "Resultados reales que demuestran nuestro compromiso con la excelencia empresarial",
+    "successStories.subtitle":
+      "Resultados reales que demuestran nuestro compromiso con la excelencia empresarial",
     "successStories.story1.metric": "+150%",
     "successStories.story1.title": "Crecimiento en Ingresos",
     "successStories.story1.desc":
       "Ayudamos a una empresa retail a triplicar sus ingresos mediante planificación estratégica y expansión de mercado",
     "successStories.story2.metric": "500+",
     "successStories.story2.title": "Equipos Capacitados",
-    "successStories.story2.desc": "Desarrollamos y capacitamos equipos de alto rendimiento en múltiples industrias",
+    "successStories.story2.desc":
+      "Desarrollamos y capacitamos equipos de alto rendimiento en múltiples industrias",
     "successStories.story3.metric": "40%",
     "successStories.story3.title": "Reducción de Costos",
-    "successStories.story3.desc": "Optimizamos operaciones reduciendo costos operativos en 40% manteniendo la calidad",
+    "successStories.story3.desc":
+      "Optimizamos operaciones reduciendo costos operativos en 40% manteniendo la calidad",
     "successStories.story4.metric": "95%",
     "successStories.story4.title": "Logro de Objetivos",
     "successStories.story4.desc":
@@ -305,26 +335,31 @@ export const translations: Record<Language, Record<string, string>> = {
       "Servicios de consultoría personalizados diseñados para impulsar la transformación de tu pyme y llevarla al próximo nivel",
     "services.viewAll": "Ver Todos los Servicios",
 
-    // ✅ NEW (to avoid hardcoded strings in Services section)
+    // ✅ NEW
     "services.cardCta": "Saber más",
     "services.bottomCtaTitle": "¿Querés una recomendación clara y accionable?",
-    "services.bottomCtaDesc": "Contanos tu situación y te proponemos un plan de trabajo con foco en resultados.",
+    "services.bottomCtaDesc":
+      "Contanos tu situación y te proponemos un plan de trabajo con foco en resultados.",
     "services.bottomCtaButton": "Contactar",
 
     "services.strategy.title": "Planificación Estratégica",
-    "services.strategy.desc": "Desarrolla hojas de ruta claras y estrategias accionables para el éxito a largo plazo",
+    "services.strategy.desc":
+      "Desarrolla hojas de ruta claras y estrategias accionables para el éxito a largo plazo",
     "services.operations.title": "Optimización de Operaciones",
-    "services.operations.desc": "Agiliza procesos y mejora la eficiencia en toda tu organización",
+    "services.operations.desc":
+      "Agiliza procesos y mejora la eficiencia en toda tu organización",
     "services.financial.title": "Consultoría Financiera",
     "services.financial.desc": "Análisis financiero experto y planificación para maximizar la rentabilidad",
     "services.hr.title": "Recursos Humanos",
-    "services.hr.desc": "Construye equipos sólidos con estrategias efectivas de RR.HH. y gestión del talento",
+    "services.hr.desc":
+      "Construye equipos sólidos con estrategias efectivas de RR.HH. y gestión del talento",
     "services.tech.title": "Integración Tecnológica",
-    "services.tech.desc": "Aprovecha la tecnología para automatizar y escalar tus operaciones comerciales",
+    "services.tech.desc":
+      "Aprovecha la tecnología para automatizar y escalar tus operaciones comerciales",
     "services.growth.title": "Estrategia de Crecimiento",
     "services.growth.desc": "Identifica oportunidades y desarrolla planes para la expansión del mercado",
 
-    // Services (claves extra para ServicesPreview)
+    // Services (extra keys for ServicesPreview)
     "services.highlight": "Qué podés esperar",
     "services.strategy.point1": "Diagnóstico inicial y definición de objetivos claros y alcanzables.",
     "services.strategy.point2": "Plan de acción práctico, alineado con la realidad operativa de tu empresa.",
@@ -332,7 +367,8 @@ export const translations: Record<Language, Record<string, string>> = {
     "services.strategy.highlight":
       "Trabajamos cerca de tu equipo y con foco en resultados medibles, para convertir la estrategia en ejecución.",
 
-    "services.operations.point1": "Mapeo de procesos e identificación de cuellos de botella e ineficiencias.",
+    "services.operations.point1":
+      "Mapeo de procesos e identificación de cuellos de botella e ineficiencias.",
     "services.operations.point2": "Estandarización y mejora de flujos para reducir fricción y errores.",
     "services.operations.point3": "KPIs y rutinas operativas para sostener el rendimiento en el tiempo.",
     "services.operations.highlight":
@@ -345,7 +381,8 @@ export const translations: Record<Language, Record<string, string>> = {
       "Ordenamos los números para que tomes decisiones con confianza y mejores la rentabilidad de forma sostenible.",
 
     "services.people.title": "Gestión de Personas",
-    "services.people.desc": "Construí equipos más sólidos con roles claros, liderazgo y prácticas efectivas.",
+    "services.people.desc":
+      "Construí equipos más sólidos con roles claros, liderazgo y prácticas efectivas.",
     "services.people.point1": "Definición de roles, responsabilidades y estructura organizacional.",
     "services.people.point2": "Rutinas de liderazgo, feedback y gestión del desempeño.",
     "services.people.point3":
@@ -353,7 +390,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "services.people.highlight":
       "Alineamos personas y procesos para que el equipo avance en la misma dirección y mejore la ejecución.",
 
-    // About (BASE) ✅
+    // About (BASE)
     "about.badge": "Sobre Zibra Consultora",
     "about.title": "Tu Socio en la Excelencia Empresarial",
     "about.intro":
@@ -371,7 +408,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "about.cert3.title": "Enfoque Práctico",
     "about.cert3.desc": "Ejecución clara y resultados medibles",
 
-    // About (Trayectorias) ✅ SOLO estos 3
+    // About (Trayectorias)
     "about.trajectories.natalia.name": "Natalia Bertoldi",
     "about.trajectories.natalia.title": "Contadora Pública",
     "about.trajectories.natalia.p1":
@@ -414,7 +451,8 @@ export const translations: Record<Language, Record<string, string>> = {
     "testimonial3.quote":
       "Profesionales, conocedores y orientados a resultados. Entendieron nuestros desafíos y entregaron soluciones prácticas.",
 
-    // Contact (lo dejo como lo tenías)
+    // Contact (existing)
+    "contact.badge": "Empecemos",
     "contact.title": "Gracias por acercarse a Zibra",
     "contact.subtitle": "Hablemos sobre cómo podemos ayudar a tu negocio a alcanzar sus objetivos",
     "contact.form.name": "Nombre Completo",
@@ -428,7 +466,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "contact.email.subject": "Consulta Empresarial",
     "contact.email.name": "Nombre",
     "contact.email.email": "Email",
-    "contact.email.phone": "Teléfonos",
+    "contact.email.phone": "Teléfono",
     "contact.email.company": "Empresa",
     "contact.email.message": "Mensaje",
     "contact.whatsapp.title": "Consulta Empresarial desde el Sitio Web",
@@ -437,6 +475,29 @@ export const translations: Record<Language, Record<string, string>> = {
     "contact.info.email": "Correo",
     "contact.info.address": "Dirección",
 
+    // ✅ NEW Contact (missing keys for the new layout)
+    "contact.form.cardTitle": "Solicitar Presupuesto",
+    "contact.form.maxChars": "Máximo 500 caracteres",
+    "contact.form.cta": "Solicitar Presupuesto",
+
+    "contact.info.addressLine1": "Gran Canaria 755, B1878 Quilmes",
+    "contact.info.addressLine2": "Provincia de Buenos Aires",
+    "contact.info.phoneLine1": "+54 9 113009384",
+    "contact.info.phoneLine2": "+54 9 1162497623",
+    "contact.info.phoneLine3": "+54 9 1156399323",
+    "contact.info.emailLine": "prueba@gmail.com",
+    "contact.info.hours": "Horarios",
+    "contact.info.hoursLine": "Lun a Vie 9:00 a 18:00",
+
+    "contact.urgent.title": "¿Necesitás atención urgente?",
+    "contact.urgent.subtitle": "Contactanos directamente por WhatsApp para consultas rápidas",
+    "contact.urgent.cta": "Chatear por WhatsApp",
+
+    "contact.whatsapp.quickText": "Hola! Necesito una consulta rápida.",
+
+    "contact.toast.whatsappTitle": "WhatsApp abierto",
+    "contact.toast.whatsappDesc": "Te llevamos a WhatsApp con el mensaje listo.",
+
     // Clients
     "clients.badge": "Casos de Éxito",
     "clients.title": "Empresas que confiaron en nosotros",
@@ -444,7 +505,8 @@ export const translations: Record<Language, Record<string, string>> = {
     "clients.aliwen.name": "Aliwen - Tienda Natural",
     "clients.aliwen.industry": "Dietética Online",
     "clients.aliwen.challenge": "Desafío Inicial",
-    "clients.aliwen.challengeDesc": "El negocio ya estaba en marcha, pero con una estructura que limitaba su crecimiento.",
+    "clients.aliwen.challengeDesc":
+      "El negocio ya estaba en marcha, pero con una estructura que limitaba su crecimiento.",
     "clients.aliwen.solution": "Solución",
     "clients.aliwen.solutionDesc":
       "Análisis del potencial del negocio, decisión de inversión estratégica, reorganización de tareas, profesionalización de la gestión, recursos para redes sociales, ampliación de canales de venta e implementación de sistema de gestión.",
