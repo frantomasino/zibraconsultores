@@ -105,9 +105,9 @@ export function Services() {
         descFallback: "Ordenamos sistemas y automatizamos para escalar sin caos.",
         href: "/contacto?servicio=integracion-tecnologica",
         points: [
-          { key: "services.tech.point1", fallback: "Diagnóstico de herramientas y flujos." },
-          { key: "services.tech.point2", fallback: "Automatización y estandarización." },
-          { key: "services.tech.point3", fallback: "Implementación con soporte." },
+          { key: "services.tech.point1", fallback: "Evaluación de sistemas y flujos actuales." },
+          { key: "services.tech.point2", fallback: "Automatización de procesos clave." },
+          { key: "services.tech.point3", fallback: "Implementación y soporte en la adopción." },
         ],
       },
       {
@@ -120,9 +120,9 @@ export function Services() {
         descFallback: "Estrategia y ejecución para aumentar ventas de forma sustentable.",
         href: "/contacto?servicio=estrategia-crecimiento",
         points: [
-          { key: "services.growth.point1", fallback: "Oferta, pricing y posicionamiento." },
-          { key: "services.growth.point2", fallback: "Proceso comercial y seguimiento." },
-          { key: "services.growth.point3", fallback: "Plan de acción por objetivos." },
+          { key: "services.growth.point1", fallback: "Definición de oferta, pricing y posicionamiento." },
+          { key: "services.growth.point2", fallback: "Optimización del proceso comercial y su seguimiento." },
+          { key: "services.growth.point3", fallback: "Plan de acción alineado a objetivos." },
         ],
       },
     ],

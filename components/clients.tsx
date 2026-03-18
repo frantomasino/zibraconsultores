@@ -1,7 +1,7 @@
 "use client"
-
+import Image from "next/image"
 import { useLanguage } from "@/lib/language-context"
-import { motion, AnimatePresence } from "framer-motion"
+import { motion } from "framer-motion"
 import {
   ChevronDown,
   Store,
@@ -9,12 +9,22 @@ import {
   GraduationCap,
   Factory,
   TrendingUp,
-  BarChart3,
-  CheckCircle2,
 } from "lucide-react"
 import { useEffect, useState } from "react"
 
 type ClientId = "aliwen" | "telasClaudia" | "cea" | "dimayer"
+
+type ClientItem = {
+  id: ClientId
+  name: string
+  subtitle: string
+  industry: string
+  description: string
+  challenge: string
+  solution: string
+  results: { metric: string; label: string }[]
+  icon: typeof Store
+}
 
 export function Clients() {
   const { t } = useLanguage()
@@ -35,29 +45,19 @@ export function Clients() {
   const WORD_DURATION = 0.8
   const WORD_Y = 16
 
-  const clients: Array<{
-    id: ClientId
-    name: string
-    subtitle: string
-    category: string
-    description: string
-    challenge: string
-    solution: string
-    results: { value: string; label: string; icon: typeof TrendingUp }[]
-    icon: typeof Store
-  }> = [
+  const clients: ClientItem[] = [
     {
       id: "aliwen",
       name: t("clients.aliwen.name"),
       subtitle: t("clients.aliwen.industry"),
-      category: t("clients.aliwen.category"),
+      industry: t("clients.aliwen.category"),
       description: t("clients.aliwen.description"),
       challenge: t("clients.aliwen.challengeDesc"),
       solution: t("clients.aliwen.solutionDesc"),
       results: [
-        { value: t("clients.aliwen.result1"), label: t("clients.aliwen.result1Label"), icon: TrendingUp },
-        { value: t("clients.aliwen.result2"), label: t("clients.aliwen.result2Label"), icon: BarChart3 },
-        { value: t("clients.aliwen.result3"), label: t("clients.aliwen.result3Label"), icon: CheckCircle2 },
+        { metric: t("clients.aliwen.result1"), label: t("clients.aliwen.result1Label") },
+        { metric: t("clients.aliwen.result2"), label: t("clients.aliwen.result2Label") },
+        { metric: t("clients.aliwen.result3"), label: t("clients.aliwen.result3Label") },
       ],
       icon: Store,
     },
@@ -65,14 +65,14 @@ export function Clients() {
       id: "telasClaudia",
       name: t("clients.telasClaudia.name"),
       subtitle: t("clients.telasClaudia.industry"),
-      category: t("clients.telasClaudia.category"),
+      industry: t("clients.telasClaudia.category"),
       description: t("clients.telasClaudia.description"),
       challenge: t("clients.telasClaudia.challengeDesc"),
       solution: t("clients.telasClaudia.solutionDesc"),
       results: [
-        { value: t("clients.telasClaudia.result1"), label: t("clients.telasClaudia.result1Label"), icon: TrendingUp },
-        { value: t("clients.telasClaudia.result2"), label: t("clients.telasClaudia.result2Label"), icon: BarChart3 },
-        { value: t("clients.telasClaudia.result3"), label: t("clients.telasClaudia.result3Label"), icon: CheckCircle2 },
+        { metric: t("clients.telasClaudia.result1"), label: t("clients.telasClaudia.result1Label") },
+        { metric: t("clients.telasClaudia.result2"), label: t("clients.telasClaudia.result2Label") },
+        { metric: t("clients.telasClaudia.result3"), label: t("clients.telasClaudia.result3Label") },
       ],
       icon: Scissors,
     },
@@ -80,14 +80,14 @@ export function Clients() {
       id: "cea",
       name: t("clients.cea.name"),
       subtitle: t("clients.cea.industry"),
-      category: t("clients.cea.category"),
+      industry: t("clients.cea.category"),
       description: t("clients.cea.description"),
       challenge: t("clients.cea.challengeDesc"),
       solution: t("clients.cea.solutionDesc"),
       results: [
-        { value: t("clients.cea.result1"), label: t("clients.cea.result1Label"), icon: TrendingUp },
-        { value: t("clients.cea.result2"), label: t("clients.cea.result2Label"), icon: BarChart3 },
-        { value: t("clients.cea.result3"), label: t("clients.cea.result3Label"), icon: CheckCircle2 },
+        { metric: t("clients.cea.result1"), label: t("clients.cea.result1Label") },
+        { metric: t("clients.cea.result2"), label: t("clients.cea.result2Label") },
+        { metric: t("clients.cea.result3"), label: t("clients.cea.result3Label") },
       ],
       icon: GraduationCap,
     },
@@ -95,14 +95,14 @@ export function Clients() {
       id: "dimayer",
       name: t("clients.dimayer.name"),
       subtitle: t("clients.dimayer.industry"),
-      category: t("clients.dimayer.category"),
+      industry: t("clients.dimayer.category"),
       description: t("clients.dimayer.description"),
       challenge: t("clients.dimayer.challengeDesc"),
       solution: t("clients.dimayer.solutionDesc"),
       results: [
-        { value: t("clients.dimayer.result1"), label: t("clients.dimayer.result1Label"), icon: TrendingUp },
-        { value: t("clients.dimayer.result2"), label: t("clients.dimayer.result2Label"), icon: BarChart3 },
-        { value: t("clients.dimayer.result3"), label: t("clients.dimayer.result3Label"), icon: CheckCircle2 },
+        { metric: t("clients.dimayer.result1"), label: t("clients.dimayer.result1Label") },
+        { metric: t("clients.dimayer.result2"), label: t("clients.dimayer.result2Label") },
+        { metric: t("clients.dimayer.result3"), label: t("clients.dimayer.result3Label") },
       ],
       icon: Factory,
     },
@@ -181,107 +181,113 @@ export function Clients() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 gap-6 lg:grid-cols-3 lg:grid-flow-row-dense">
-          {clients.map((client, index) => {
+<div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 items-stretch">
+            {clients.map((client) => {
             const Icon = client.icon
             const isExpanded = expandedId === client.id
 
             return (
-              <motion.article
+              <div
                 key={client.id}
-                layout
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.5, delay: index * 0.08 }}
-                onClick={() => setExpandedId((prev) => (prev === client.id ? null : client.id))}
+                onClick={() => setExpandedId(isExpanded ? null : client.id)}
                 className={[
-                  "group flex h-full cursor-pointer flex-col rounded-[22px] border border-border bg-card p-5 md:p-6 shadow-none transition-all duration-300",
-                  isExpanded ? "lg:col-span-2 lg:min-h-[720px]" : "lg:col-span-1 lg:min-h-[560px]",
+                  "group relative bg-card border border-border rounded-lg p-8 cursor-pointer",
+                  "transition-all duration-500 hover:shadow-lg hover:border-foreground/20",
+                  isExpanded ? "lg:col-span-2" : "",
                 ].join(" ")}
               >
-                <div className="mb-5 flex items-start justify-between gap-4">
-                  <div className="flex min-w-0 items-start gap-4">
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-muted">
-                      <Icon className="h-5 w-5 text-foreground/60" strokeWidth={1.8} />
-                    </div>
-
+                <div className="flex items-start justify-between mb-6">
+                  <div className="flex items-center gap-4 min-w-0">
+                     <div className="w-12 h-12 rounded-full bg-foreground/5 flex items-center justify-center shrink-0">
+  {client.id === "aliwen" ? (
+    <Image
+      src="/clientes/aliwen.webp"
+      alt="Aliwen"
+      width={52}
+      height={52}
+      className="object-contain opacity-80"
+    />
+  ) : client.id === "cea" ? (
+    <Image
+      src="/clientes/cursos-cea.webp"
+      alt="Cursos Cea"
+      width={52}
+      height={52}
+      className="object-contain opacity-80"
+    />
+  ) : (
+    <Icon className="w-5 h-5 text-foreground/60" />
+  )}
+</div>
                     <div className="min-w-0">
-                      <h3 className="font-serif text-[28px] leading-[0.95] text-foreground break-words min-h-[84px]">
+                      <h3 className="text-xl font-serif font-medium text-foreground break-words">
                         {client.name}
                       </h3>
-                      <p className="mt-2 text-[15px] leading-tight text-muted-foreground min-h-[38px]">
-                        {client.subtitle}
-                      </p>
+                      <p className="text-sm text-muted-foreground">{client.subtitle}</p>
                     </div>
                   </div>
 
-                  <span className="shrink-0 rounded-full bg-muted px-4 py-2 text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
-                    {client.category}
+                  <span className="text-xs tracking-wider uppercase text-muted-foreground bg-secondary px-3 py-1 rounded-full shrink-0">
+                    {client.industry}
                   </span>
                 </div>
 
-                <div className="mb-4 min-h-[250px]">
-                  <p className="line-clamp-6 text-[15px] leading-8 text-muted-foreground">
-                    {client.description}
-                  </p>
+                <p className="text-muted-foreground leading-relaxed mb-8">
+                  {client.description}
+                </p>
+
+                <div
+                  className={[
+                    "overflow-hidden transition-all duration-500",
+                    isExpanded ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0",
+                  ].join(" ")}
+                >
+                  <div className="border-t border-border pt-6 mb-6">
+                    <h4 className="text-sm font-bold text-foreground mb-2">
+                      {t("clients.challengeTitle")}
+                    </h4>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      {client.challenge}
+                    </p>
+                  </div>
+
+                  <div className="mb-6">
+                    <h4 className="text-sm font-bold text-foreground mb-2">
+                      {t("clients.solutionTitle")}
+                    </h4>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      {client.solution}
+                    </p>
+                  </div>
                 </div>
 
-                <AnimatePresence initial={false}>
-                  {isExpanded && (
-                    <motion.div
-                      layout
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3, ease: "easeInOut" }}
-                      className="overflow-hidden"
-                    >
-                      <div className="mb-4 border-t border-border pt-5">
-                        <h4 className="mb-3 text-[18px] font-semibold text-foreground">
-                          {t("clients.challengeTitle")}
-                        </h4>
-                        <p className="text-[15px] leading-8 text-muted-foreground">{client.challenge}</p>
-
-                        <h4 className="mt-7 mb-3 text-[18px] font-semibold text-foreground">
-                          {t("clients.solutionTitle")}
-                        </h4>
-                        <p className="text-[15px] leading-8 text-muted-foreground">{client.solution}</p>
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-
-                <div className="mt-auto border-t border-border pt-4">
+                <div className={isExpanded ? "border-t border-border pt-6" : "mt-auto border-t border-border pt-6"}>
                   <div className="grid grid-cols-3 gap-4">
-                    {client.results.map((result, resultIndex) => {
-                      const ResultIcon = result.icon
-
-                      return (
-                        <div key={`${client.id}-result-${resultIndex}`} className="text-center min-h-[92px]">
-                          <div className="mx-auto mb-1 flex h-5 w-5 items-center justify-center">
-                            <ResultIcon className="h-4 w-4 text-accent" />
-                          </div>
-
-                          <div className="font-serif text-[18px] md:text-[22px] font-bold leading-none text-foreground break-words min-h-[44px] flex items-center justify-center">
-                            {result.value}
-                          </div>
-
-                          <div className="mt-1 text-[10px] uppercase leading-[1.25] tracking-wide text-muted-foreground break-words min-h-[28px] flex items-start justify-center">
-                            {result.label}
-                          </div>
+                    {client.results.map((result, index) => (
+                      <div key={index} className="text-center">
+                        <div className="flex items-center justify-center gap-1 mb-1 min-h-[28px]">
+                          <TrendingUp className="w-3 h-3 text-accent shrink-0" />
+                          <span className="text-lg md:text-xl font-semibold text-foreground">
+                            {result.metric}
+                          </span>
                         </div>
-                      )
-                    })}
+                        <p className="text-xs text-muted-foreground uppercase tracking-wide min-h-[32px] leading-tight">
+                          {result.label}
+                        </p>
+                      </div>
+                    ))}
                   </div>
 
                   <div className="mt-3 flex justify-end">
-                    <motion.div animate={{ rotate: isExpanded ? 180 : 0 }} transition={{ duration: 0.25 }}>
-                      <ChevronDown className="h-5 w-5 text-foreground/50" />
-                    </motion.div>
+                    <ChevronDown
+                      className={[
+                        "w-4 h-4 text-muted-foreground transition-transform duration-300",
+                        isExpanded ? "rotate-180" : "",
+                      ].join(" ")}
+                    />
                   </div>
                 </div>
-              </motion.article>
+              </div>
             )
           })}
         </div>

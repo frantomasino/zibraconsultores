@@ -96,7 +96,7 @@
 }
 
 @theme inline {
-  /* Poppins for everything (titles will be bold via base layer) */
+  /* Poppins for everything */
   --font-sans: var(--font-sans), system-ui, -apple-system, sans-serif;
   --font-serif: var(--font-sans), system-ui, -apple-system, sans-serif;
   --font-mono: ui-monospace, monospace;
@@ -152,17 +152,62 @@
     @apply border-border outline-ring/50;
   }
 
-  body {
-    @apply bg-background text-foreground font-sans;
+  html {
+    @apply scroll-smooth;
   }
 
-  /* Titles: Poppins Bold */
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
   h1,
   h2,
   h3,
   h4,
   h5,
   h6 {
-    @apply font-sans font-bold;
+    @apply font-sans font-bold tracking-tight text-foreground;
+  }
+
+  p {
+    @apply text-muted-foreground;
+  }
+}
+
+@layer components {
+  .text-display {
+    @apply font-sans font-bold tracking-tight text-foreground text-4xl leading-[1.05] md:text-5xl lg:text-6xl;
+  }
+
+  .text-title {
+    @apply font-sans font-bold tracking-tight text-foreground text-2xl leading-[1.1] md:text-3xl lg:text-4xl;
+  }
+
+  .text-subtitle {
+    @apply font-sans font-semibold tracking-tight text-foreground text-lg leading-[1.2] md:text-xl;
+  }
+
+  .text-body {
+    @apply font-sans font-normal text-muted-foreground text-sm leading-7 md:text-base md:leading-8;
+  }
+
+  .text-caption {
+    @apply font-sans font-normal text-muted-foreground text-xs leading-5 md:text-sm;
+  }
+
+  .text-label {
+    @apply font-sans text-[10px] font-medium uppercase tracking-[0.18em] text-muted-foreground md:text-xs;
+  }
+
+  .text-metric {
+    @apply font-sans font-bold tracking-tight text-foreground text-2xl leading-none md:text-3xl;
+  }
+
+  .text-metric-label {
+    @apply font-sans text-[10px] font-medium uppercase tracking-wide text-muted-foreground leading-tight md:text-xs;
+  }
+
+  .text-block-title {
+    @apply font-sans font-semibold text-foreground text-base leading-[1.2] md:text-lg;
   }
 }

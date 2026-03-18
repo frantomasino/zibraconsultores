@@ -191,8 +191,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "contact.form.cardTitle": "Request a Quote",
     "contact.form.maxChars": "Up to 500 characters",
     "contact.form.cta": "Request a Quote",
-    "contact.info.addressLine1": "Gran Canaria 755, B1878 Quilmes",
-    "contact.info.addressLine2": "Buenos Aires Province",
+    "contact.info.addressLine1": "Quilmes.Buenos Aires Province",
     "contact.info.phoneLine1": "+54 9 113009384",
     "contact.info.phoneLine2": "+54 9 1162497623",
     "contact.info.phoneLine3": "+54 9 1156399323",
@@ -214,7 +213,7 @@ export const translations: Record<Language, Record<string, string>> = {
 
     "clients.aliwen.name": "Aliwen - Natural Store",
     "clients.aliwen.industry": "Online Natural Store",
-    "clients.aliwen.category": "RETAIL",
+    "clients.aliwen.category": "Dietética Online",
     "clients.aliwen.description":
       "A business that was already operating, but with a structure that limited its growth. We worked on analyzing its potential, making strategic investment decisions, reorganizing tasks, professionalizing management, strengthening social media resources, expanding sales channels, and implementing a management system.",
       "clients.aliwen.challengeDesc":
@@ -390,49 +389,49 @@ export const translations: Record<Language, Record<string, string>> = {
 
     "services.strategy.title": "Planificación Estratégica",
     "services.strategy.desc":
-      "Desarrolla hojas de ruta claras y estrategias accionables para el éxito a largo plazo",
+      "Impulsamos ideas hacia estrategias concretas para que tu empresa crezca con foco y resultados.",
     "services.operations.title": "Optimización de Operaciones",
     "services.operations.desc":
-      "Agiliza procesos y mejora la eficiencia en toda tu organización",
+      "Optimizamos tus procesos para lograr mayor eficiencia, control y resultados sostenibles.",
     "services.financial.title": "Consultoría Financiera",
-    "services.financial.desc": "Análisis financiero experto y planificación para maximizar la rentabilidad",
+    "services.financial.desc": "Convertimos la información financiera en decisiones claras para hacer crecer tu empresa.",
     "services.hr.title": "Recursos Humanos",
     "services.hr.desc":
-      "Construye equipos sólidos con estrategias efectivas de RR.HH. y gestión del talento",
+      "Desarrollamos equipos comprometidos, organizados y enfocados en resultados.",
     "services.tech.title": "Integración Tecnológica",
     "services.tech.desc":
-      "Aprovecha la tecnología para automatizar y escalar tus operaciones comerciales",
+      "Transformamos tu operación mediante herramientas digitales para optimizar procesos y acelerar el crecimiento.",
     "services.growth.title": "Estrategia de Crecimiento",
-    "services.growth.desc": "Identifica oportunidades y desarrolla planes para la expansión del mercado",
+    "services.growth.desc": "Impulsamos el crecimiento de tu empresa identificando oportunidades y desarrollando planes concretos de expansión.",
 
     // Services (extra keys for ServicesPreview)
     "services.highlight": "Qué podés esperar",
-    "services.strategy.point1": "Diagnóstico inicial y definición de objetivos claros y alcanzables.",
-    "services.strategy.point2": "Plan de acción práctico, alineado con la realidad operativa de tu empresa.",
-    "services.strategy.point3": "Seguimiento de indicadores y ajustes continuos para asegurar resultados.",
+    "services.strategy.point1": "Análisis profundo de tu situación actual. ",
+    "services.strategy.point2": "Objetivos claros y alcanzables.",
+    "services.strategy.point3": "Plan estratégico con seguimiento continuo.",
     "services.strategy.highlight":
       "Trabajamos cerca de tu equipo y con foco en resultados medibles, para convertir la estrategia en ejecución.",
 
     "services.operations.point1":
-      "Mapeo de procesos e identificación de cuellos de botella e ineficiencias.",
-    "services.operations.point2": "Estandarización y mejora de flujos para reducir fricción y errores.",
-    "services.operations.point3": "KPIs y rutinas operativas para sostener el rendimiento en el tiempo.",
+      "Mapeo de procesos clave del negocio.",
+    "services.operations.point2": "Eliminación de ineficiencias y errores operativos.",
+    "services.operations.point3": "Implementación de KPIs y seguimiento operativo.",
     "services.operations.highlight":
       "Mejoramos el día a día con un enfoque práctico: procesos más simples, mejor control e impacto visible.",
 
-    "services.financial.point1": "Diagnóstico financiero: caja, costos, márgenes y riesgos clave.",
-    "services.financial.point2": "Presupuesto y proyecciones para respaldar decisiones.",
-    "services.financial.point3": "Reportes e indicadores para monitorear rentabilidad y performance.",
+    "services.financial.point1": "Análisis financiero integral del negocio",
+    "services.financial.point2": "Planificación y proyección de escenarios.",
+    "services.financial.point3": "Reportes e indicadores de rendimiento.",
     "services.financial.highlight":
       "Ordenamos los números para que tomes decisiones con confianza y mejores la rentabilidad de forma sostenible.",
 
     "services.people.title": "Gestión de Personas",
     "services.people.desc":
       "Construí equipos más sólidos con roles claros, liderazgo y prácticas efectivas.",
-    "services.people.point1": "Definición de roles, responsabilidades y estructura organizacional.",
-    "services.people.point2": "Rutinas de liderazgo, feedback y gestión del desempeño.",
+    "services.people.point1": "Claridad en roles y responsabilidades.",
+    "services.people.point2": "Gestión del desempeño y liderazgo.",
     "services.people.point3":
-      "Cultura, alineación y herramientas para mejorar trabajo en equipo y responsabilidad.",
+      "Cultura organizacional y alineación del equipo.",
     "services.people.highlight":
       "Alineamos personas y procesos para que el equipo avance en la misma dirección y mejore la ejecución.",
 
@@ -523,8 +522,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "contact.form.cardTitle": "Solicitar Presupuesto",
     "contact.form.maxChars": "Máximo 500 caracteres",
     "contact.form.cta": "Solicitar Presupuesto",
-    "contact.info.addressLine1": "Gran Canaria 755, B1878 Quilmes",
-    "contact.info.addressLine2": "Provincia de Buenos Aires",
+    "contact.info.addressLine1": "Quilmes. Provincia de Buenos Aires",
     "contact.info.phoneLine1": "+54 9 113009384",
     "contact.info.phoneLine2": "+54 9 1162497623",
     "contact.info.phoneLine3": "+54 9 1156399323",
@@ -544,16 +542,16 @@ export const translations: Record<Language, Record<string, string>> = {
 "clients.title": "Empresas que confiaron en nosotros",
 "clients.subtitle": "Resultados reales que hablan por sí solos",
 
-"clients.aliwen.name": "Aliwen - Tienda Natural",
-"clients.aliwen.industry": "Tienda Natural Online",
-"clients.aliwen.category": "RETAIL",
+"clients.aliwen.name": "Aliwen",
+"clients.aliwen.industry": "Tienda Natural",
+"clients.aliwen.category": "Dietética Online",
 "clients.aliwen.description":
   "El negocio ya estaba en marcha, pero con una estructura que limitaba su crecimiento. Trabajamos en el análisis del potencial del negocio, la decisión de inversión estratégica, la reorganización de tareas, la profesionalización de la gestión, los recursos para redes sociales, la ampliación de canales de venta y la implementación de un sistema de gestión.",
 "clients.aliwen.challengeDesc":
   "El negocio ya estaba en marcha, pero con una estructura que limitaba su crecimiento.",
 "clients.aliwen.solutionDesc":
   "Análisis del potencial del negocio, decisión de inversión estratégica, reorganización de tareas, profesionalización de la gestión, recursos para redes sociales, ampliación de canales de venta e implementación de sistema de gestión.",
-"clients.aliwen.result1": "Crecimiento",
+"clients.aliwen.result1": "Impulso",
 "clients.aliwen.result1Label": "Potencial del negocio",
 "clients.aliwen.result2": "Orden",
 "clients.aliwen.result2Label": "Gestión",
@@ -569,7 +567,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "clients.telasClaudia.result1Label": "Rentabilidad",
     "clients.telasClaudia.result2": "Mayor",
     "clients.telasClaudia.result2Label": "Propuesta de valor",
-    "clients.telasClaudia.result3": "Más",
+    "clients.telasClaudia.result3": "+",
     "clients.telasClaudia.result3Label": "Competitividad",
 
     "clients.cea.name": "Cursos Cea",

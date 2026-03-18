@@ -231,7 +231,6 @@ ${formData.message}
                   <div>
                     <p className="font-semibold text-foreground">{t("contact.info.address")}</p>
                     <p className="text-muted-foreground">{t("contact.info.addressLine1")}</p>
-                    <p className="text-muted-foreground">{t("contact.info.addressLine2")}</p>
                   </div>
                 </div>
 
