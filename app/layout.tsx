@@ -15,10 +15,13 @@ const poppins = Poppins({
 })
 
 export const metadata: Metadata = {
-  title: "Zibra Consultores - Estrategias Soluciones",
+  title: {
+    default: "Zibra Consultores",
+    template: "%s | Zibra Consultores",
+  },
   description:
-    "Expert business consulting services to optimize operations, increase efficiency, and drive sustainable growth for your business.",
-  generator: "Zibra consultora",
+    "Consultoría para PyMEs y organizaciones. Estrategia, operaciones, finanzas, liderazgo y desarrollo de equipos para impulsar un crecimiento sostenible.",
+  generator: "Zibra Consultores",
   icons: {
     icon: [
       { url: "/favicon.ico" },
@@ -26,6 +29,13 @@ export const metadata: Metadata = {
       { url: "/favicon-32x32.png", type: "image/png", sizes: "32x32" },
     ],
     apple: [{ url: "/apple-touch-icon.png", type: "image/png", sizes: "180x180" }],
+  },
+  openGraph: {
+    title: "Zibra Consultores",
+    description:
+      "Consultoría para PyMEs y organizaciones en estrategia, operaciones, finanzas, liderazgo y desarrollo de equipos.",
+    locale: "es_AR",
+    type: "website",
   },
 }
 
