@@ -1,5 +1,7 @@
 "use client"
 
+import Image from "next/image"
+import Link from "next/link"
 import { useLanguage } from "@/lib/language-context"
 import { ArrowRight, CheckCircle2 } from "lucide-react"
 import { useEffect, useMemo, useRef, useState } from "react"
@@ -36,7 +38,7 @@ export function Services() {
       {
         key: "strategy",
         iconSrc: "/icons/services/strategy.webp",
-        iconAlt: "Planificación Estratégica",
+        iconAlt: "Icono de planificación estratégica",
         titleKey: "services.strategy.title",
         descKey: "services.strategy.desc",
         titleFallback: "Planificación Estratégica",
@@ -51,7 +53,7 @@ export function Services() {
       {
         key: "operations",
         iconSrc: "/icons/services/operations.webp",
-        iconAlt: "Optimización de Operaciones",
+        iconAlt: "Icono de optimización de operaciones",
         titleKey: "services.operations.title",
         descKey: "services.operations.desc",
         titleFallback: "Optimización de Operaciones",
@@ -66,7 +68,7 @@ export function Services() {
       {
         key: "financial",
         iconSrc: "/icons/services/finance.webp",
-        iconAlt: "Consultoría Financiera",
+        iconAlt: "Icono de consultoría financiera",
         titleKey: "services.financial.title",
         descKey: "services.financial.desc",
         titleFallback: "Consultoría Financiera",
@@ -81,7 +83,7 @@ export function Services() {
       {
         key: "people",
         iconSrc: "/icons/services/hr.webp",
-        iconAlt: "Recursos Humanos",
+        iconAlt: "Icono de recursos humanos",
         titleKey: "services.hr.title",
         descKey: "services.hr.desc",
         titleFallback: "Recursos Humanos",
@@ -96,7 +98,7 @@ export function Services() {
       {
         key: "tech",
         iconSrc: "/icons/services/tech.webp",
-        iconAlt: "Integración Tecnológica",
+        iconAlt: "Icono de integración tecnológica",
         titleKey: "services.tech.title",
         descKey: "services.tech.desc",
         titleFallback: "Integración Tecnológica",
@@ -111,7 +113,7 @@ export function Services() {
       {
         key: "growth",
         iconSrc: "/icons/services/growth.webp",
-        iconAlt: "Estrategia de Crecimiento",
+        iconAlt: "Icono de estrategia de crecimiento",
         titleKey: "services.growth.title",
         descKey: "services.growth.desc",
         titleFallback: "Estrategia de Crecimiento",
@@ -173,8 +175,8 @@ export function Services() {
 
   return (
     <section id="services" className="bg-background py-20 md:py-32" ref={sectionRef}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-14 md:mb-16">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mb-14 text-center md:mb-16">
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -195,7 +197,7 @@ export function Services() {
               hidden: {},
               show: { transition: { staggerChildren: TITLE_STAGGER } },
             }}
-            className="text-4xl md:text-5xl text-foreground mb-4"
+            className="mb-4 text-4xl text-foreground md:text-5xl"
           >
             <span className="inline-block">
               {mainTitle.split(" ").map((w, i) => (
@@ -244,7 +246,7 @@ export function Services() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.55 }}
             transition={{ duration: 0.95, delay: 0.2 }}
-            className="text-lg text-muted-foreground max-w-3xl mx-auto"
+            className="mx-auto max-w-3xl text-lg text-muted-foreground"
           >
             {tr(
               "services.subtitle",
@@ -253,7 +255,7 @@ export function Services() {
           </motion.p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 auto-rows-fr">
+        <div className="grid auto-rows-fr gap-8 md:grid-cols-2 lg:grid-cols-3">
           {services.map((service, index) => {
             const isVisible = !!visibleCards[index]
 
@@ -262,15 +264,14 @@ export function Services() {
                 key={service.titleKey}
                 id={service.key}
                 className={[
-                  "group relative bg-card border border-border rounded-xl p-8 transition-all duration-500",
-                  "hover:shadow-lg hover:-translate-y-1 hover:border-accent/50",
+                  "group relative flex h-full scroll-mt-28 flex-col rounded-xl border border-border bg-card p-8 transition-all duration-500",
+                  "hover:-translate-y-1 hover:border-accent/50 hover:shadow-lg",
                   "focus-within:outline-none focus-within:ring-2 focus-within:ring-accent/60 focus-within:ring-offset-2 focus-within:ring-offset-background",
-                  "flex flex-col h-full scroll-mt-28",
-                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8",
+                  isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0",
                 ].join(" ")}
               >
                 <span
-                  className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                  className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
                   style={{
                     background:
                       "radial-gradient(600px circle at 30% 20%, rgba(255,255,255,0.08), transparent 40%)",
@@ -278,17 +279,17 @@ export function Services() {
                 />
 
                 <div className="mb-5">
-                  <img
+                  <Image
                     src={service.iconSrc}
                     alt={service.iconAlt}
-                    width={40}
-                    height={40}
+                    width={48}
+                    height={48}
                     className="block h-12 w-12 object-contain"
                     loading="lazy"
                   />
                 </div>
 
-                <h3 className="text-xl font-semibold text-foreground mb-2">
+                <h3 className="mb-2 text-xl font-semibold text-foreground">
                   {tr(service.titleKey, service.titleFallback)}
                 </h3>
 
@@ -303,16 +304,16 @@ export function Services() {
                   ))}
                 </ul>
 
-                <a
+                <Link
                   href={service.href}
-                  className="mt-auto pt-6 inline-flex items-center gap-2 text-[15px] font-semibold text-foreground"
+                  className="mt-auto inline-flex items-center gap-2 pt-6 text-[15px] font-semibold text-foreground"
                   aria-label={`${tr(service.titleKey, service.titleFallback)} - ${tr("services.cardCta", "Saber más")}`}
                 >
-                  <span className="opacity-95 group-hover:opacity-100 transition-opacity">
+                  <span className="opacity-95 transition-opacity group-hover:opacity-100">
                     {tr("services.cardCta", "Saber más")}
                   </span>
                   <ArrowRight className="h-[18px] w-[18px] transition-transform duration-300 group-hover:translate-x-0.5" />
-                </a>
+                </Link>
               </div>
             )
           })}

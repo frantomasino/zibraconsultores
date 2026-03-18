@@ -1,6 +1,7 @@
 "use client"
 
 import type React from "react"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
@@ -15,7 +16,6 @@ const MAX = 500
 export function Contact() {
   const { t } = useLanguage()
   const { toast } = useToast()
-
   const formRef = useRef<HTMLFormElement>(null)
 
   const [formData, setFormData] = useState({
@@ -65,7 +65,6 @@ ${formData.message}
       className="bg-gradient-to-br from-background via-muted/20 to-background py-20 md:py-32"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* TÍTULO + INTRO */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -82,7 +81,6 @@ ${formData.message}
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-12">
-          {/* IZQUIERDA: FORM + IMAGEN */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -90,17 +88,21 @@ ${formData.message}
             transition={{ duration: 0.6, delay: 0.15 }}
             className="space-y-8"
           >
-            {/* CARD FORM */}
             <div className="bg-card border border-border rounded-2xl p-8 shadow-sm hover:shadow-lg transition-shadow">
               <h3 className="text-xl font-semibold text-foreground mb-6">
                 {t("contact.form.cardTitle")}
               </h3>
 
               <form ref={formRef} onSubmit={(e) => e.preventDefault()} className="space-y-6">
-                {/* NOMBRE */}
                 <div className="relative">
+                  <label htmlFor="name" className="sr-only">
+                    {t("contact.form.name")}
+                  </label>
                   <User className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
                   <Input
+                    id="name"
+                    name="name"
+                    autoComplete="name"
                     className="pl-10 h-12"
                     placeholder={t("contact.form.name")}
                     required
@@ -109,11 +111,16 @@ ${formData.message}
                   />
                 </div>
 
-                {/* EMAIL */}
                 <div className="relative">
+                  <label htmlFor="email" className="sr-only">
+                    {t("contact.form.email")}
+                  </label>
                   <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
                   <Input
+                    id="email"
+                    name="email"
                     type="email"
+                    autoComplete="email"
                     className="pl-10 h-12"
                     placeholder={t("contact.form.email")}
                     required
@@ -122,11 +129,16 @@ ${formData.message}
                   />
                 </div>
 
-                {/* TELÉFONO */}
                 <div className="relative">
+                  <label htmlFor="phone" className="sr-only">
+                    {t("contact.form.phone")}
+                  </label>
                   <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
                   <Input
+                    id="phone"
+                    name="phone"
                     type="tel"
+                    autoComplete="tel"
                     className="pl-10 h-12"
                     placeholder={t("contact.form.phone")}
                     value={formData.phone}
@@ -134,10 +146,15 @@ ${formData.message}
                   />
                 </div>
 
-                {/* EMPRESA */}
                 <div className="relative">
+                  <label htmlFor="company" className="sr-only">
+                    {t("contact.form.company")}
+                  </label>
                   <Building2 className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
                   <Input
+                    id="company"
+                    name="company"
+                    autoComplete="organization"
                     className="pl-10 h-12"
                     placeholder={t("contact.form.company")}
                     value={formData.company}
@@ -145,9 +162,13 @@ ${formData.message}
                   />
                 </div>
 
-                {/* MENSAJE */}
                 <div className="relative">
+                  <label htmlFor="message" className="sr-only">
+                    {t("contact.form.message")}
+                  </label>
                   <Textarea
+                    id="message"
+                    name="message"
                     className="pl-2 resize-none"
                     placeholder={t("contact.form.message")}
                     rows={5}
@@ -162,9 +183,6 @@ ${formData.message}
                   </div>
                 </div>
 
-                <button type="submit" hidden />
-
-                {/* CTA ÚNICO (WhatsApp) */}
                 <Button
                   type="button"
                   onClick={() => sendWhatsApp("full")}
@@ -176,7 +194,6 @@ ${formData.message}
               </form>
             </div>
 
-            {/* IMAGEN (ahora a la izquierda) */}
             <motion.div
               initial={{ opacity: 0, scale: 0.97 }}
               whileInView={{ opacity: 1, scale: 1 }}
@@ -184,15 +201,16 @@ ${formData.message}
               transition={{ duration: 0.5, delay: 0.2 }}
               className="relative h-64 rounded-2xl overflow-hidden shadow-lg"
             >
-              <img
+              <Image
                 src="/contacto-office.webp"
-                alt="Oficina"
-                className="w-full h-full object-cover"
+                alt="Espacio de trabajo y atención de Zibra Consultores"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
               />
             </motion.div>
           </motion.div>
 
-          {/* DERECHA: INFO + URGENTE */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -200,14 +218,12 @@ ${formData.message}
             transition={{ duration: 0.6, delay: 0.2 }}
             className="space-y-8"
           >
-            {/* INFORMACIÓN DE CONTACTO */}
             <div className="bg-card border border-border rounded-2xl p-8 shadow-sm hover:shadow-lg transition-shadow">
               <h3 className="text-xl font-semibold text-foreground mb-6">
                 {t("contact.info.title")}
               </h3>
 
               <div className="space-y-6">
-                {/* DIRECCIÓN */}
                 <div className="flex items-start gap-4 p-4 rounded-xl hover:bg-muted/50 transition-colors">
                   <div className="w-10 h-10 bg-accent/10 rounded-xl flex items-center justify-center flex-shrink-0">
                     <MapPin className="w-5 h-5 text-accent" />
@@ -219,7 +235,6 @@ ${formData.message}
                   </div>
                 </div>
 
-                {/* TELÉFONOS */}
                 <div className="flex items-start gap-4 p-4 rounded-xl hover:bg-muted/50 transition-colors">
                   <div className="w-10 h-10 bg-accent/10 rounded-xl flex items-center justify-center flex-shrink-0">
                     <Phone className="w-5 h-5 text-accent" />
@@ -232,7 +247,6 @@ ${formData.message}
                   </div>
                 </div>
 
-                {/* CORREO */}
                 <div className="flex items-start gap-4 p-4 rounded-xl hover:bg-muted/50 transition-colors">
                   <div className="w-10 h-10 bg-accent/10 rounded-xl flex items-center justify-center flex-shrink-0">
                     <Mail className="w-5 h-5 text-accent" />
@@ -243,7 +257,6 @@ ${formData.message}
                   </div>
                 </div>
 
-                {/* HORARIOS */}
                 <div className="flex items-start gap-4 p-4 rounded-xl hover:bg-muted/50 transition-colors">
                   <div className="w-10 h-10 bg-accent/10 rounded-xl flex items-center justify-center flex-shrink-0">
                     <Clock className="w-5 h-5 text-accent" />
@@ -256,7 +269,6 @@ ${formData.message}
               </div>
             </div>
 
-            {/* URGENTE */}
             <div className="rounded-2xl bg-primary p-8 text-primary-foreground shadow-sm">
               <h3 className="text-2xl font-semibold">{t("contact.urgent.title")}</h3>
               <p className="mt-2 text-primary-foreground/90">{t("contact.urgent.subtitle")}</p>

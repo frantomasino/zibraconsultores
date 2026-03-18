@@ -1,5 +1,7 @@
 "use client"
 
+import Image from "next/image"
+import Link from "next/link"
 import { Separator } from "@/components/ui/separator"
 import { Badge } from "@/components/ui/badge"
 import { useLanguage } from "@/lib/language-context"
@@ -9,120 +11,112 @@ export function Footer() {
   const { t } = useLanguage()
 
   return (
-    <footer className="bg-foreground text-background py-12 md:py-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-4 gap-8 mb-8">
-          {/* LOGO + DESCRIPCIÓN */}
+    <footer className="bg-foreground py-12 text-background md:py-16">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mb-8 grid gap-8 md:grid-cols-4">
           <div>
-            <div className="flex items-center gap-3 mb-4">
-              <img
+            <div className="mb-4 flex items-center gap-3">
+              <Image
                 src="/icono-zibra-blanco---fondo-transparente.png"
-                alt="Zibra Consultora"
+                alt="Logo de Zibra Consultora"
+                width={44}
+                height={44}
                 className="h-10 w-auto md:h-11"
               />
-              <span className="font-bold text-lg">Zibra Consultora</span>
+              <span className="text-lg font-bold">Zibra Consultora</span>
             </div>
 
-            <p className="text-sm text-background/70 mb-4">
-              {t("footer.tagline")}
-            </p>
+            <p className="mb-4 text-sm text-background/70">{t("footer.tagline")}</p>
 
-            <Badge className="bg-accent/20 text-background border-accent/30">
+            <Badge className="border-accent/30 bg-accent/20 text-background">
               {t("footer.certified")}
             </Badge>
           </div>
 
-          {/* ENLACES RÁPIDOS */}
           <div>
-            <h4 className="font-semibold mb-4 text-base">{t("footer.links")}</h4>
-            <Separator className="bg-background/20 mb-4" />
+            <h4 className="mb-4 text-base font-semibold">{t("footer.links")}</h4>
+            <Separator className="mb-4 bg-background/20" />
             <ul className="space-y-3 text-sm text-background/70">
               <li>
-                <a
+                <Link
                   href="/servicios"
-                  className="hover:text-background transition flex items-center gap-2"
+                  className="flex items-center gap-2 transition hover:text-background"
                 >
-                  <span className="w-1 h-1 bg-accent rounded-full" />
+                  <span className="h-1 w-1 rounded-full bg-accent" />
                   {t("nav.services")}
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   href="/nosotros"
-                  className="hover:text-background transition flex items-center gap-2"
+                  className="flex items-center gap-2 transition hover:text-background"
                 >
-                  <span className="w-1 h-1 bg-accent rounded-full" />
+                  <span className="h-1 w-1 rounded-full bg-accent" />
                   {t("nav.about")}
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   href="/contacto"
-                  className="hover:text-background transition flex items-center gap-2"
+                  className="flex items-center gap-2 transition hover:text-background"
                 >
-                  <span className="w-1 h-1 bg-accent rounded-full" />
+                  <span className="h-1 w-1 rounded-full bg-accent" />
                   {t("nav.contact")}
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   href="/clientes"
-                  className="hover:text-background transition flex items-center gap-2"
+                  className="flex items-center gap-2 transition hover:text-background"
                 >
-                  <span className="w-1 h-1 bg-accent rounded-full" />
+                  <span className="h-1 w-1 rounded-full bg-accent" />
                   {t("nav.testimonials")}
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
 
-          {/* CONTACTO */}
           <div>
-            <h4 className="font-semibold mb-4 text-base">{t("footer.contact")}</h4>
-            <Separator className="bg-background/20 mb-4" />
+            <h4 className="mb-4 text-base font-semibold">{t("footer.contact")}</h4>
+            <Separator className="mb-4 bg-background/20" />
             <ul className="space-y-3 text-sm text-background/70">
               <li className="flex items-center gap-2">
-                <Phone className="w-4 h-4 text-accent" />
-                <a href="tel:+541112345678" className="hover:text-background transition">
+                <Phone className="h-4 w-4 text-accent" />
+                <a href="tel:+541112345678" className="transition hover:text-background">
                   +54 11 1234-5678
                 </a>
               </li>
               <li className="flex items-center gap-2">
-                <Mail className="w-4 h-4 text-accent" />
-                <a
-                  href="mailto:info@gmail.com"
-                  className="hover:text-background transition"
-                >
+                <Mail className="h-4 w-4 text-accent" />
+                <a href="mailto:info@gmail.com" className="transition hover:text-background">
                   info@gmail.com
                 </a>
               </li>
               <li className="flex items-center gap-2">
-                <MapPin className="w-4 h-4 text-accent" />
+                <MapPin className="h-4 w-4 text-accent" />
                 <span>Buenos Aires, Argentina</span>
               </li>
             </ul>
           </div>
 
-          {/* REDES */}
           <div>
-            <h4 className="font-semibold mb-4 text-base">{t("footer.connect")}</h4>
-            <Separator className="bg-background/20 mb-4" />
+            <h4 className="mb-4 text-base font-semibold">{t("footer.connect")}</h4>
+            <Separator className="mb-4 bg-background/20" />
             <ul className="space-y-3 text-sm text-background/70">
               <li>
-                <a
-                  href="#"
-                  className="hover:text-background transition flex items-center gap-2"
-                >
-                  <span className="w-1 h-1 bg-accent rounded-full" />
+                <a href="#" className="flex items-center gap-2 transition hover:text-background">
+                  <span className="h-1 w-1 rounded-full bg-accent" />
                   LinkedIn
                 </a>
               </li>
               <li>
                 <a
                   href="https://www.instagram.com/zibraconsultores/"
-                  className="hover:text-background transition flex items-center gap-2"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 transition hover:text-background"
                 >
-                  <span className="w-1 h-1 bg-accent rounded-full" />
+                  <span className="h-1 w-1 rounded-full bg-accent" />
                   Instagram
                 </a>
               </li>
@@ -130,9 +124,8 @@ export function Footer() {
           </div>
         </div>
 
-        <Separator className="bg-background/20 mb-8" />
+        <Separator className="mb-8 bg-background/20" />
 
-        {/* COPYRIGHT */}
         <div className="text-center text-sm text-background/70">
           <p>{t("footer.copyright")}</p>
         </div>
