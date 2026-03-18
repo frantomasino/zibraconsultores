@@ -58,8 +58,6 @@ export const translations: Record<Language, Record<string, string>> = {
     "services.subtitle":
       "Customized consulting services designed to drive the transformation of your SME and take it to the next level",
     "services.viewAll": "View All Services",
-
-    // ✅ NEW (to avoid hardcoded strings in Services section)
     "services.cardCta": "Learn more",
     "services.bottomCtaTitle": "Want a clear, actionable recommendation?",
     "services.bottomCtaDesc": "Tell us about your situation and we’ll propose a plan focused on results.",
@@ -99,12 +97,10 @@ export const translations: Record<Language, Record<string, string>> = {
       "We bring clarity to numbers so you can decide with confidence and improve profitability sustainably.",
 
     "services.people.title": "People Management",
-    "services.people.desc":
-      "Build stronger teams with clear roles, leadership and effective practices.",
+    "services.people.desc": "Build stronger teams with clear roles, leadership and effective practices.",
     "services.people.point1": "Role definition, responsibilities and organizational structure.",
     "services.people.point2": "Leadership routines, feedback and performance management practices.",
-    "services.people.point3":
-      "Culture, alignment and tools to improve teamwork and accountability.",
+    "services.people.point3": "Culture, alignment and tools to improve teamwork and accountability.",
     "services.people.highlight":
       "We help you align people and processes, so the team moves in the same direction and execution improves.",
 
@@ -169,7 +165,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "testimonial3.quote":
       "Professional, knowledgeable, and results-driven. They understood our challenges and delivered practical solutions.",
 
-    // Contact (existing)
+    // Contact
     "contact.badge": "Get Started",
     "contact.title": "Schedule Your Consultation",
     "contact.subtitle": "Let's discuss how we can help your business achieve its goals",
@@ -192,12 +188,9 @@ export const translations: Record<Language, Record<string, string>> = {
     "contact.info.phone": "Phone",
     "contact.info.email": "Email",
     "contact.info.address": "Address",
-
-    // ✅ NEW Contact (missing keys for the new layout)
     "contact.form.cardTitle": "Request a Quote",
     "contact.form.maxChars": "Up to 500 characters",
     "contact.form.cta": "Request a Quote",
-
     "contact.info.addressLine1": "Gran Canaria 755, B1878 Quilmes",
     "contact.info.addressLine2": "Buenos Aires Province",
     "contact.info.phoneLine1": "+54 9 113009384",
@@ -206,34 +199,89 @@ export const translations: Record<Language, Record<string, string>> = {
     "contact.info.emailLine": "prueba@gmail.com",
     "contact.info.hours": "Hours",
     "contact.info.hoursLine": "Mon to Fri 9:00 to 18:00",
-
     "contact.urgent.title": "Need urgent assistance?",
     "contact.urgent.subtitle": "Contact us via WhatsApp for quick questions",
     "contact.urgent.cta": "Chat on WhatsApp",
-
     "contact.whatsapp.quickText": "Hi! I have a quick question.",
-
     "contact.toast.whatsappTitle": "WhatsApp opened",
     "contact.toast.whatsappDesc": "We opened WhatsApp with your message ready.",
 
     // Clients
-    "clients.badge": "Our Clients",
-    "clients.title": "Trusted by Leading Companies",
-    "clients.subtitle": "We work with innovative companies across industries to drive growth and success",
+    "clients.badge": "Success Cases",
+    "clients.sectionLabel": "Our Clients",
+    "clients.title": "Companies That Trusted Us",
+    "clients.subtitle": "Real results that speak for themselves",
+
     "clients.aliwen.name": "Aliwen - Natural Store",
-    "clients.aliwen.industry": "Online Health Store",
-    "clients.aliwen.challenge": "Initial Challenge",
-    "clients.aliwen.challengeDesc": "The business was already running, but with a structure that limited its growth.",
-    "clients.aliwen.solution": "Solution",
-    "clients.aliwen.solutionDesc":
-      "Business potential analysis, strategic investment decision, task reorganization, professionalization of management, resources for social media, expansion of sales channels and implementation of a management system.",
-    "clients.aliwen.results": "Results in 1 year",
-    "clients.aliwen.result1": "+900%",
-    "clients.aliwen.result1Label": "Monthly revenue",
-    "clients.aliwen.result2": "+700%",
-    "clients.aliwen.result2Label": "Profitability",
-    "clients.aliwen.result3": "-100%",
-    "clients.aliwen.result3Label": "Operational control",
+    "clients.aliwen.industry": "Online Natural Store",
+    "clients.aliwen.category": "RETAIL",
+    "clients.aliwen.description":
+      "A business that was already operating, but with a structure that limited its growth. We worked on analyzing its potential, making strategic investment decisions, reorganizing tasks, professionalizing management, strengthening social media resources, expanding sales channels, and implementing a management system.",
+      "clients.aliwen.challengeDesc":
+  "El negocio ya estaba en marcha, pero con una estructura que limitaba su crecimiento.",
+"clients.aliwen.solutionDesc":
+  "Análisis del potencial del negocio, decisión de inversión estratégica, reorganización de tareas, profesionalización de la gestión, recursos para redes sociales, ampliación de canales de venta e implementación de sistema de gestión.",
+    "clients.aliwen.result1": "Growth",
+    "clients.aliwen.result1Label": "Business potential",
+    "clients.aliwen.result2": "Order",
+    "clients.aliwen.result2Label": "Management",
+    "clients.aliwen.result3": "Scale",
+    "clients.aliwen.result3Label": "Sales channels",
+
+    "clients.telasClaudia.name": "Telas Claudia",
+    "clients.telasClaudia.industry": "Textile Distributor",
+    "clients.telasClaudia.category": "TEXTILE",
+    "clients.telasClaudia.description":
+      "Textile distributor based in Chile, focused on wholesale and retail sales. Through strategic analysis, we identified the opportunity to add trimming products as a complementary business line, improved profitability, diversified the offer, reviewed margins, and supported the expansion to a larger store.",
+    "clients.telasClaudia.result1": "More",
+    "clients.telasClaudia.result1Label": "Profitability",
+    "clients.telasClaudia.result2": "Broader",
+    "clients.telasClaudia.result2Label": "Value proposal",
+    "clients.telasClaudia.result3": "Higher",
+    "clients.telasClaudia.result3Label": "Competitiveness",
+
+    "clients.cea.name": "Cursos Cea",
+    "clients.cea.industry": "Educational Institute",
+    "clients.cea.category": "EDUCATION",
+    "clients.cea.description":
+      "Educational institute in Lomas de Zamora with more than 30 years of experience. Its reach was limited to local students. We led a full transformation process: redesigning the model to online format, training in digital tools, and defining a communication and student acquisition strategy.",
+    "clients.cea.result1": "Online",
+    "clients.cea.result1Label": "New offering",
+    "clients.cea.result2": "More",
+    "clients.cea.result2Label": "Enrollments",
+    "clients.cea.result3": "National",
+    "clients.cea.result3Label": "Expansion",
+
+    "clients.dimayer.name": "Dimayer",
+    "clients.dimayer.industry": "Metalworking Company",
+    "clients.dimayer.category": "INDUSTRY",
+    "clients.dimayer.description":
+      "Metalworking company dedicated to manufacturing parts and structures. It had a good workload but poorly organized processes. We optimized production flow, identified bottlenecks, implemented simple planning, defined roles and responsibilities, and added follow-up and control habits.",
+    "clients.dimayer.result1": "Better",
+    "clients.dimayer.result1Label": "Delivery times",
+    "clients.dimayer.result2": "More",
+    "clients.dimayer.result2Label": "Production predictability",
+    "clients.dimayer.result3": "Less",
+    "clients.dimayer.result3Label": "Operational chaos",
+
+    "clients.challengeTitle": "Challenge",
+"clients.solutionTitle": "Solution",
+"clients.resultsTitle": "Results",
+
+"clients.telasClaudia.challengeDesc":
+  "The company had growth potential, but needed to improve profitability, diversify its offer, and strengthen its commercial approach to sustain expansion.",
+"clients.telasClaudia.solutionDesc":
+  "We carried out a strategic analysis, identified the opportunity to incorporate trimming products as a complementary line, reviewed margins by product, improved the commercial approach, and supported the expansion to a larger store.",
+
+"clients.cea.challengeDesc":
+  "The institute needed to expand nationally, incorporate technology without losing educational quality, build an attractive online proposal, and overcome resistance to change.",
+"clients.cea.solutionDesc":
+  "We led a full transformation process: redesigning the model to online format, training in digital tools, and defining a clear communication and student acquisition strategy.",
+
+"clients.dimayer.challengeDesc":
+  "The company faced disorganized production processes, irregular delivery times, planning difficulties, operational overload on the owners, and missed opportunities due to lack of structure.",
+"clients.dimayer.solutionDesc":
+  "We analyzed production processes, detected bottlenecks, organized the workflow in the plant, implemented a simple order-planning system, defined roles and responsibilities, and introduced follow-up and control routines.",
 
     // FAQ
     "faq.badge": "Questions?",
@@ -334,8 +382,6 @@ export const translations: Record<Language, Record<string, string>> = {
     "services.subtitle":
       "Servicios de consultoría personalizados diseñados para impulsar la transformación de tu pyme y llevarla al próximo nivel",
     "services.viewAll": "Ver Todos los Servicios",
-
-    // ✅ NEW
     "services.cardCta": "Saber más",
     "services.bottomCtaTitle": "¿Querés una recomendación clara y accionable?",
     "services.bottomCtaDesc":
@@ -451,7 +497,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "testimonial3.quote":
       "Profesionales, conocedores y orientados a resultados. Entendieron nuestros desafíos y entregaron soluciones prácticas.",
 
-    // Contact (existing)
+    // Contact
     "contact.badge": "Empecemos",
     "contact.title": "Gracias por acercarse a Zibra",
     "contact.subtitle": "Hablemos sobre cómo podemos ayudar a tu negocio a alcanzar sus objetivos",
@@ -474,12 +520,9 @@ export const translations: Record<Language, Record<string, string>> = {
     "contact.info.phone": "Teléfonos",
     "contact.info.email": "Correo",
     "contact.info.address": "Dirección",
-
-    // ✅ NEW Contact (missing keys for the new layout)
     "contact.form.cardTitle": "Solicitar Presupuesto",
     "contact.form.maxChars": "Máximo 500 caracteres",
     "contact.form.cta": "Solicitar Presupuesto",
-
     "contact.info.addressLine1": "Gran Canaria 755, B1878 Quilmes",
     "contact.info.addressLine2": "Provincia de Buenos Aires",
     "contact.info.phoneLine1": "+54 9 113009384",
@@ -488,35 +531,89 @@ export const translations: Record<Language, Record<string, string>> = {
     "contact.info.emailLine": "prueba@gmail.com",
     "contact.info.hours": "Horarios",
     "contact.info.hoursLine": "Lun a Vie 9:00 a 18:00",
-
     "contact.urgent.title": "¿Necesitás atención urgente?",
     "contact.urgent.subtitle": "Contactanos directamente por WhatsApp para consultas rápidas",
     "contact.urgent.cta": "Chatear por WhatsApp",
-
     "contact.whatsapp.quickText": "Hola! Necesito una consulta rápida.",
-
     "contact.toast.whatsappTitle": "WhatsApp abierto",
     "contact.toast.whatsappDesc": "Te llevamos a WhatsApp con el mensaje listo.",
 
     // Clients
     "clients.badge": "Casos de Éxito",
-    "clients.title": "Empresas que confiaron en nosotros",
-    "clients.subtitle": "Resultados reales que hablan por sí solos",
-    "clients.aliwen.name": "Aliwen - Tienda Natural",
-    "clients.aliwen.industry": "Dietética Online",
-    "clients.aliwen.challenge": "Desafío Inicial",
-    "clients.aliwen.challengeDesc":
-      "El negocio ya estaba en marcha, pero con una estructura que limitaba su crecimiento.",
-    "clients.aliwen.solution": "Solución",
-    "clients.aliwen.solutionDesc":
-      "Análisis del potencial del negocio, decisión de inversión estratégica, reorganización de tareas, profesionalización de la gestión, recursos para redes sociales, ampliación de canales de venta e implementación de sistema de gestión.",
-    "clients.aliwen.results": "Resultados en 1 año",
-    "clients.aliwen.result1": "+900%",
-    "clients.aliwen.result1Label": "Facturación mensual",
-    "clients.aliwen.result2": "+700%",
-    "clients.aliwen.result2Label": "Rentabilidad",
-    "clients.aliwen.result3": "-100%",
-    "clients.aliwen.result3Label": "Control operativo",
+"clients.sectionLabel": "Nuestros clientes",
+"clients.title": "Empresas que confiaron en nosotros",
+"clients.subtitle": "Resultados reales que hablan por sí solos",
+
+"clients.aliwen.name": "Aliwen - Tienda Natural",
+"clients.aliwen.industry": "Tienda Natural Online",
+"clients.aliwen.category": "RETAIL",
+"clients.aliwen.description":
+  "El negocio ya estaba en marcha, pero con una estructura que limitaba su crecimiento. Trabajamos en el análisis del potencial del negocio, la decisión de inversión estratégica, la reorganización de tareas, la profesionalización de la gestión, los recursos para redes sociales, la ampliación de canales de venta y la implementación de un sistema de gestión.",
+"clients.aliwen.challengeDesc":
+  "El negocio ya estaba en marcha, pero con una estructura que limitaba su crecimiento.",
+"clients.aliwen.solutionDesc":
+  "Análisis del potencial del negocio, decisión de inversión estratégica, reorganización de tareas, profesionalización de la gestión, recursos para redes sociales, ampliación de canales de venta e implementación de sistema de gestión.",
+"clients.aliwen.result1": "Crecimiento",
+"clients.aliwen.result1Label": "Potencial del negocio",
+"clients.aliwen.result2": "Orden",
+"clients.aliwen.result2Label": "Gestión",
+"clients.aliwen.result3": "Escala",
+"clients.aliwen.result3Label": "Canales de venta",
+
+    "clients.telasClaudia.name": "Telas Claudia",
+    "clients.telasClaudia.industry": "Distribuidora Textil",
+    "clients.telasClaudia.category": "TEXTIL",
+    "clients.telasClaudia.description":
+      "Distribuidora de telas ubicada en Chile, con trayectoria en el mercado textil y foco en venta mayorista y minorista. Se identificó la oportunidad de incorporar cordonería como línea complementaria, se trabajó en la diversificación de la oferta, el enfoque comercial, la evaluación de márgenes y el acompañamiento en la expansión a un local más amplio.",
+    "clients.telasClaudia.result1": "Más",
+    "clients.telasClaudia.result1Label": "Rentabilidad",
+    "clients.telasClaudia.result2": "Mayor",
+    "clients.telasClaudia.result2Label": "Propuesta de valor",
+    "clients.telasClaudia.result3": "Más",
+    "clients.telasClaudia.result3Label": "Competitividad",
+
+    "clients.cea.name": "Cursos Cea",
+    "clients.cea.industry": "Instituto de Enseñanza",
+    "clients.cea.category": "EDUCACIÓN",
+    "clients.cea.description":
+      "Instituto de enseñanza con trayectoria presencial ubicado en Lomas de Zamora, con más de 30 años formando profesionales. Su alcance estaba limitado a alumnos de su zona. Trabajamos en un proceso integral de transformación: rediseño del modelo hacia formato online, capacitación en herramientas digitales y definición de una estrategia clara de comunicación y captación de alumnos.",
+    "clients.cea.result1": "Online",
+    "clients.cea.result1Label": "Nueva oferta",
+    "clients.cea.result2": "Más",
+    "clients.cea.result2Label": "Inscripciones",
+    "clients.cea.result3": "Nacional",
+    "clients.cea.result3Label": "Expansión",
+
+    "clients.dimayer.name": "Dimayer",
+    "clients.dimayer.industry": "Empresa Metalúrgica",
+    "clients.dimayer.category": "INDUSTRIA",
+    "clients.dimayer.description":
+      "Empresa metalúrgica dedicada a la fabricación de piezas y estructuras. Tenía buen nivel de trabajo, pero con procesos poco organizados. Desde la consultoría trabajamos en el análisis de procesos productivos, la organización del flujo de trabajo, la implementación de un sistema simple de planificación, la definición de roles y la incorporación de hábitos de seguimiento y control.",
+    "clients.dimayer.result1": "Mejora",
+    "clients.dimayer.result1Label": "Tiempos de entrega",
+    "clients.dimayer.result2": "Mayor",
+    "clients.dimayer.result2Label": "Previsibilidad",
+    "clients.dimayer.result3": "Menos",
+    "clients.dimayer.result3Label": "Caos operativo",
+
+    "clients.challengeTitle": "Desafío",
+"clients.solutionTitle": "Solución",
+"clients.resultsTitle": "Resultados",
+
+"clients.telasClaudia.challengeDesc":
+  "La empresa tenía potencial de crecimiento, pero necesitaba mejorar su rentabilidad, diversificar la oferta y fortalecer su enfoque comercial para sostener la expansión.",
+"clients.telasClaudia.solutionDesc":
+  "Se realizó un análisis estratégico, se identificó la oportunidad de incorporar cordonería como línea complementaria, se evaluaron márgenes por producto, se trabajó el enfoque comercial y se acompañó la expansión a un local más amplio.",
+
+"clients.cea.challengeDesc":
+  "El instituto necesitaba expandirse a nivel nacional, incorporar tecnología sin perder calidad educativa, generar una propuesta online atractiva y superar la resistencia al cambio.",
+"clients.cea.solutionDesc":
+  "Trabajamos en un proceso integral de transformación: rediseño del modelo hacia formato online, capacitación en herramientas digitales y definición de una estrategia clara de comunicación y captación de alumnos.",
+
+"clients.dimayer.challengeDesc":
+  "La empresa enfrentaba procesos productivos poco organizados, tiempos de entrega irregulares, dificultades para planificar pedidos, sobrecarga operativa en los dueños y pérdida de oportunidades por falta de estructura.",
+"clients.dimayer.solutionDesc":
+  "Desde la consultoría trabajamos en el análisis de procesos productivos, la detección de cuellos de botella, la organización del flujo de trabajo en planta, la implementación de un sistema simple de planificación, la definición de roles y la incorporación de hábitos de seguimiento y control.",
 
     // FAQ
     "faq.badge": "¿Preguntas?",
