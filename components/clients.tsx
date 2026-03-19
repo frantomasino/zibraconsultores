@@ -220,7 +220,7 @@ export function Clients() {
   )}
 </div>
                     <div className="min-w-0">
-                      <h3 className="text-xl font-serif font-medium text-foreground break-words">
+                      <h3 className="text-xl font-serif font-medium text-[#2D3282] break-words">
                         {client.name}
                       </h3>
                       <p className="text-sm text-muted-foreground">{client.subtitle}</p>

@@ -9,6 +9,10 @@ import { useEffect, useRef, useState } from "react"
 export function About() {
   const { t } = useLanguage()
 
+  // Lógica para separar el título en palabras
+  const title = t("about.title")
+  const words = title.split(" ")
+
   // refs para animar por secciones
   const headerRef = useRef<HTMLDivElement | null>(null)
   const companyRef = useRef<HTMLDivElement | null>(null)
@@ -93,8 +97,16 @@ export function About() {
             {t("about.badge")}
           </Badge>
 
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-foreground mb-6">
-            {t("about.title")}
+          {/* TITULO MODIFICADO: Las primeras dos palabras son azules */}
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
+            {words.map((word, i) => (
+              <span 
+                key={i} 
+                className={i < 2 ? "text-[#2D3282]" : "text-foreground"}
+              >
+                {word}{" "}
+              </span>
+            ))}
           </h2>
 
           <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
@@ -102,7 +114,7 @@ export function About() {
           </p>
         </div>
 
-        {/* Company Info (DEJAR ESTO COMO ESTÁ) */}
+        {/* Company Info */}
         <div
           ref={companyRef}
           className={`mb-16 grid md:grid-cols-2 gap-8 transition-all duration-700 ${
@@ -124,14 +136,14 @@ export function About() {
 
         <Separator className="my-16" />
 
-        {/* Trayectorias (3 en línea) */}
+        {/* Trayectorias */}
         <div
           ref={trajectoriesRef}
           className={`mb-16 transition-all duration-700 ${
             trajectoriesVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}
         >
-          <h3 className="text-2xl md:text-3xl font-semibold text-center mb-12">
+          <h3 className="text-2xl md:text-3xl font-bold text-center mb-12 text-[#2D3282]">
             {t("about.trajectories.title")}
           </h3>
 
@@ -139,7 +151,7 @@ export function About() {
             {trajectories.map((p) => (
               <Card key={p.name} className="border-2 shadow-sm">
                 <CardHeader className="pb-2">
-                  <CardTitle className="text-xl font-semibold text-[#2E2F84]">
+                  <CardTitle className="text-xl font-semibold text-[#2D3282]">
                     {p.name}
                   </CardTitle>
                   <p className="text-muted-foreground">{p.title}</p>
@@ -149,7 +161,7 @@ export function About() {
                   <div className="space-y-3">
                     {p.points.map((txt, i) => (
                       <div key={i} className="flex items-start gap-3 p-3 rounded-lg bg-muted/40">
-                        <span className="mt-2 h-2 w-2 rounded-full bg-[#2E2F84] flex-shrink-0" />
+                        <span className="mt-2 h-2 w-2 rounded-full bg-[#2D3282] flex-shrink-0" />
                         <p className="text-muted-foreground leading-relaxed">{txt}</p>
                       </div>
                     ))}
@@ -169,7 +181,7 @@ export function About() {
             valuesVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}
         >
-          <h3 className="text-2xl md:text-3xl font-semibold text-center mb-12">
+          <h3 className="text-2xl md:text-3xl font-bold text-center mb-12 text-[#2D3282]">
             {t("about.values.title")}
           </h3>
 
@@ -177,7 +189,7 @@ export function About() {
             {values.map((value, index) => (
               <Card key={index} className="text-center hover:shadow-lg transition-all border-2">
                 <CardHeader>
-                  <CardTitle className="text-xl">{value.title}</CardTitle>
+                  <CardTitle className="text-xl text-[#2D3282]">{value.title}</CardTitle>
                   <p className="text-base text-muted-foreground">{value.description}</p>
                 </CardHeader>
               </Card>
