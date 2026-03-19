@@ -53,56 +53,51 @@ export const translations: Record<Language, Record<string, string>> = {
     // Services
     "services.badge": "Our Services",
     "services.mainTitle": "What we can do",
-    "services.mainTitleHighlight": "for your business",
+    "services.mainTitleHighlight": "for your company",
     "services.title": "Services",
     "services.subtitle":
-      "Customized consulting services designed to drive the transformation of your SME and take it to the next level",
+      "Personalized consulting services designed to drive the transformation of your SME and take it to the next level",
     "services.viewAll": "View All Services",
     "services.cardCta": "Learn more",
     "services.bottomCtaTitle": "Want a clear, actionable recommendation?",
-    "services.bottomCtaDesc": "Tell us about your situation and we’ll propose a plan focused on results.",
+    "services.bottomCtaDesc": "Tell us about your situation and we’ll propose a results-focused action plan.",
     "services.bottomCtaButton": "Contact",
 
     "services.strategy.title": "Strategic Planning",
-    "services.strategy.desc": "Develop clear roadmaps and actionable strategies for long-term success",
+    "services.strategy.desc": "We define a clear roadmap to grow with focus and order.",
+    "services.strategy.point1": "Diagnosis and clear objectives.",
+    "services.strategy.point2": "A phased, measurable, and realistic plan.",
+    "services.strategy.point3": "Ongoing monitoring and adjustments.",
+
     "services.operations.title": "Operations Optimization",
-    "services.operations.desc": "Streamline processes and improve efficiency across your organization",
+    "services.operations.desc": "We improve processes and efficiency to reduce costs and time.",
+    "services.operations.point1": "Process mapping and bottleneck detection.",
+    "services.operations.point2": "Standardization and continuous improvement.",
+    "services.operations.point3": "KPIs and management control.",
+
     "services.financial.title": "Financial Consulting",
-    "services.financial.desc": "Expert financial analysis and planning to maximize profitability",
+    "services.financial.desc": "Financial analysis and control for more confident decision-making.",
+    "services.financial.point1": "Management dashboard and metrics.",
+    "services.financial.point2": "Projections and scenarios.",
+    "services.financial.point3": "Financial order and discipline.",
+
     "services.hr.title": "Human Resources",
-    "services.hr.desc": "Build strong teams with effective HR strategies and talent management",
+    "services.hr.desc": "Structure, roles, culture, and tools for strong teams.",
+    "services.people.point1": "Roles, responsibilities, and structure.",
+    "services.people.point2": "Recruitment and onboarding processes.",
+    "services.people.point3": "Management habits and performance.",
+
     "services.tech.title": "Technology Integration",
-    "services.tech.desc": "Leverage technology to automate and scale your business operations",
+    "services.tech.desc": "We organize systems and automate processes so you can scale without chaos.",
+    "services.tech.point1": "Assessment of current systems and workflows.",
+    "services.tech.point2": "Automation of key processes.",
+    "services.tech.point3": "Implementation and adoption support.",
+
     "services.growth.title": "Growth Strategy",
-    "services.growth.desc": "Identify opportunities and develop plans for market expansion",
-
-    // Services (extra keys for ServicesPreview)
-    "services.highlight": "What you can expect",
-    "services.strategy.point1": "Initial diagnosis and clear definition of achievable objectives.",
-    "services.strategy.point2": "Practical action plan aligned with your company’s operational reality.",
-    "services.strategy.point3": "KPI tracking and continuous adjustments to ensure results.",
-    "services.strategy.highlight":
-      "We work closely with your team and focus on measurable outcomes, turning strategy into real execution.",
-
-    "services.operations.point1": "Process mapping and identification of bottlenecks and inefficiencies.",
-    "services.operations.point2": "Standardization and improvement of workflows to reduce friction.",
-    "services.operations.point3": "Operational KPIs and routines to sustain performance over time.",
-    "services.operations.highlight":
-      "We improve daily operations with a practical approach: simpler processes, better control, and visible impact.",
-
-    "services.financial.point1": "Financial diagnosis: cash flow, costs, margins, and key risks.",
-    "services.financial.point2": "Budgeting and forecasting to support decision-making.",
-    "services.financial.point3": "Reporting and indicators to monitor profitability and performance.",
-    "services.financial.highlight":
-      "We bring clarity to numbers so you can decide with confidence and improve profitability sustainably.",
-
-    "services.people.title": "People Management",
-    "services.people.desc": "Build stronger teams with clear roles, leadership and effective practices.",
-    "services.people.point1": "Role definition, responsibilities and organizational structure.",
-    "services.people.point2": "Leadership routines, feedback and performance management practices.",
-    "services.people.point3": "Culture, alignment and tools to improve teamwork and accountability.",
-    "services.people.highlight":
-      "We help you align people and processes, so the team moves in the same direction and execution improves.",
+    "services.growth.desc": "Strategy and execution to increase sales sustainably.",
+    "services.growth.point1": "Definition of offer, pricing, and positioning.",
+    "services.growth.point2": "Optimization of the sales process and its follow-up.",
+    "services.growth.point3": "Action plan aligned with objectives.",
 
     // About (BASE)
     "about.badge": "About Zibra Consulting",
@@ -216,10 +211,10 @@ export const translations: Record<Language, Record<string, string>> = {
     "clients.aliwen.category": "Dietética Online",
     "clients.aliwen.description":
       "A business that was already operating, but with a structure that limited its growth. We worked on analyzing its potential, making strategic investment decisions, reorganizing tasks, professionalizing management, strengthening social media resources, expanding sales channels, and implementing a management system.",
-      "clients.aliwen.challengeDesc":
-  "El negocio ya estaba en marcha, pero con una estructura que limitaba su crecimiento.",
-"clients.aliwen.solutionDesc":
-  "Análisis del potencial del negocio, decisión de inversión estratégica, reorganización de tareas, profesionalización de la gestión, recursos para redes sociales, ampliación de canales de venta e implementación de sistema de gestión.",
+    "clients.aliwen.challengeDesc":
+      "The business was already operating, but with a structure that limited its growth.",
+    "clients.aliwen.solutionDesc":
+      "Business potential analysis, strategic investment decision, task reorganization, management professionalization, social media resources, expansion of sales channels, and implementation of a management system.",
     "clients.aliwen.result1": "Growth",
     "clients.aliwen.result1Label": "Business potential",
     "clients.aliwen.result2": "Order",
@@ -264,23 +259,23 @@ export const translations: Record<Language, Record<string, string>> = {
     "clients.dimayer.result3Label": "Operational chaos",
 
     "clients.challengeTitle": "Challenge",
-"clients.solutionTitle": "Solution",
-"clients.resultsTitle": "Results",
+    "clients.solutionTitle": "Solution",
+    "clients.resultsTitle": "Results",
 
-"clients.telasClaudia.challengeDesc":
-  "The company had growth potential, but needed to improve profitability, diversify its offer, and strengthen its commercial approach to sustain expansion.",
-"clients.telasClaudia.solutionDesc":
-  "We carried out a strategic analysis, identified the opportunity to incorporate trimming products as a complementary line, reviewed margins by product, improved the commercial approach, and supported the expansion to a larger store.",
+    "clients.telasClaudia.challengeDesc":
+      "The company had growth potential, but needed to improve profitability, diversify its offer, and strengthen its commercial approach to sustain expansion.",
+    "clients.telasClaudia.solutionDesc":
+      "We carried out a strategic analysis, identified the opportunity to incorporate trimming products as a complementary line, reviewed margins by product, improved the commercial approach, and supported the expansion to a larger store.",
 
-"clients.cea.challengeDesc":
-  "The institute needed to expand nationally, incorporate technology without losing educational quality, build an attractive online proposal, and overcome resistance to change.",
-"clients.cea.solutionDesc":
-  "We led a full transformation process: redesigning the model to online format, training in digital tools, and defining a clear communication and student acquisition strategy.",
+    "clients.cea.challengeDesc":
+      "The institute needed to expand nationally, incorporate technology without losing educational quality, build an attractive online proposal, and overcome resistance to change.",
+    "clients.cea.solutionDesc":
+      "We led a full transformation process: redesigning the model to online format, training in digital tools, and defining a clear communication and student acquisition strategy.",
 
-"clients.dimayer.challengeDesc":
-  "The company faced disorganized production processes, irregular delivery times, planning difficulties, operational overload on the owners, and missed opportunities due to lack of structure.",
-"clients.dimayer.solutionDesc":
-  "We analyzed production processes, detected bottlenecks, organized the workflow in the plant, implemented a simple order-planning system, defined roles and responsibilities, and introduced follow-up and control routines.",
+    "clients.dimayer.challengeDesc":
+      "The company faced disorganized production processes, irregular delivery times, planning difficulties, operational overload on the owners, and missed opportunities due to lack of structure.",
+    "clients.dimayer.solutionDesc":
+      "We analyzed production processes, detected bottlenecks, organized the workflow in the plant, implemented a simple order-planning system, defined roles and responsibilities, and introduced follow-up and control routines.",
 
     // FAQ
     "faq.badge": "Questions?",
@@ -388,52 +383,40 @@ export const translations: Record<Language, Record<string, string>> = {
     "services.bottomCtaButton": "Contactar",
 
     "services.strategy.title": "Planificación Estratégica",
-    "services.strategy.desc":
-      "Impulsamos ideas hacia estrategias concretas para que tu empresa crezca con foco y resultados.",
+    "services.strategy.desc": "Definimos una hoja de ruta clara para crecer con foco y orden.",
+    "services.strategy.point1": "Diagnóstico y objetivos claros.",
+    "services.strategy.point2": "Plan por etapas, medible y realista.",
+    "services.strategy.point3": "Seguimiento y ajustes continuos.",
+
     "services.operations.title": "Optimización de Operaciones",
-    "services.operations.desc":
-      "Optimizamos tus procesos para lograr mayor eficiencia, control y resultados sostenibles.",
+    "services.operations.desc": "Mejoramos procesos y eficiencia para reducir costos y tiempos.",
+    "services.operations.point1": "Mapeo de procesos y cuellos de botella.",
+    "services.operations.point2": "Estandarización y mejora continua.",
+    "services.operations.point3": "Indicadores y control de gestión.",
+
     "services.financial.title": "Consultoría Financiera",
-    "services.financial.desc": "Convertimos la información financiera en decisiones claras para hacer crecer tu empresa.",
+    "services.financial.desc": "Análisis y control financiero para decisiones más seguras.",
+    "services.financial.point1": "Tablero de gestión y métricas.",
+    "services.financial.point2": "Proyecciones y escenarios.",
+    "services.financial.point3": "Orden y disciplina financiera.",
+
     "services.hr.title": "Recursos Humanos",
-    "services.hr.desc":
-      "Desarrollamos equipos comprometidos, organizados y enfocados en resultados.",
+    "services.hr.desc": "Estructura, roles, cultura y herramientas para equipos sólidos.",
+    "services.people.point1": "Roles, responsabilidades y estructura.",
+    "services.people.point2": "Procesos de selección y onboarding.",
+    "services.people.point3": "Hábitos de gestión y performance.",
+
     "services.tech.title": "Integración Tecnológica",
-    "services.tech.desc":
-      "Transformamos tu operación mediante herramientas digitales para optimizar procesos y acelerar el crecimiento.",
+    "services.tech.desc": "Ordenamos sistemas y automatizamos para escalar sin caos.",
+    "services.tech.point1": "Evaluación de sistemas y flujos actuales.",
+    "services.tech.point2": "Automatización de procesos clave.",
+    "services.tech.point3": "Implementación y soporte en la adopción.",
+
     "services.growth.title": "Estrategia de Crecimiento",
-    "services.growth.desc": "Impulsamos el crecimiento de tu empresa identificando oportunidades y desarrollando planes concretos de expansión.",
-
-    // Services (extra keys for ServicesPreview)
-    "services.highlight": "Qué podés esperar",
-    "services.strategy.point1": "Análisis profundo de tu situación actual. ",
-    "services.strategy.point2": "Objetivos claros y alcanzables.",
-    "services.strategy.point3": "Plan estratégico con seguimiento continuo.",
-    "services.strategy.highlight":
-      "Trabajamos cerca de tu equipo y con foco en resultados medibles, para convertir la estrategia en ejecución.",
-
-    "services.operations.point1":
-      "Mapeo de procesos clave del negocio.",
-    "services.operations.point2": "Eliminación de ineficiencias y errores operativos.",
-    "services.operations.point3": "Implementación de KPIs y seguimiento operativo.",
-    "services.operations.highlight":
-      "Mejoramos el día a día con un enfoque práctico: procesos más simples, mejor control e impacto visible.",
-
-    "services.financial.point1": "Análisis financiero integral del negocio",
-    "services.financial.point2": "Planificación y proyección de escenarios.",
-    "services.financial.point3": "Reportes e indicadores de rendimiento.",
-    "services.financial.highlight":
-      "Ordenamos los números para que tomes decisiones con confianza y mejores la rentabilidad de forma sostenible.",
-
-    "services.people.title": "Gestión de Personas",
-    "services.people.desc":
-      "Construí equipos más sólidos con roles claros, liderazgo y prácticas efectivas.",
-    "services.people.point1": "Claridad en roles y responsabilidades.",
-    "services.people.point2": "Gestión del desempeño y liderazgo.",
-    "services.people.point3":
-      "Cultura organizacional y alineación del equipo.",
-    "services.people.highlight":
-      "Alineamos personas y procesos para que el equipo avance en la misma dirección y mejore la ejecución.",
+    "services.growth.desc": "Estrategia y ejecución para aumentar ventas de forma sustentable.",
+    "services.growth.point1": "Definición de oferta, pricing y posicionamiento.",
+    "services.growth.point2": "Optimización del proceso comercial y su seguimiento.",
+    "services.growth.point3": "Plan de acción alineado a objetivos.",
 
     // About (BASE)
     "about.badge": "Sobre Zibra Consultora",
@@ -538,25 +521,25 @@ export const translations: Record<Language, Record<string, string>> = {
 
     // Clients
     "clients.badge": "Casos de Éxito",
-"clients.sectionLabel": "Nuestros clientes",
-"clients.title": "Empresas que confiaron en nosotros",
-"clients.subtitle": "Resultados reales que hablan por sí solos",
+    "clients.sectionLabel": "Nuestros clientes",
+    "clients.title": "Empresas que confiaron en nosotros",
+    "clients.subtitle": "Resultados reales que hablan por sí solos",
 
-"clients.aliwen.name": "Aliwen",
-"clients.aliwen.industry": "Tienda Natural",
-"clients.aliwen.category": "Dietética Online",
-"clients.aliwen.description":
-  "El negocio ya estaba en marcha, pero con una estructura que limitaba su crecimiento. Trabajamos en el análisis del potencial del negocio, la decisión de inversión estratégica, la reorganización de tareas, la profesionalización de la gestión, los recursos para redes sociales, la ampliación de canales de venta y la implementación de un sistema de gestión.",
-"clients.aliwen.challengeDesc":
-  "El negocio ya estaba en marcha, pero con una estructura que limitaba su crecimiento.",
-"clients.aliwen.solutionDesc":
-  "Análisis del potencial del negocio, decisión de inversión estratégica, reorganización de tareas, profesionalización de la gestión, recursos para redes sociales, ampliación de canales de venta e implementación de sistema de gestión.",
-"clients.aliwen.result1": "Impulso",
-"clients.aliwen.result1Label": "Potencial del negocio",
-"clients.aliwen.result2": "Orden",
-"clients.aliwen.result2Label": "Gestión",
-"clients.aliwen.result3": "Escala",
-"clients.aliwen.result3Label": "Canales de venta",
+    "clients.aliwen.name": "Aliwen",
+    "clients.aliwen.industry": "Tienda Natural",
+    "clients.aliwen.category": "Dietética Online",
+    "clients.aliwen.description":
+      "El negocio ya estaba en marcha, pero con una estructura que limitaba su crecimiento. Trabajamos en el análisis del potencial del negocio, la decisión de inversión estratégica, la reorganización de tareas, la profesionalización de la gestión, los recursos para redes sociales, la ampliación de canales de venta y la implementación de un sistema de gestión.",
+    "clients.aliwen.challengeDesc":
+      "El negocio ya estaba en marcha, pero con una estructura que limitaba su crecimiento.",
+    "clients.aliwen.solutionDesc":
+      "Análisis del potencial del negocio, decisión de inversión estratégica, reorganización de tareas, profesionalización de la gestión, recursos para redes sociales, ampliación de canales de venta e implementación de sistema de gestión.",
+    "clients.aliwen.result1": "Impulso",
+    "clients.aliwen.result1Label": "Potencial del negocio",
+    "clients.aliwen.result2": "Orden",
+    "clients.aliwen.result2Label": "Gestión",
+    "clients.aliwen.result3": "Escala",
+    "clients.aliwen.result3Label": "Canales de venta",
 
     "clients.telasClaudia.name": "Telas Claudia",
     "clients.telasClaudia.industry": "Distribuidora Textil",
@@ -595,23 +578,23 @@ export const translations: Record<Language, Record<string, string>> = {
     "clients.dimayer.result3Label": "Caos operativo",
 
     "clients.challengeTitle": "Desafío",
-"clients.solutionTitle": "Solución",
-"clients.resultsTitle": "Resultados",
+    "clients.solutionTitle": "Solución",
+    "clients.resultsTitle": "Resultados",
 
-"clients.telasClaudia.challengeDesc":
-  "La empresa tenía potencial de crecimiento, pero necesitaba mejorar su rentabilidad, diversificar la oferta y fortalecer su enfoque comercial para sostener la expansión.",
-"clients.telasClaudia.solutionDesc":
-  "Se realizó un análisis estratégico, se identificó la oportunidad de incorporar cordonería como línea complementaria, se evaluaron márgenes por producto, se trabajó el enfoque comercial y se acompañó la expansión a un local más amplio.",
+    "clients.telasClaudia.challengeDesc":
+      "La empresa tenía potencial de crecimiento, pero necesitaba mejorar su rentabilidad, diversificar la oferta y fortalecer su enfoque comercial para sostener la expansión.",
+    "clients.telasClaudia.solutionDesc":
+      "Se realizó un análisis estratégico, se identificó la oportunidad de incorporar cordonería como línea complementaria, se evaluaron márgenes por producto, se trabajó el enfoque comercial y se acompañó la expansión a un local más amplio.",
 
-"clients.cea.challengeDesc":
-  "El instituto necesitaba expandirse a nivel nacional, incorporar tecnología sin perder calidad educativa, generar una propuesta online atractiva y superar la resistencia al cambio.",
-"clients.cea.solutionDesc":
-  "Trabajamos en un proceso integral de transformación: rediseño del modelo hacia formato online, capacitación en herramientas digitales y definición de una estrategia clara de comunicación y captación de alumnos.",
+    "clients.cea.challengeDesc":
+      "El instituto necesitaba expandirse a nivel nacional, incorporar tecnología sin perder calidad educativa, generar una propuesta online atractiva y superar la resistencia al cambio.",
+    "clients.cea.solutionDesc":
+      "Trabajamos en un proceso integral de transformación: rediseño del modelo hacia formato online, capacitación en herramientas digitales y definición de una estrategia clara de comunicación y captación de alumnos.",
 
-"clients.dimayer.challengeDesc":
-  "La empresa enfrentaba procesos productivos poco organizados, tiempos de entrega irregulares, dificultades para planificar pedidos, sobrecarga operativa en los dueños y pérdida de oportunidades por falta de estructura.",
-"clients.dimayer.solutionDesc":
-  "Desde la consultoría trabajamos en el análisis de procesos productivos, la detección de cuellos de botella, la organización del flujo de trabajo en planta, la implementación de un sistema simple de planificación, la definición de roles y la incorporación de hábitos de seguimiento y control.",
+    "clients.dimayer.challengeDesc":
+      "La empresa enfrentaba procesos productivos poco organizados, tiempos de entrega irregulares, dificultades para planificar pedidos, sobrecarga operativa en los dueños y pérdida de oportunidades por falta de estructura.",
+    "clients.dimayer.solutionDesc":
+      "Desde la consultoría trabajamos en el análisis de procesos productivos, la detección de cuellos de botella, la organización del flujo de trabajo en planta, la implementación de un sistema simple de planificación, la definición de roles y la incorporación de hábitos de seguimiento y control.",
 
     // FAQ
     "faq.badge": "¿Preguntas?",
