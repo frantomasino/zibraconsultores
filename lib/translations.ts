@@ -554,7 +554,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "clients.telasClaudia.result3Label": "Competitividad",
 
     "clients.cea.name": "Cursos Cea",
-    "clients.cea.industry": "Instituto de Enseñanza",
+    "clients.cea.industry": "Instituto",
     "clients.cea.category": "EDUCACIÓN",
     "clients.cea.description":
       "Instituto de enseñanza con trayectoria presencial ubicado en Lomas de Zamora, con más de 30 años formando profesionales. Su alcance estaba limitado a alumnos de su zona. Trabajamos en un proceso integral de transformación: rediseño del modelo hacia formato online, capacitación en herramientas digitales y definición de una estrategia clara de comunicación y captación de alumnos.",

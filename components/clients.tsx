@@ -1,4 +1,5 @@
 "use client"
+
 import Image from "next/image"
 import { useLanguage } from "@/lib/language-context"
 import { motion } from "framer-motion"
@@ -181,8 +182,8 @@ export function Clients() {
           </div>
         </div>
 
-<div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 items-stretch">
-            {clients.map((client) => {
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 items-stretch">
+          {clients.map((client) => {
             const Icon = client.icon
             const isExpanded = expandedId === client.id
 
@@ -191,35 +192,50 @@ export function Clients() {
                 key={client.id}
                 onClick={() => setExpandedId(isExpanded ? null : client.id)}
                 className={[
-                  "group relative bg-card border border-border rounded-lg p-8 cursor-pointer",
+                  "group relative bg-card border border-border rounded-lg p-8 cursor-pointer h-full flex flex-col",
                   "transition-all duration-500 hover:shadow-lg hover:border-foreground/20",
                   isExpanded ? "lg:col-span-2" : "",
                 ].join(" ")}
               >
                 <div className="flex items-start justify-between mb-6">
                   <div className="flex items-center gap-4 min-w-0">
-                     <div className="w-12 h-12 rounded-full bg-foreground/5 flex items-center justify-center shrink-0">
-  {client.id === "aliwen" ? (
-    <Image
-      src="/clientes/aliwen.webp"
-      alt="Aliwen"
-      width={52}
-      height={52}
-      className="object-contain opacity-80"
-    />
-  ) : client.id === "cea" ? (
-    <Image
-      src="/clientes/cursos-cea.webp"
-      alt="Cursos Cea"
-      width={52}
-      height={52}
-      className="object-contain opacity-80"
-    />
-  ) : (
-    <Icon className="w-5 h-5 text-foreground/60" />
-  )}
-</div>
-                    <div className="min-w-0">
+                    <div className="relative w-14 h-14 shrink-0 overflow-hidden border border-border bg-white rounded-xl">
+                      {client.id === "aliwen" ? (
+                        <Image
+                          src="/clientes/aliwen.webp"
+                          alt="Aliwen"
+                          fill
+                          className="object-contain p-2 scale-100"
+                        />
+                      ) : client.id === "cea" ? (
+                        <Image
+                          src="/clientes/cursos-cea.webp"
+                          alt="Cursos Cea"
+                          fill
+                          className="object-contain p-2 scale-115 -translate-y-[1px]"
+                        />
+                      ) : client.id === "telasClaudia" ? (
+                        <Image
+                          src="/clientes/telas.webp"
+                          alt="Telas Claudia"
+                          fill
+                          className="object-contain p-1 scale-120"
+                        />
+                      ) : client.id === "dimayer" ? (
+                        <Image
+                          src="/clientes/dimayer.webp"
+                          alt="Dimayer"
+                          fill
+                          className="object-contain p-2 scale-110"
+                        />
+                      ) : (
+                        <div className="w-full h-full flex items-center justify-center">
+                          <Icon className="w-5 h-5 text-foreground/60" />
+                        </div>
+                      )}
+                    </div>
+
+                    <div className="min-w-0 min-h-[56px] flex flex-col justify-center">
                       <h3 className="text-xl font-serif font-medium text-[#2D3282] break-words">
                         {client.name}
                       </h3>
@@ -232,7 +248,7 @@ export function Clients() {
                   </span>
                 </div>
 
-                <p className="text-muted-foreground leading-relaxed mb-8">
+                <p className="text-muted-foreground leading-relaxed mb-8 flex-1">
                   {client.description}
                 </p>
 
@@ -261,7 +277,13 @@ export function Clients() {
                   </div>
                 </div>
 
-                <div className={isExpanded ? "border-t border-border pt-6" : "mt-auto border-t border-border pt-6"}>
+                <div
+                  className={
+                    isExpanded
+                      ? "border-t border-border pt-6"
+                      : "mt-auto border-t border-border pt-6"
+                  }
+                >
                   <div className="grid grid-cols-3 gap-4">
                     {client.results.map((result, index) => (
                       <div key={index} className="text-center">
