@@ -558,7 +558,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "contact.form.maxChars": "Máximo 500 caracteres",
     "contact.form.cta": "Solicitar Presupuesto",
     "contact.info.addressLine1": "Quilmes. Provincia de Buenos Aires",
-    "contact.info.phoneLine1": "+54 9 113009384",
+    "contact.info.phoneLine1": "+54 9 1130093847",
     "contact.info.phoneLine2": "+54 9 1162497623",
     "contact.info.phoneLine3": "+54 9 1156399323",
     "contact.info.emailLine": "prueba@gmail.com",
