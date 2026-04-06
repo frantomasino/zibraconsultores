@@ -9,17 +9,14 @@ import { useEffect, useRef, useState } from "react"
 export function About() {
   const { t } = useLanguage()
 
-  // Lógica para separar el título en palabras
   const title = t("about.title")
   const words = title.split(" ")
 
-  // refs para animar por secciones
   const headerRef = useRef<HTMLDivElement | null>(null)
   const companyRef = useRef<HTMLDivElement | null>(null)
   const trajectoriesRef = useRef<HTMLDivElement | null>(null)
   const valuesRef = useRef<HTMLDivElement | null>(null)
 
-  // visibles
   const [headerVisible, setHeaderVisible] = useState(false)
   const [companyVisible, setCompanyVisible] = useState(false)
   const [trajectoriesVisible, setTrajectoriesVisible] = useState(false)
@@ -39,7 +36,7 @@ export function About() {
           observer.unobserve(entry.target)
         })
       },
-      { threshold: 0.15 },
+      { threshold: 0.15 }
     )
 
     ;[headerRef, companyRef, trajectoriesRef, valuesRef].forEach((r) => {
@@ -97,11 +94,10 @@ export function About() {
             {t("about.badge")}
           </Badge>
 
-          {/* TITULO MODIFICADO: Las primeras dos palabras son azules */}
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
             {words.map((word, i) => (
-              <span 
-                key={i} 
+              <span
+                key={i}
                 className={i < 2 ? "text-[#2D3282]" : "text-foreground"}
               >
                 {word}{" "}
@@ -114,22 +110,35 @@ export function About() {
           </p>
         </div>
 
-        {/* Company Info */}
-        <div
-          ref={companyRef}
-          className={`mb-16 grid md:grid-cols-2 gap-8 transition-all duration-700 ${
-            companyVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-          }`}
-        >
-          <Card className="border-2">
+        {/* Company Info – animación premium */}
+        <div ref={companyRef} className="mb-16 grid md:grid-cols-2 gap-8">
+          <Card
+            className={`border-2 transition-all duration-1200 ease-[cubic-bezier(0.22,1,0.36,1)]
+              ${
+                companyVisible
+                  ? "opacity-100 translate-x-0"
+                  : "opacity-0 -translate-x-12"
+              }`}
+          >
             <CardContent className="pt-6">
-              <p className="text-muted-foreground leading-relaxed">{t("about.p1")}</p>
+              <p className="text-muted-foreground leading-relaxed">
+                {t("about.p1")}
+              </p>
             </CardContent>
           </Card>
 
-          <Card className="border-2">
+          <Card
+            className={`border-2 transition-all duration-1200 delay-150 ease-[cubic-bezier(0.22,1,0.36,1)]
+              ${
+                companyVisible
+                  ? "opacity-100 translate-x-0"
+                  : "opacity-0 translate-x-12"
+              }`}
+          >
             <CardContent className="pt-6">
-              <p className="text-muted-foreground leading-relaxed">{t("about.p2")}</p>
+              <p className="text-muted-foreground leading-relaxed">
+                {t("about.p2")}
+              </p>
             </CardContent>
           </Card>
         </div>
@@ -160,9 +169,14 @@ export function About() {
                 <CardContent className="pt-4">
                   <div className="space-y-3">
                     {p.points.map((txt, i) => (
-                      <div key={i} className="flex items-start gap-3 p-3 rounded-lg bg-muted/40">
-                        <span className="mt-2 h-2 w-2 rounded-full bg-[#2D3282] flex-shrink-0" />
-                        <p className="text-muted-foreground leading-relaxed">{txt}</p>
+                      <div
+                        key={i}
+                        className="flex items-start gap-3 p-3 rounded-lg bg-muted/40"
+                      >
+                        <span className="mt-2 h-2 w-2 rounded-full bg-[#2D3282]" />
+                        <p className="text-muted-foreground leading-relaxed">
+                          {txt}
+                        </p>
                       </div>
                     ))}
                   </div>
@@ -174,7 +188,7 @@ export function About() {
 
         <Separator className="my-16" />
 
-        {/* Values/Certifications */}
+        {/* Values */}
         <div
           ref={valuesRef}
           className={`transition-all duration-700 ${
@@ -187,10 +201,17 @@ export function About() {
 
           <div className="grid md:grid-cols-3 gap-6">
             {values.map((value, index) => (
-              <Card key={index} className="text-center hover:shadow-lg transition-all border-2">
+              <Card
+                key={index}
+                className="text-center hover:shadow-lg transition-all border-2"
+              >
                 <CardHeader>
-                  <CardTitle className="text-xl text-[#2D3282]">{value.title}</CardTitle>
-                  <p className="text-base text-muted-foreground">{value.description}</p>
+                  <CardTitle className="text-xl text-[#2D3282]">
+                    {value.title}
+                  </CardTitle>
+                  <p className="text-base text-muted-foreground">
+                    {value.description}
+                  </p>
                 </CardHeader>
               </Card>
             ))}

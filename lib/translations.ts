@@ -103,7 +103,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "about.badge": "About Zibra Consulting",
     "about.title": "Your Partner in Business Excellence",
     "about.intro":
-      "We are a team of leaders with robust business experience in the logistics industry, specialized in the development, implementation and optimization of projects to achieve growth and efficiency in the operations of our clients.",
+      "We drive your company’s growth with practical solutions.  We streamline processes, optimize resources, and provide clarity so your business runs more smoothly and becomes more profitable.",
     "about.p1":
       "With extensive experience in business advisory, we support organizations in strengthening management, improving execution and achieving sustainable results.",
     "about.p2":
@@ -422,7 +422,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "about.badge": "Sobre Zibra Consultora",
     "about.title": "Tu Socio en la Excelencia Empresarial",
     "about.intro":
-      "Somos un equipo de líderes con una robusta experiencia empresarial en la industria logística, especializados en el desarrollo, implementación y optimización de proyectos para lograr crecimiento y eficiencia en las operaciones de nuestros clientes.",
+      "Impulsamos el crecimiento de tu empresa con soluciones concretas. Ordenamos procesos, optimizamos recursos y te damos claridad para que tu negocio funcione mejor y sea más rentable.",
     "about.p1":
       "Con amplia experiencia en asesoramiento empresarial, acompañamos a organizaciones a fortalecer su gestión, mejorar la ejecución y lograr resultados sostenibles.",
     "about.p2":

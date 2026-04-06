@@ -246,15 +246,7 @@ ${formData.message}
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4 p-4 rounded-xl hover:bg-muted/50 transition-colors">
-                  <div className="w-10 h-10 bg-accent/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Mail className="w-5 h-5 text-accent" />
-                  </div>
-                  <div>
-                    <p className="font-semibold text-foreground">{t("contact.info.email")}</p>
-                    <p className="text-muted-foreground">{t("contact.info.emailLine")}</p>
-                  </div>
-                </div>
+                
 
                 <div className="flex items-start gap-4 p-4 rounded-xl hover:bg-muted/50 transition-colors">
                   <div className="w-10 h-10 bg-accent/10 rounded-xl flex items-center justify-center flex-shrink-0">
