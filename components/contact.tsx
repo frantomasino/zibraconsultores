@@ -26,7 +26,9 @@ export function Contact() {
     message: "",
   })
 
-  const WHATSAPP_PHONE = "5491131256510"
+  const WHATSAPP_PHONE = "5491130093847"  
+
+
 
   const validateNative = () => {
     if (!formRef.current) return false
