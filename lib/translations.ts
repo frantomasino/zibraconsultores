@@ -51,53 +51,76 @@ export const translations: Record<Language, Record<string, string>> = {
       "95% of our clients achieve or exceed their established business goals",
 
     // Services
-    "services.badge": "Our Services",
-    "services.mainTitle": "What we can do",
-    "services.mainTitleHighlight": "for your company",
-    "services.title": "Services",
-    "services.subtitle":
-      "Personalized consulting services designed to drive the transformation of your SME and take it to the next level",
-    "services.viewAll": "View All Services",
-    "services.cardCta": "Learn more",
-    "services.bottomCtaTitle": "Want a clear, actionable recommendation?",
-    "services.bottomCtaDesc": "Tell us about your situation and we’ll propose a results-focused action plan.",
-    "services.bottomCtaButton": "Contact",
+"services.badge": "Our Services",
+"services.mainTitle": "What we can do",
+"services.mainTitleHighlight": "for your company",
 
-    "services.strategy.title": "Strategic Planning",
-    "services.strategy.desc": "We turn ideas into concrete strategies so your business can grow with focus and achieve results.",
-    "services.strategy.point1": "In-depth analysis of your current situation.",
-    "services.strategy.point2": "Clear and achievable goals.",
-    "services.strategy.point3": "A strategic plan with ongoing monitoring.",
+"services.previewHighlightLabel": "Work approach",
+"services.previewHighlightTitle": "Practical, measurable and close",
+"services.previewButton": "View all services",
 
-    "services.operations.title": "Operations Optimization",
-    "services.operations.desc": "We optimize your processes to achieve greater efficiency, control, and sustainable results.",
-    "services.operations.point1": "Mapping of key business processes.",
-    "services.operations.point2": "Elimination of inefficiencies and operational errors.",
-    "services.operations.point3": "Implementation of KPIs and operational monitoring.",
+"services.title": "Services",
+"services.subtitle":
+  "Personalized consulting services designed to drive the transformation of your SME and take it to the next level",
+"services.viewAll": "View All Services",
+"services.cardCta": "Learn more",
+"services.bottomCtaTitle": "Want a clear, actionable recommendation?",
+"services.bottomCtaDesc":
+  "Tell us about your situation and we’ll propose a results-focused action plan.",
+"services.bottomCtaButton": "Contact",
 
-    "services.financial.title": "Financial Consulting",
-    "services.financial.desc": "We turn financial data into clear decisions to help your business grow.",
-    "services.financial.point1": "Comprehensive financial analysis of the business.",
-    "services.financial.point2": "Planning and scenario analysis.",
-    "services.financial.point3": "Reports and performance metrics.",
+"services.strategy.title": "Strategic Planning",
+"services.strategy.desc":
+  "We turn ideas into concrete strategies so your business can grow with focus and achieve results.",
+"services.strategy.point1": "In-depth analysis of your current situation.",
+"services.strategy.point2": "Clear and achievable goals.",
+"services.strategy.point3": "A strategic plan with ongoing monitoring.",
 
-    "services.hr.title": "Human Resources",
-    "services.hr.desc": "We build teams that are dedicated, organized, and results-oriented.",
-    "services.people.point1": "Clarity regarding roles and responsibilities.",
-    "services.people.point2": "Performance management and leadership.",
-    "services.people.point3": "Organizational culture and team alignment.",
+"services.operations.title": "Operations Optimization",
+"services.operations.desc":
+  "We optimize your processes to achieve greater efficiency, control, and sustainable results.",
+"services.operations.point1": "Mapping of key business processes.",
+"services.operations.point2":
+  "Elimination of inefficiencies and operational errors.",
+"services.operations.point3":
+  "Implementation of KPIs and operational monitoring.",
 
-    "services.tech.title": "Technology Integration",
-    "services.tech.desc": "We transform your business using digital tools to streamline processes and accelerate growth.",
-    "services.tech.point1": "Assessment of current systems and workflows.",
-    "services.tech.point2": "Automation of key processes.",
-    "services.tech.point3": "Implementation and adoption support.",
+"services.financial.title": "Financial Consulting",
+"services.financial.desc":
+  "We turn financial data into clear decisions to help your business grow.",
+"services.financial.point1":
+  "Comprehensive financial analysis of the business.",
+"services.financial.point2": "Planning and scenario analysis.",
+"services.financial.point3": "Reports and performance metrics.",
 
-    "services.growth.title": "Growth Strategy",
-    "services.growth.desc": "We drive your company's growth by identifying opportunities and developing concrete expansion plans.",
-    "services.growth.point1": "Definition of offer, pricing, and positioning.",
-    "services.growth.point2": "Optimization of the sales process and its follow-up.",
-    "services.growth.point3": "Action plan aligned with objectives.",
+"services.hr.title": "Human Resources",
+"services.hr.desc":
+  "We build teams that are dedicated, organized, and results-oriented.",
+"services.people.point1":
+  "Clarity regarding roles and responsibilities.",
+"services.people.point2": "Performance management and leadership.",
+"services.people.point3":
+  "Organizational culture and team alignment.",
+
+"services.tech.title": "Technology Integration",
+"services.tech.desc":
+  "We transform your business using digital tools to streamline processes and accelerate growth.",
+"services.tech.point1":
+  "Assessment of current systems and workflows.",
+"services.tech.point2": "Automation of key processes.",
+"services.tech.point3":
+  "Implementation and adoption support.",
+
+"services.growth.title": "Growth Strategy",
+"services.growth.desc":
+  "We drive your company's growth by identifying opportunities and developing concrete expansion plans.",
+"services.growth.point1":
+  "Definition of offer, pricing, and positioning.",
+"services.growth.point2":
+  "Optimization of the sales process and its follow-up.",
+"services.growth.point3":
+  "Action plan aligned with objectives.",
+
 
     // About (BASE)
     "about.badge": "About Zibra Consulting",
@@ -187,7 +210,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "contact.form.maxChars": "Up to 500 characters",
     "contact.form.cta": "Request a Quote",
     "contact.info.addressLine1": "Quilmes.Buenos Aires Province",
-    "contact.info.phoneLine1": "+54 9 113009384",
+    "contact.info.phoneLine1": "+54 9 1130093847",
     "contact.info.phoneLine2": "+54 9 1162497623",
     "contact.info.phoneLine3": "+54 9 1156399323",
     "contact.info.emailLine": "prueba@gmail.com",
@@ -317,6 +340,9 @@ export const translations: Record<Language, Record<string, string>> = {
     "footer.contact": "Contact",
   },
 
+
+
+
   es: {
     // Header
     "nav.home": "Inicio",
@@ -369,54 +395,80 @@ export const translations: Record<Language, Record<string, string>> = {
       "El 95% de nuestros clientes alcanzan o superan sus objetivos empresariales establecidos",
 
     // Services
-    "services.badge": "Nuestros Servicios",
-    "services.mainTitle": "Lo que podemos hacer",
-    "services.mainTitleHighlight": "por su empresa",
-    "services.title": "Servicios",
-    "services.subtitle":
-      "Servicios de consultoría personalizados diseñados para impulsar la transformación de tu pyme y llevarla al próximo nivel",
-    "services.viewAll": "Ver Todos los Servicios",
-    "services.cardCta": "Saber más",
-    "services.bottomCtaTitle": "¿Querés una recomendación clara y accionable?",
-    "services.bottomCtaDesc":
-      "Contanos tu situación y te proponemos un plan de trabajo con foco en resultados.",
-    "services.bottomCtaButton": "Contactar",
+"services.badge": "Nuestros Servicios",
+"services.mainTitle": "Lo que podemos hacer",
+"services.mainTitleHighlight": "por su empresa",
 
-    "services.strategy.title": "Planificación Estratégica",
-    "services.strategy.desc": "Impulsamos ideas hacia estrategias concretas para que tu empresa crezca con foco y resultados.",
-    "services.strategy.point1": "Análisis profundo de tu situación actual.",
-    "services.strategy.point2": "Objetivos claros y alcanzables.",
-    "services.strategy.point3": "Plan estratégico con seguimiento continuo.",
+"services.previewHighlightLabel": "Enfoque de trabajo",
+"services.previewHighlightTitle": "Práctico, medible y cercano",
+"services.previewButton": "Ver todos los servicios",
 
-    "services.operations.title": "Optimización de Operaciones",
-    "services.operations.desc": "Optimizamos tus procesos para lograr mayor eficiencia, control y resultados sostenibles.",
-    "services.operations.point1": "Mapeo de procesos clave del negocio.",
-    "services.operations.point2": "Eliminación de ineficiencias y errores operativos.",
-    "services.operations.point3": "Implementación de KPIs y seguimiento operativo.",
+"services.title": "Servicios",
+"services.subtitle":
+  "Servicios de consultoría personalizados diseñados para impulsar la transformación de tu pyme y llevarla al próximo nivel",
+"services.viewAll": "Ver todos los servicios",
+"services.cardCta": "Saber más",
+"services.bottomCtaTitle": "¿Querés una recomendación clara y accionable?",
+"services.bottomCtaDesc":
+  "Contanos tu situación y te proponemos un plan de trabajo con foco en resultados.",
+"services.bottomCtaButton": "Contactar",
 
-    "services.financial.title": "Consultoría Financiera",
-    "services.financial.desc": "Convertimos la información financiera en decisiones claras para hacer crecer tu empresa.",
-    "services.financial.point1": "Análisis financiero integral del negocio.",
-    "services.financial.point2": "Planificación y proyección de escenarios.",
-    "services.financial.point3": "Reportes e indicadores de rendimiento.",
+"services.strategy.title": "Planificación Estratégica",
+"services.strategy.desc":
+  "Impulsamos ideas hacia estrategias concretas para que tu empresa crezca con foco y resultados.",
+"services.strategy.point1": "Análisis profundo de tu situación actual.",
+"services.strategy.point2": "Objetivos claros y alcanzables.",
+"services.strategy.point3": "Plan estratégico con seguimiento continuo.",
 
-    "services.hr.title": "Recursos Humanos",
-    "services.hr.desc": "Desarrollamos equipos comprometidos, organizados y enfocados en resultados.",
-    "services.people.point1": "Claridad en roles y responsabilidades.",
-    "services.people.point2": "Gestión del desempeño y liderazgo.",
-    "services.people.point3": "Cultura organizacional y alineación del equipo.",
+"services.operations.title": "Optimización de Operaciones",
+"services.operations.desc":
+  "Optimizamos tus procesos para lograr mayor eficiencia, control y resultados sostenibles.",
+"services.operations.point1":
+  "Mapeo de procesos clave del negocio.",
+"services.operations.point2":
+  "Eliminación de ineficiencias y errores operativos.",
+"services.operations.point3":
+  "Implementación de KPIs y seguimiento operativo.",
 
-    "services.tech.title": "Integración Tecnológica",
-    "services.tech.desc": "Transformamos tu operación mediante herramientas digitales para optimizar procesos y acelerar el crecimiento.",
-    "services.tech.point1": "Evaluación de sistemas y flujos actuales.",
-    "services.tech.point2": "Automatización de procesos clave.",
-    "services.tech.point3": "Implementación y soporte en la adopción.",
+"services.financial.title": "Consultoría Financiera",
+"services.financial.desc":
+  "Convertimos la información financiera en decisiones claras para hacer crecer tu empresa.",
+"services.financial.point1":
+  "Análisis financiero integral del negocio.",
+"services.financial.point2":
+  "Planificación y proyección de escenarios.",
+"services.financial.point3":
+  "Reportes e indicadores de rendimiento.",
 
-    "services.growth.title": "Estrategia de Crecimiento",
-    "services.growth.desc": "Impulsamos el crecimiento de tu empresa identificando oportunidades y desarrollando planes concretos de expansión.",
-    "services.growth.point1": "Definición de oferta, pricing y posicionamiento.",
-    "services.growth.point2": "Optimización del proceso comercial y su seguimiento.",
-    "services.growth.point3": "Plan de acción alineado a objetivos.",
+"services.hr.title": "Recursos Humanos",
+"services.hr.desc":
+  "Desarrollamos equipos comprometidos, organizados y enfocados en resultados.",
+"services.people.point1":
+  "Claridad en roles y responsabilidades.",
+"services.people.point2":
+  "Gestión del desempeño y liderazgo.",
+"services.people.point3":
+  "Cultura organizacional y alineación del equipo.",
+
+"services.tech.title": "Integración Tecnológica",
+"services.tech.desc":
+  "Transformamos tu operación mediante herramientas digitales para optimizar procesos y acelerar el crecimiento.",
+"services.tech.point1":
+  "Evaluación de sistemas y flujos actuales.",
+"services.tech.point2":
+  "Automatización de procesos clave.",
+"services.tech.point3":
+  "Implementación y soporte en la adopción.",
+
+"services.growth.title": "Estrategia de Crecimiento",
+"services.growth.desc":
+  "Impulsamos el crecimiento de tu empresa identificando oportunidades y desarrollando planes concretos de expansión.",
+"services.growth.point1":
+  "Definición de oferta, pricing y posicionamiento.",
+"services.growth.point2":
+  "Optimización del proceso comercial y su seguimiento.",
+"services.growth.point3":
+  "Plan de acción alineado a objetivos.",
 
     // About (BASE)
     "about.badge": "Sobre Zibra Consultora",

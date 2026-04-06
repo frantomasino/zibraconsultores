@@ -209,12 +209,7 @@ export function ServicesPreview() {
               <h3 className="mt-2 text-2xl font-semibold text-foreground md:text-3xl">
                 {tr("services.previewHighlightTitle", "Práctico, medible y cercano")}
               </h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground md:text-base">
-                {tr(
-                  "services.previewHighlightDesc",
-                  "No vendemos humo: bajamos la estrategia a acciones concretas, con seguimiento y métricas para ver mejoras reales.",
-                )}
-              </p>
+               
             </div>
 
             <div className="md:text-right">
